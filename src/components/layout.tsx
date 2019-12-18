@@ -2,7 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import styles from "./layout.scss"
+import styles from "./layout.module.scss"
 
 interface LayoutProps {
   children: React.ReactNode

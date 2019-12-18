@@ -4,7 +4,7 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import PostLink from '../components/post-link'
 import SEO from "../components/seo"
-import styles from './index.scss'
+import styles from './index.module.scss'
 
 export default function IndexPage({
   data: {

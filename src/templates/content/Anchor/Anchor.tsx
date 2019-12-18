@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './Anchor.scss'
+import styles from './Anchor.module.scss'
 
 export default function Anchor({
   href,

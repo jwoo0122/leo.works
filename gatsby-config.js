@@ -18,9 +18,7 @@ module.exports = {
         plugins: [
           {
             resolve: `gatsby-remark-prismjs`,
-            options: {
-              showLineNumbers: true,
-            },
+            options: {},
           }
         ]
       }

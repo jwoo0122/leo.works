@@ -1,12 +1,27 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
+import RehypeReact from 'rehype-react'
 
 import Layout from '../components/layout'
 import styles from './blogTemplate.scss'
+import {
+  Quote,
+  Horizon,
+  Anchor,
+} from './content'
 
 interface TemplateProps {
   data: any
 }
+
+const rehype = new RehypeReact({
+    createElement: React.createElement,
+    components: {
+      blockquote: Quote,
+      hr: Horizon,
+      a: Anchor,
+    }
+  }).Compiler
 
 export default function Template({
   data,
@@ -32,9 +47,10 @@ export default function Template({
           </div>
         </div>
         <div className={styles.content}>
-          <div
+          {rehype(markdownRemark.htmlAst)}
+          {/* <div
             dangerouslySetInnerHTML={{ __html: html }}
-          />
+          /> */}
         </div>
       </div>
     </Layout>
@@ -44,7 +60,7 @@ export default function Template({
 export const pageQuery = graphql`
   query($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
+      htmlAst
       frontmatter {
         date(formatString: "MMM DD, YYYY, H : S")
         path

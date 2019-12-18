@@ -1,18 +1,12 @@
 import React from "react"
 import { Link } from "gatsby"
 
-interface HeaderProps {
-  siteTitle: string
-}
-
-export default function Header({
-  siteTitle,
-}: HeaderProps) {
+export default function Header() {
   return (
     <div
       style={{
         margin: `0 auto`,
-        maxWidth: 960,
+        maxWidth: 600,
         padding: `1.45rem 1.0875rem`,
       }}
     >
@@ -23,7 +17,7 @@ export default function Header({
             textDecoration: `none`,
           }}
         >
-          {siteTitle}
+          Leo Jeong
         </Link>
       </h1>
     </div>

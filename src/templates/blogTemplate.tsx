@@ -1,6 +1,8 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
+
 import Layout from '../components/layout'
+import styles from './blogTemplate.scss'
 
 interface TemplateProps {
   data: any
@@ -14,10 +16,22 @@ export default function Template({
 
   return (
     <Layout>
-      <div>
-        <div>
-          <h1>{frontmatter.title}</h1>
-          <h2>{frontmatter.title}</h2>
+      <div className={styles.postContainer}>
+        <div className={styles.postMeta}>
+          <div className={styles.postTitle}>
+            {frontmatter.title}
+          </div>
+          <Link to="/" style={{ textDecoration: 'none' }}>
+            <div className={styles.postAuthorWrapper}>
+              <span>by </span>
+              <span className={styles.postAuthor}>{frontmatter.author} </span>
+            </div>
+          </Link>
+          <div className={styles.postDate}>
+            {frontmatter.date}
+          </div>
+        </div>
+        <div className={styles.content}>
           <div
             dangerouslySetInnerHTML={{ __html: html }}
           />
@@ -32,9 +46,10 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "MMM DD, YYYY, H : S")
         path
         title
+        author
       }
     }
   }

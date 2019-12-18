@@ -16,6 +16,7 @@ export default function IndexPage({
     <Layout>
       <SEO title="leo.works" />
       <div className={styles.titleContainer}>
+        <span className={styles.titleBy}>by<br /></span>
         Leo Jeong
       </div>
       <div>
@@ -46,7 +47,6 @@ export const pageQuery = graphql`
             path
             title
           }
-          html
         }
       }
     }

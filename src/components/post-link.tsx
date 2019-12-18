@@ -1,22 +1,21 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
+import styles from './post-link.scss'
+
 export default function PostLink({ post }) {
-  const { frontmatter: { path, title, date }, html } = post
+  const { frontmatter: { path, title, date } } = post
 
   return (
-    <div>
-      <Link to={path}>
-        <div>
-          {title}
-        </div>
-        <div>
+    <Link to={path} style={{ textDecoration: 'none' }}>
+      <div className={styles.postContainer}>
+        <div className={styles.postMeta}>
           {date}
         </div>
-        <div>
-          {html}
+        <div className={styles.postTitle}>
+          {title}
         </div>
-      </Link>
-    </div>
+      </div>
+    </Link>
   )
 }

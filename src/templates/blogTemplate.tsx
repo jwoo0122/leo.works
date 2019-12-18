@@ -27,7 +27,7 @@ export default function Template({
   data,
 }: TemplateProps) {
   const { markdownRemark } = data
-  const { frontmatter, html } = markdownRemark
+  const { frontmatter } = markdownRemark
 
   return (
     <Layout>
@@ -48,9 +48,6 @@ export default function Template({
         </div>
         <div className={styles.content}>
           {rehype(markdownRemark.htmlAst)}
-          {/* <div
-            dangerouslySetInnerHTML={{ __html: html }}
-          /> */}
         </div>
       </div>
     </Layout>

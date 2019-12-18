@@ -1,21 +1,54 @@
 import React from "react"
-import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
+import PostLink from '../components/post-link'
 import SEO from "../components/seo"
 import styles from './index.scss'
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="leo.works" />
-    <div className={styles.titleContainer}>
-      Leo Jeong
-    </div>
-    <div>
+export default function IndexPage({
+  data: {
+    allMarkdownRemark: { edges },
+  },
+}) {
 
-    </div>
-  </Layout>
-)
+  return (
+    <Layout>
+      <SEO title="leo.works" />
+      <div className={styles.titleContainer}>
+        Leo Jeong
+      </div>
+      <div>
+        {
+          edges
+            .filter(edge => true)
+            .map(edge => 
+              <PostLink
+                key={edge.node.id}
+                post={edge.node}
+              />
+            )
+        }
+      </div>
+    </Layout>
+  )
+}
 
-export default IndexPage
+export const pageQuery = graphql`
+  query {
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+      edges {
+        node {
+          id
+          excerpt(pruneLength: 250)
+          frontmatter {
+            date(formatString: "MMM DD, YYYY")
+            path
+            title
+          }
+          html
+        }
+      }
+    }
+  }
+`

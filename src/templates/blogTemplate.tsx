@@ -3,7 +3,7 @@ import { graphql, Link } from 'gatsby'
 import RehypeReact from 'rehype-react'
 
 import Layout from '../components/layout'
-import styles from './blogTemplate.scss'
+import styles from './blogTemplate.module.scss'
 import {
   Quote,
   Horizon,

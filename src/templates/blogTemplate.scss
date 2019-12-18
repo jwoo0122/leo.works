@@ -1,0 +1,38 @@
+.post-container {
+  margin-top: 45px;
+
+  .post-meta {
+
+    .post-title {
+      font-size: 50px;
+      font-family: 'Rubik Mono One', 'Do Hyeon', sans-serif;
+      word-wrap: normal;
+      word-break: keep-all;
+      white-space: pre-line;
+    }
+
+    .post-author-wrapper {
+      font-size: 20px;
+      font-family: 'Do Hyeon';
+      margin-top: 15px;
+      color: black;
+
+      .post-author {
+        font-size: 25px;
+      }
+    }
+
+    .post-date {
+      font-size: 13px;
+      font-family: 'Noto Sans KR', sans-serif;
+      color: grey;
+      margin-top: 5px;
+    }
+  }
+
+  .content {
+    font-family: 'Noto Sans KR', sans-serif;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+  }
+}

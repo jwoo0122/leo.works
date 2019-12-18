@@ -1,0 +1,19 @@
+.quote-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  .quote-block {
+    width: 5px;
+    align-self: stretch;
+    background-color: rgba(200, 0, 200, 0.1);
+  }
+
+  .contents {
+    margin-left: 20px;
+    font-size: 18px;
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.5);
+  }
+}

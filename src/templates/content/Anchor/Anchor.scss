@@ -1,0 +1,10 @@
+.link-container {
+  display: inline;
+  color: rgba(50, 150, 30, 0.8);
+  transition: all 100ms ease-in-out;
+
+  &:hover {
+    color: rgba(20, 100, 15, 0.9);
+    transition: all 100ms ease-in-out;
+  }
+}

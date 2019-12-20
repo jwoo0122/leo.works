@@ -8,6 +8,7 @@ import {
   Quote,
   Horizon,
   Anchor,
+  ImageContainer,
 } from './content'
 
 interface TemplateProps {
@@ -20,6 +21,7 @@ const rehype = new RehypeReact({
       blockquote: Quote,
       hr: Horizon,
       a: Anchor,
+      img: ImageContainer,
     }
   }).Compiler
 
@@ -59,7 +61,7 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       htmlAst
       frontmatter {
-        date(formatString: "MMM DD, YYYY, H : S")
+        date(formatString: "MMM DD, YYYY")
         path
         title
         author

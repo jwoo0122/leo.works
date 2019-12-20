@@ -56,10 +56,6 @@ module.exports = {
             variants: [`100`, `400`, `700`]
           },
           {
-            family: `Do Hyeon`,
-            subsets: [`korean`],
-          },
-          {
             family: `Rubik Mono One`,
           }
         ]

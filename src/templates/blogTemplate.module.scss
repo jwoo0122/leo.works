@@ -4,21 +4,21 @@
   .post-meta {
 
     .post-title {
-      font-size: 50px;
-      font-family: 'Rubik Mono One', 'Do Hyeon', sans-serif;
+      font-size: 40px;
+      font-family: 'Rubik Mono One', sans-serif;
       word-wrap: normal;
-      word-break: keep-all;
+      word-break: break-all;
       white-space: pre-line;
     }
 
     .post-author-wrapper {
-      font-size: 20px;
-      font-family: 'Do Hyeon';
+      font-size: 15px;
+      font-weight: bold;
       margin-top: 15px;
       color: black;
 
       .post-author {
-        font-size: 25px;
+        font-size: 20px;
       }
     }
 

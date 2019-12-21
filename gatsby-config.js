@@ -1,17 +1,18 @@
 module.exports = {
   siteMetadata: {
     title: `Leo.works`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    description: `공부하며 개발하는 정진우의 블로그입니다.`,
+    author: `Leo Jeong`,
   },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `code`,
         path: `${__dirname}/src/posts`,
       }
     },
+    `gatsby-plugin-sharp`,
+    `gatsby-remark-copy-linked-files`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -30,6 +31,15 @@ module.exports = {
               ascii: true,
             },
           },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              loading: 'eager',
+              withWebp: true,
+              backgroundColor: 'transparent',
+              wrapperStyle: 'width: 100%;'
+            },
+          },
           `gatsby-remark-sub-sup`,
         ]
       }
@@ -42,15 +52,13 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Leo.works`,
+        short_name: `Leo`,
         start_url: `/`,
-        theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/star.png`, // This path is relative to the root of the site.
       },

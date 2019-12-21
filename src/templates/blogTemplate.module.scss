@@ -9,7 +9,7 @@
       font-size: 40px;
       font-family: 'Rubik Mono One', sans-serif;
       word-wrap: normal;
-      word-break: break-all;
+      word-break: keep-all;
       white-space: pre-line;
 
       @media (prefers-color-scheme: dark) {
@@ -43,6 +43,7 @@
 
   .content {
     font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.9;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     margin-top: 15px;
 

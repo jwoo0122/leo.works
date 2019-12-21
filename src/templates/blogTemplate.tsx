@@ -9,7 +9,6 @@ import {
   Quote,
   Horizon,
   Anchor,
-  ImageContainer,
   SuperScript,
 } from './content'
 
@@ -23,7 +22,6 @@ const rehype = new RehypeReact({
       blockquote: Quote,
       hr: Horizon,
       a: Anchor,
-      img: ImageContainer,
       sup: SuperScript,
     }
   }).Compiler

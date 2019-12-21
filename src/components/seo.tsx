@@ -81,8 +81,19 @@ export default function SEO({
       ].concat(meta)}
     >
       <style type="text/css">{`
+        html {
+          height: 100%;
+          transition: all 200ms ease-in-out;
+        }
+        @media (prefers-color-scheme: dark) {
+          html {
+            background-color: rgb(20, 20, 20);
+            transition: all 200ms ease-in-out;
+          }
+        }
         body {
           margin: 0;
+          height: 100%;
         }
       `}
       </style>

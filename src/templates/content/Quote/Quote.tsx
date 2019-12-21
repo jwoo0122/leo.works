@@ -1,7 +1,13 @@
 import React from 'react'
 import styles from './Quote.module.scss'
 
-export default function Quote({ children }) {
+interface QuoteProps {
+  children: React.ReactNode
+}
+
+export default function Quote({
+  children,
+}: QuoteProps) {
   return (
     <div className={styles.quoteContainer}>
       <div className={styles.quoteBlock}/>

@@ -2,6 +2,10 @@
   width: 200px;
   height: 3px;
   background-color: rgba(0, 0, 0, 0.1);
-  margin: auto;
+  margin: 50px auto;
   border-radius: 10px;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: rgb(50, 50, 50);
+  }
 }

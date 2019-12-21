@@ -1,9 +1,9 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import RehypeReact from 'rehype-react'
-import { DiscussionEmbed } from "disqus-react"
 
 import Layout from '../components/Layout'
+import Utterances from '../components/Utterances'
 import SEO from '../components/seo'
 import styles from './blogTemplate.module.scss'
 import {
@@ -63,7 +63,7 @@ const rehype = new RehypeReact({
           {rehype(htmlAst)}
         </div>
       </div>
-      <DiscussionEmbed {...disqusConfig}/>
+      <Utterances repo="jwoo0122/leo.works"/>
     </Layout>
   )
 }

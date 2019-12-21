@@ -7,13 +7,20 @@
   .quote-block {
     width: 5px;
     align-self: stretch;
-    background-color: rgba(200, 0, 200, 0.1);
+    background-color: rgb(250, 224, 74);
+
+    @media (prefers-color-scheme: dark) {
+      background-color: rgb(247, 204, 64)
+    }
   }
 
   .contents {
     margin-left: 20px;
     font-size: 18px;
-    font-style: italic;
     color: rgba(0, 0, 0, 0.5);
+
+    @media (prefers-color-scheme: dark) {
+      color: rgb(130, 130, 130);
+    }
   }
 }

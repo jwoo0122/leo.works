@@ -1,9 +1,19 @@
 .title-container {
-  margin-top: 45px;
   margin-bottom: 20px;
   font-family: 'Rubik Mono One';
   font-size: 40px;
   line-height: 1;
+  transition: all 200ms ease-in-out;
+  box-sizing: border-box;
+
+  @media screen and (min-width: 600px) {
+    padding-left: 20px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    color: white;
+    transition: all 200ms ease-in-out;
+  }
 
   .title-by {
     font-size: 20px;

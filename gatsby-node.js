@@ -31,39 +31,3 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     })
   })
 }
-
-// const isProd = process.env.NODE_ENV === 'production';
-// const componentLibPath = path.resolve(__dirname, './component-library');
-
-// exports.onCreateWebpackConfig = (
-//   { actions, loaders },
-//   { cssLoaderOptions = {}, postCssPlugins, ...sassOptions },
-// ) => {
-//   actions.setWebpackConfig({
-//     module: {
-//       rules: [
-//         {
-//           test: /\.s(a|c)ss$/,
-//           use: [
-//             loaders.miniCssExtract(),
-//             loaders.css({ ...cssLoaderOptions, modules: true }),
-//             loaders.postcss({ plugins: postCssPlugins }),
-//             {
-//               loader: require.resolve('sass-loader'),
-//               options: {
-//                 sourceMap: !isProd,
-//                 ...sassOptions,
-//               },
-//             },
-//           ],
-//         },
-//       ],
-//     },
-//     resolve: {
-//       alias: {
-//         components: componentLibPath,
-//       },
-//       extensions: ['.js', '.jsx'],
-//     },
-//   });
-// };

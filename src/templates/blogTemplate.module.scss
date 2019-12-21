@@ -1,5 +1,7 @@
 .post-container {
-  margin-top: 45px;
+  @media (prefers-color-scheme: dark) {
+    color: rgb(220, 220, 220)
+  }
 
   .post-meta {
 
@@ -9,13 +11,22 @@
       word-wrap: normal;
       word-break: break-all;
       white-space: pre-line;
-    }
 
+      @media (prefers-color-scheme: dark) {
+        color: white;
+      }
+    }
+    
     .post-author-wrapper {
+      font-family: 'Noto Sans KR', sans-serif;
       font-size: 15px;
       font-weight: bold;
       margin-top: 15px;
       color: black;
+      
+      @media (prefers-color-scheme: dark) {
+        color: white;
+      }
 
       .post-author {
         font-size: 20px;
@@ -34,5 +45,9 @@
     font-family: 'Noto Sans KR', sans-serif;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     margin-top: 15px;
+
+    @media (prefers-color-scheme: dark) {
+      border-top: 1px solid rgb(100, 100, 100);
+    }
   }
 }

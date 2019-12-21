@@ -1,10 +1,19 @@
 .link-container {
   display: inline;
   color: rgba(50, 150, 30, 0.8);
+  font-weight: bold;
   transition: all 100ms ease-in-out;
 
   &:hover {
     color: rgba(20, 100, 15, 0.9);
     transition: all 100ms ease-in-out;
+  }
+
+  .linkIcon {
+    display: inline;
+    width: 13px;
+    height: 13px;
+    fill: green;
+    margin: 0 5px;
   }
 }

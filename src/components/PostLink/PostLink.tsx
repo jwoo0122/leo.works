@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import styles from './post-link.module.scss'
+import styles from './PostLink.module.scss'
 
 export default function PostLink({ post }) {
   const { frontmatter: { path, title, date } } = post

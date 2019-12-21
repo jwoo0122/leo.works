@@ -2,7 +2,8 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import RehypeReact from 'rehype-react'
 
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
+import SEO from '../components/seo'
 import styles from './blogTemplate.module.scss'
 import {
   Quote,
@@ -31,27 +32,28 @@ export default function Template({
   data,
 }: TemplateProps) {
   const { markdownRemark } = data
-  const { frontmatter } = markdownRemark
+  const { frontmatter: { title, date, author }, htmlAst } = markdownRemark
 
   return (
     <Layout>
+      <SEO title={`Leo.works | ${title}`} />
       <div className={styles.postContainer}>
         <div className={styles.postMeta}>
           <div className={styles.postTitle}>
-            {frontmatter.title}
+            {title}
           </div>
           <Link to="/" style={{ textDecoration: 'none' }}>
             <div className={styles.postAuthorWrapper}>
               <span>by </span>
-              <span className={styles.postAuthor}>{frontmatter.author} </span>
+              <span className={styles.postAuthor}>{author} </span>
             </div>
           </Link>
           <div className={styles.postDate}>
-            {frontmatter.date}
+            {date}
           </div>
         </div>
         <div className={styles.content}>
-          {rehype(markdownRemark.htmlAst)}
+          {rehype(htmlAst)}
         </div>
       </div>
     </Layout>

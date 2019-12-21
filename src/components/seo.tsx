@@ -79,6 +79,13 @@ export default function SEO({
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+    >
+      <style type="text/css">{`
+        body {
+          margin: 0;
+        }
+      `}
+      </style>
+    </Helmet>
   )
 }

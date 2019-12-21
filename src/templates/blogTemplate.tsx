@@ -9,6 +9,7 @@ import {
   Horizon,
   Anchor,
   ImageContainer,
+  SuperScript,
 } from './content'
 
 interface TemplateProps {
@@ -22,6 +23,7 @@ const rehype = new RehypeReact({
       hr: Horizon,
       a: Anchor,
       img: ImageContainer,
+      sup: SuperScript,
     }
   }).Compiler
 

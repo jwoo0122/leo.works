@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import RehypeReact from 'rehype-react'
+import { DiscussionEmbed } from "disqus-react"
 
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
@@ -26,11 +27,19 @@ const rehype = new RehypeReact({
     }
   }).Compiler
 
-export default function Template({
-  data,
-}: TemplateProps) {
-  const { markdownRemark } = data
-  const { frontmatter: { title, date, author }, htmlAst } = markdownRemark
+  
+  export default function Template({
+    data,
+  }: TemplateProps) {
+    const { markdownRemark } = data
+    const { frontmatter: { title, date, author, path }, htmlAst } = markdownRemark
+    const disqusConfig = {
+      shortname: 'leo-works',
+      config: {
+        identifier: path,
+        title,
+      },
+    }
 
   return (
     <Layout>
@@ -54,6 +63,7 @@ export default function Template({
           {rehype(htmlAst)}
         </div>
       </div>
+      <DiscussionEmbed {...disqusConfig}/>
     </Layout>
   )
 }

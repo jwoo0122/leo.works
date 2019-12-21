@@ -12,7 +12,6 @@ module.exports = {
       }
     },
     `gatsby-plugin-sharp`,
-    `gatsby-remark-copy-linked-files`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -22,12 +21,9 @@ module.exports = {
             options: {},
           },
           {
-            resolve: 'gatsby-remark-emoji', // <-- this adds emoji
+            resolve: 'gatsby-remark-emoji',
             options: {
-              // default emojiConversion --> shortnameToUnicode
               emojiConversion: 'shortnameToUnicode',
-              // when true, matches ASCII characters (in unicodeToImage and shortnameToImage)
-              // e.g. ;) --> 😉
               ascii: true,
             },
           },
@@ -37,7 +33,6 @@ module.exports = {
               loading: 'eager',
               withWebp: true,
               backgroundColor: 'transparent',
-              wrapperStyle: 'width: 100%;'
             },
           },
           `gatsby-remark-sub-sup`,
@@ -60,7 +55,7 @@ module.exports = {
         short_name: `Leo`,
         start_url: `/`,
         display: `minimal-ui`,
-        icon: `src/images/star.png`, // This path is relative to the root of the site.
+        icon: `src/images/star.png`,
       },
     },
     `gatsby-plugin-typescript`,
@@ -75,6 +70,13 @@ module.exports = {
           },
           {
             family: `Rubik Mono One`,
+          },
+          {
+            family: `Mansalva`,
+          },
+          {
+            family: `East Sea Dokdo`,
+            subsets: [`korean`],
           }
         ]
       }

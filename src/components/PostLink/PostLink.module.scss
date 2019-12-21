@@ -1,11 +1,14 @@
 .post-container {
-  height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   width: 100%;
   box-sizing: border-box;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 20px;
+  margin: 15px 0;
   
   @media screen and (min-width: 600px) {
     padding-left: 20px;
@@ -27,8 +30,8 @@
   }
 
   .post-title {
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: 20px;
+    font-family: 'Mansalva', 'East Sea Dokdo', sans-serif;
+    font-size: 25px;
     color: black;
 
     @media (prefers-color-scheme: dark) {

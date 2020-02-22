@@ -3,14 +3,15 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  height: 50px;
 
   .quote-block {
     width: 5px;
     align-self: stretch;
-    background-color: rgb(250, 224, 74);
+    background-color: rgb(230, 230, 230);
 
     @media (prefers-color-scheme: dark) {
-      background-color: rgb(247, 204, 64)
+      background-color: rgb(50, 50, 50)
     }
   }
 

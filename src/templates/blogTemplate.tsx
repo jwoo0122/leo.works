@@ -7,6 +7,7 @@ import Utterances from '../components/Utterances'
 import SEO from '../components/seo'
 import styles from './blogTemplate.module.scss'
 import {
+  Paragraph,
   Quote,
   Horizon,
   Anchor,
@@ -24,6 +25,7 @@ const rehype = new RehypeReact({
       hr: Horizon,
       sup: SuperScript,
       a: Anchor,
+      p: Paragraph,
     }
   }).Compiler
 

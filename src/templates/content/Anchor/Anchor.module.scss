@@ -9,6 +9,10 @@
     transition: all 100ms ease-in-out;
   }
 
+  & > img {
+    height: inherit !important;
+  }
+
   .linkIcon {
     display: inline;
     width: 13px;

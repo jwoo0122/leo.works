@@ -16,14 +16,14 @@
         color: white;
       }
     }
-    
+
     .post-author-wrapper {
       font-family: 'Mansalva', sans-serif;
       font-size: 17px;
       font-weight: bold;
       margin-top: 15px;
       color: black;
-      
+
       @media (prefers-color-scheme: dark) {
         color: white;
       }
@@ -35,6 +35,7 @@
 
     .post-date {
       font-size: 13px;
+      font-weight: lighter;
       font-family: 'Noto Sans KR', sans-serif;
       color: grey;
       margin-top: 5px;

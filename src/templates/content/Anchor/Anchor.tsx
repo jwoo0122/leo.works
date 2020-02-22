@@ -13,10 +13,12 @@ export default function Anchor({
   children,
 }: AnchorProps) {
   return (
-    <a href={href} style={{ textDecoration: 'none' }}>
+    <a href={href} style={{ textDecoration: 'none' }} target="_blank" rel="noreferrer">
       <div className={styles.linkContainer}>
         { children }
-        <LinkIcon className={styles.linkIcon} />
+        { children?.length === 1 && (
+          <LinkIcon className={styles.linkIcon} />
+        ) }
       </div>
     </a>
   )

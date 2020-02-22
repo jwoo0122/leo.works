@@ -7,6 +7,7 @@ import Utterances from '../components/Utterances'
 import SEO from '../components/seo'
 import styles from './blogTemplate.module.scss'
 import {
+  Paragraph,
   Quote,
   Horizon,
   Anchor,
@@ -22,24 +23,18 @@ const rehype = new RehypeReact({
     components: {
       blockquote: Quote,
       hr: Horizon,
-      a: Anchor,
       sup: SuperScript,
+      a: Anchor,
+      p: Paragraph,
     }
   }).Compiler
 
-  
+
   export default function Template({
     data,
   }: TemplateProps) {
     const { markdownRemark } = data
     const { frontmatter: { title, date, author, path }, htmlAst } = markdownRemark
-    const disqusConfig = {
-      shortname: 'leo-works',
-      config: {
-        identifier: path,
-        title,
-      },
-    }
 
   return (
     <Layout>

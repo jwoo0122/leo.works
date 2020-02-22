@@ -23,7 +23,7 @@ export default function IndexPage({
         {
           edges
             .filter(edge => true)
-            .map(edge => 
+            .map(edge =>
               <PostLink
                 key={edge.node.id}
                 post={edge.node}

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import LinkIcon from '../../../images/link.svg'
+import LinkIcon from '../../../static/images/link.svg'
 import styles from './Anchor.module.scss'
 
 interface AnchorProps {

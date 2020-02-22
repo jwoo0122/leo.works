@@ -22,24 +22,17 @@ const rehype = new RehypeReact({
     components: {
       blockquote: Quote,
       hr: Horizon,
-      a: Anchor,
       sup: SuperScript,
+      a: Anchor,
     }
   }).Compiler
 
-  
+
   export default function Template({
     data,
   }: TemplateProps) {
     const { markdownRemark } = data
     const { frontmatter: { title, date, author, path }, htmlAst } = markdownRemark
-    const disqusConfig = {
-      shortname: 'leo-works',
-      config: {
-        identifier: path,
-        title,
-      },
-    }
 
   return (
     <Layout>

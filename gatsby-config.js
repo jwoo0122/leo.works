@@ -9,6 +9,14 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/posts`,
+        name: `markdown-pages`,
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/images`,
+        name: `images`,
       }
     },
     `gatsby-plugin-sharp`,
@@ -16,6 +24,14 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options:{
+              maxWidth: 600,
+              linkImagesToOriginal: true,
+              disableBgImage: true,
+            },
+          },
           {
             resolve: `gatsby-remark-prismjs`,
             options: {},
@@ -25,14 +41,6 @@ module.exports = {
             options: {
               emojiConversion: 'shortnameToUnicode',
               ascii: true,
-            },
-          },
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              loading: 'eager',
-              withWebp: true,
-              backgroundColor: 'transparent',
             },
           },
           `gatsby-remark-sub-sup`,

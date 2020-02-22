@@ -13,14 +13,16 @@
   .github-icon-wrapper {
     position: fixed;
     background-color: inherit;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     padding: 5px 4px 5px 5px;
     border-radius: 0 0 0 5px;
     top: 0;
     right: 0;
 
     .github-icon {
+      width: 20px;
+      height: 20px;
       fill: white;
       transition: all 200ms ease-in-out;
 

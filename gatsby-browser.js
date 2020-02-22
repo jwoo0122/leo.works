@@ -1,1 +1,1 @@
-require('prism-themes/themes/prism-atom-dark.css')
+import "./src/styles/global.css"

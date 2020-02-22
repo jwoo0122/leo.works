@@ -12,13 +12,6 @@ module.exports = {
         name: `markdown-pages`,
       }
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/images`,
-        name: `images`,
-      }
-    },
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
@@ -31,10 +24,6 @@ module.exports = {
               linkImagesToOriginal: true,
               disableBgImage: true,
             },
-          },
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {},
           },
           {
             resolve: 'gatsby-remark-emoji',
@@ -52,7 +41,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/static/images`,
       },
     },
     `gatsby-plugin-sharp`,
@@ -63,7 +52,7 @@ module.exports = {
         short_name: `Leo`,
         start_url: `/`,
         display: `minimal-ui`,
-        icon: `src/images/star.png`,
+        icon: `src/static/images/star.png`,
       },
     },
     `gatsby-plugin-typescript`,
@@ -76,16 +65,6 @@ module.exports = {
             subsets: [`korean`],
             variants: [`100`, `400`, `700`]
           },
-          {
-            family: `Rubik Mono One`,
-          },
-          {
-            family: `Mansalva`,
-          },
-          {
-            family: `East Sea Dokdo`,
-            subsets: [`korean`],
-          }
         ]
       }
     },

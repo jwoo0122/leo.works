@@ -1,0 +1,14 @@
+.codeWrapper {
+  padding: 15px;
+  background-color: rgba(0,0,0,.05);
+  border-radius: 5px;
+  font-family: 'Hack';
+  font-size: 14px;
+  color: rgba(0,0,0,.7);
+  line-height: 22px;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: rgba(0,0,0,.3);
+    color: rgba(255, 255, 255, .5);
+  }
+}

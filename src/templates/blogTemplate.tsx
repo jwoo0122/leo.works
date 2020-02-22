@@ -7,11 +7,13 @@ import Utterances from '../components/Utterances'
 import SEO from '../components/seo'
 import styles from './blogTemplate.module.scss'
 import {
+  Heading,
   Paragraph,
   Quote,
   Horizon,
   Anchor,
   SuperScript,
+  CodeBlock,
 } from './content'
 
 interface TemplateProps {
@@ -21,11 +23,13 @@ interface TemplateProps {
 const rehype = new RehypeReact({
     createElement: React.createElement,
     components: {
+      h1: Heading,
       blockquote: Quote,
       hr: Horizon,
       sup: SuperScript,
       a: Anchor,
       p: Paragraph,
+      pre: CodeBlock,
     }
   }).Compiler
 

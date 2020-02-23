@@ -34,7 +34,7 @@ const rehype = new RehypeReact({
   }).Compiler
 
 
-  export default function Template({
+  export default function blogTemplate({
     data,
   }: TemplateProps) {
     const { markdownRemark } = data

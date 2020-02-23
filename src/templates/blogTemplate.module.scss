@@ -8,6 +8,7 @@
     .post-title {
       font-size: 40px;
       font-family: 'UhBee QUEEN J';
+      line-height: 50px;
       color: rgba(0,0,0,.8);
       word-wrap: normal;
       word-break: keep-all;
@@ -22,7 +23,7 @@
       font-family: 'UhBee QUEEN J', sans-serif;
       font-size: 17px;
       font-weight: bold;
-      margin-top: 20px;
+      margin-top: 10px;
       color: rgba(0,0,0,.8);
 
       @media (prefers-color-scheme: dark) {
@@ -30,7 +31,7 @@
       }
 
       .post-author {
-        font-size: 25px;
+        font-size: 20px;
       }
     }
 
@@ -39,7 +40,7 @@
       font-weight: lighter;
       font-family: 'UhBee QUEEN J', sans-serif;
       color: grey;
-      margin-top: 10px;
+      margin-top: 3px;
     }
   }
 

@@ -2,9 +2,9 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import RehypeReact from 'rehype-react'
 
-import Layout from '../components/Layout'
-import Utterances from '../components/Utterances'
-import SEO from '../components/seo'
+import Layout from 'Components/Layout'
+import Utterances from 'Components/Utterances'
+import SEO from 'Components/seo'
 import styles from './blogTemplate.module.scss'
 import {
   Heading,
@@ -34,7 +34,7 @@ const rehype = new RehypeReact({
   }).Compiler
 
 
-  export default function Template({
+  export default function blogTemplate({
     data,
   }: TemplateProps) {
     const { markdownRemark } = data

@@ -1,3 +1,5 @@
+@import '~Styles/global.scss';
+
 .post-container {
   display: flex;
   flex-direction: column;
@@ -31,8 +33,9 @@
   }
 
   .post-title {
-    font-family: 'UhBee QUEEN J', sans-serif;
+    font-family: $title-font, sans-serif;
     font-size: 25px;
+    line-height: 35px;
     color: rgba(0,0,0,.8);
 
     @media (prefers-color-scheme: dark) {
@@ -41,9 +44,9 @@
   }
 
   .post-meta {
-    font-family: 'UhBee QUEEN J', sans-serif;
+    font-family: $title-font, sans-serif;
     font-size: 13px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     color: rgba(0, 0, 0, 0.5);
 
     @media (prefers-color-scheme: dark) {

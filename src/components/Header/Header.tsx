@@ -1,6 +1,6 @@
 import React from 'react'
 
-import GithubIcon from '../../static/images/github.svg'
+import GithubIcon from 'static/images/github.svg'
 import styles from './Header.module.scss'
 
 export default function Header() {

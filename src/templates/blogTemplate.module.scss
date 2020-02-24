@@ -1,3 +1,5 @@
+@import '~Styles/global.scss';
+
 .post-container {
   @media (prefers-color-scheme: dark) {
     color: rgb(220, 220, 220)
@@ -7,7 +9,8 @@
 
     .post-title {
       font-size: 40px;
-      font-family: 'UhBee QUEEN J';
+      font-family: $title-font;
+      line-height: 50px;
       color: rgba(0,0,0,.8);
       word-wrap: normal;
       word-break: keep-all;
@@ -19,10 +22,10 @@
     }
 
     .post-author-wrapper {
-      font-family: 'UhBee QUEEN J', sans-serif;
+      font-family: $title-font, sans-serif;
       font-size: 17px;
       font-weight: bold;
-      margin-top: 20px;
+      margin-top: 10px;
       color: rgba(0,0,0,.8);
 
       @media (prefers-color-scheme: dark) {
@@ -30,21 +33,21 @@
       }
 
       .post-author {
-        font-size: 25px;
+        font-size: 20px;
       }
     }
 
     .post-date {
       font-size: 14px;
       font-weight: lighter;
-      font-family: 'UhBee QUEEN J', sans-serif;
+      font-family: $title-font, sans-serif;
       color: grey;
-      margin-top: 10px;
+      margin-top: 3px;
     }
   }
 
   .content {
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: $content-font, sans-serif;
     line-height: 1.9;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     margin-top: 15px;

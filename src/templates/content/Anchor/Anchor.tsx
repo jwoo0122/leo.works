@@ -16,7 +16,7 @@ export default function Anchor({
     <a href={href} style={{ textDecoration: 'none' }} target="_blank" rel="noreferrer">
       <div className={styles.linkContainer}>
         { children }
-        { children?.length === 1 && (
+        { (children as Array<any>).length === 1 && (
           <LinkIcon className={styles.linkIcon} />
         ) }
       </div>

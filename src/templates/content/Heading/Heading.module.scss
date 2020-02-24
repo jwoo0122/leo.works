@@ -1,5 +1,49 @@
-.heading1 {
-  margin-top: 25px;
-  font-family: 'neodgm';
-  font-size: 30px;
+ @import '~Styles/global.scss';
+
+.link-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-decoration: none;
+  margin-top: 45px;
+
+  .heading1 {
+    margin-right: 10px;
+    font-family: 'neodgm';
+    font-size: 30px;
+    line-height: 35px;
+    color: rgba(0,0,0,.8);
+    transition: all 100ms ease-in-out;
+
+    &.hover {
+      color: $theme-color;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      color: white;
+
+      &.hover {
+        color: $theme-color-dark;
+      }
+    }
+
+  }
+
+  .linkIcon {
+    opacity: 0;
+    width: 15px;
+    height: 15px;
+    fill: rgba(0,0,0,.6);
+    transition: all 100ms ease-in-out;
+
+    @media (prefers-color-scheme: dark) {
+      fill: white;
+    }
+
+    &.visible {
+      opacity: 1;
+    }
+  }
 }
+

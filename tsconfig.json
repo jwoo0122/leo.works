@@ -10,6 +10,22 @@
     "module": "commonjs",
     "jsx": "react",
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "Components/*": [
+        "src/components/*"
+      ],
+      "Static/*": [
+        "src/static/*"
+      ],
+      "Styles/*": [
+        "src/styles/*"
+      ],
+      "Templates/*": [
+        "src/templates/*"
+      ]
+    }
   }
 }

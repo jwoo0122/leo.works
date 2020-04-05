@@ -1,4 +1,4 @@
-@import '~Styles/global.scss';
+@import '~Styles/global';
 
 .post-container {
   @media (prefers-color-scheme: dark) {
@@ -11,13 +11,13 @@
       font-size: 40px;
       font-family: $title-font;
       line-height: 50px;
-      color: rgba(0,0,0,.8);
+      color: $text-black;
       word-wrap: normal;
       word-break: keep-all;
       white-space: pre-line;
 
       @media (prefers-color-scheme: dark) {
-        color: white;
+        color: $text-white;
       }
     }
 
@@ -26,10 +26,10 @@
       font-size: 17px;
       font-weight: bold;
       margin-top: 10px;
-      color: rgba(0,0,0,.8);
+      color: $text-black;
 
       @media (prefers-color-scheme: dark) {
-        color: white;
+        color: $text-white;
       }
 
       .post-author {
@@ -54,6 +54,10 @@
 
     @media (prefers-color-scheme: dark) {
       border-top: 1px solid rgb(100, 100, 100);
+    }
+
+    img[alt=gif] {
+      width: 100%;
     }
   }
 }

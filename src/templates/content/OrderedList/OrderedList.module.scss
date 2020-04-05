@@ -1,0 +1,13 @@
+@import '~Styles/global';
+
+.wrapper {
+  padding-left: 30px;
+  color: $text-black;
+  font-size: $content-text-size;
+
+  li {
+    margin-bottom: 15px;
+    color: inherit;
+    font-size: inherit;
+  }
+}

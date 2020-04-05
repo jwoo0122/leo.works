@@ -37,6 +37,7 @@ module.exports = {
             },
           },
           `gatsby-remark-sub-sup`,
+          `gatsby-remark-copy-linked-files`,
         ]
       }
     },

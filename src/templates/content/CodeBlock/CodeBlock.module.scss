@@ -1,4 +1,6 @@
 .codeWrapper {
+  overflow: hidden;
+  overflow-x: scroll;
   padding: 15px;
   background-color: rgba(0,0,0,.05);
   border-radius: 5px;
@@ -6,6 +8,8 @@
   font-size: 14px;
   color: rgba(0,0,0,.7);
   line-height: 22px;
+  word-wrap: normal;
+  word-break: keep-all;
 
   @media (prefers-color-scheme: dark) {
     background-color: rgba(0,0,0,.3);

@@ -1,0 +1,6 @@
+{
+  "name": "SearchResultRow",
+  "version": "0.0.0",
+  "private": true,
+  "main": "SearchResultRow.tsx"
+}

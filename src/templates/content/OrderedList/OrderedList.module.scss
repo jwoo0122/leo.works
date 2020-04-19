@@ -5,6 +5,10 @@
   color: $text-black;
   font-size: $content-text-size;
 
+  @media (prefers-color-scheme: dark) {
+    color: $text-white;
+  }
+
   li {
     margin-bottom: 15px;
     color: inherit;

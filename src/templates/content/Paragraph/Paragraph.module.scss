@@ -4,4 +4,8 @@
   font-size: $content-text-size;
   color: $text-black;
   margin: 10px 0;
+
+  @media (prefers-color-scheme: dark) {
+    color: $text-white;
+  }
 }

@@ -1,3 +1,7 @@
+const transformer = ({ data }) => {
+  return data.allMarkdownRemark.edges.map(({ node }) => node)
+}
+
 module.exports = {
   siteMetadata: {
     title: `Leo.works`,
@@ -54,6 +58,31 @@ module.exports = {
         start_url: `/`,
         display: `minimal-ui`,
         icon: `src/static/images/star.png`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.ALGOLIA_APP_ID || '',
+        apiKey: process.env.ALGOLIA_ADMIN_API_KEY || '',
+        indexName: process.env.ALGOLIA_INDEX_NAME || '',
+        queries: [{
+          query: `{
+            allMarkdownRemark {
+              edges {
+                node {
+                  objectID: id
+                  frontmatter {
+                    path
+                    title
+                    date
+                  }
+                }
+              }
+            }
+          }`,
+          transformer,
+        }]
       },
     },
     `gatsby-plugin-typescript`,

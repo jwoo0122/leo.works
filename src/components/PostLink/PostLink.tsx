@@ -1,10 +1,19 @@
+// Ext
 import React from 'react'
 import { Link } from 'gatsby'
 
+// Int
+import Hit from 'Constants/Hit'
 import styles from './PostLink.module.scss'
 
-export default function PostLink({ post }) {
-  const { frontmatter: { path, title, date } } = post
+interface PostLinkProps {
+  hit: Hit
+}
+
+export default function PostLink({
+  hit,
+}: PostLinkProps) {
+  const { frontmatter: { path, title, date } } = hit
 
   return (
     <Link to={path} style={{ textDecoration: 'none' }}>

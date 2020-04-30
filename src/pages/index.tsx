@@ -1,9 +1,11 @@
+// Ext
 import React from "react"
 import { graphql } from "gatsby"
 
-import Layout from "../components/Layout"
-import PostLink from '../components/PostLink'
-import SEO from "../components/seo"
+// Int
+import Layout from 'Components/Layout'
+import SEO from 'Components/seo'
+import Search from 'Components/Search'
 import styles from './index.module.scss'
 
 export default function IndexPage({
@@ -19,18 +21,7 @@ export default function IndexPage({
         <span className={styles.titleBy}>by<br /></span>
         Leo Jeong
       </div>
-      <div>
-        {
-          edges
-            .filter(edge => true)
-            .map(edge =>
-              <PostLink
-                key={edge.node.id}
-                post={edge.node}
-              />
-            )
-        }
-      </div>
+      <Search />
     </Layout>
   )
 }

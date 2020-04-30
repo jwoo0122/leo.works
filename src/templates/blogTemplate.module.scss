@@ -2,7 +2,7 @@
 
 .post-container {
   @media (prefers-color-scheme: dark) {
-    color: rgb(220, 220, 220)
+    color: $background-dark;
   }
 
   .post-meta {

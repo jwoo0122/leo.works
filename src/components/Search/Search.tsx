@@ -1,11 +1,11 @@
 // Ext
 import React from 'react'
 import algoliasearch from 'algoliasearch/lite'
-import {
-  InstantSearch,
-  Hits,
-  SearchBox,
-} from 'react-instantsearch-dom'
+import { InstantSearch } from 'react-instantsearch-dom'
+
+// Int
+import Hits from './Hits'
+import SearchBox from './SearchBox'
 
 const searchClient = algoliasearch(
   'G3BH0YU0M4',

@@ -1,0 +1,22 @@
+@import '~Styles/global';
+
+.inputWrapper {
+  width: 100%;
+
+  .searchInput {
+    width: 100%;
+    padding: 15px;
+    font-size: 25px;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+
+    &:hover {
+      border-bottom: 1px solid pink;
+    }
+
+    &::placeholder {
+      color: $light-gray;
+    }
+  }
+}

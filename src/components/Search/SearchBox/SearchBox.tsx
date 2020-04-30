@@ -22,7 +22,7 @@ function SearchBox({
     <div className={styles.inputWrapper}>
       <input
         type="search"
-        placeholder="Search..."
+        placeholder="Search (Beta)"
         value={currentRefinement}
         onChange={handleChange}
         className={styles.searchInput}

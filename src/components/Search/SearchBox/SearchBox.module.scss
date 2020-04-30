@@ -2,21 +2,39 @@
 
 .inputWrapper {
   width: 100%;
+  box-sizing: border-box;
+
+  @media screen and (min-width: $mobile-width) {
+    padding: 0 10px;
+  }
 
   .searchInput {
     width: 100%;
-    padding: 15px;
-    font-size: 25px;
+    padding: 12px;
+    color: $text-black;
+    font-size: 20px;
+    font-family: $title-font;
     border: none;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid $light-gray;
     outline: none;
+    background-color: transparent;
+    transition: all 150ms ease-in-out;
 
-    &:hover {
-      border-bottom: 1px solid pink;
+    &:focus {
+      border-bottom: 1px solid $theme-color;
+      transition: all 150ms ease-in-out;
     }
 
     &::placeholder {
       color: $light-gray;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      color: $text-white;
+
+      &::placeholder {
+        color: $gray;
+      }
     }
   }
 }

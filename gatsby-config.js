@@ -72,11 +72,10 @@ module.exports = {
               edges {
                 node {
                   objectID: id
-                  internal {
-                    content
-                  }
                   frontmatter {
+                    path
                     title
+                    date
                   }
                 }
               }

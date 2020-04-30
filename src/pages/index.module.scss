@@ -10,7 +10,7 @@
   transition: all 200ms ease-in-out;
   box-sizing: border-box;
 
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: $mobile-width) {
     padding-left: 20px;
   }
 

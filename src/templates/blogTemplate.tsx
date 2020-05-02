@@ -18,7 +18,16 @@ import {
 } from './content'
 
 interface TemplateProps {
-  data: any
+  data: {
+    markdownRemark: {
+      frontmatter: {
+        title: string
+        date: string
+        author: string
+      }
+      htmlAst: any
+    }
+  }
 }
 
 const rehype = new RehypeReact({
@@ -40,7 +49,7 @@ const rehype = new RehypeReact({
     data,
   }: TemplateProps) {
     const { markdownRemark } = data
-    const { frontmatter: { title, date, author, path }, htmlAst } = markdownRemark
+    const { frontmatter: { title, date, author }, htmlAst } = markdownRemark
 
   return (
     <Layout>
@@ -61,7 +70,7 @@ const rehype = new RehypeReact({
           </div>
         </div>
         <div className={styles.content}>
-          {rehype(htmlAst)}
+          { rehype(htmlAst) }
         </div>
       </div>
       <Utterances repo="jwoo0122/leo.works"/>

@@ -3,22 +3,20 @@ import React from "react"
 import { graphql } from "gatsby"
 
 // Int
-import Layout from 'Components/Layout'
-import SEO from 'Components/seo'
-import Search from 'Components/Search'
-import styles from './index.module.scss'
+import Layout from "Components/Layout"
+import SEO from "Components/seo"
+import Search from "Components/Search"
+import styles from "./index.module.scss"
 
-export default function IndexPage({
-  data: {
-    allMarkdownRemark: { edges },
-  },
-}) {
-
+export default function IndexPage() {
   return (
     <Layout>
       <SEO title="leo.works" />
       <div className={styles.titleContainer}>
-        <span className={styles.titleBy}>by<br /></span>
+        <span className={styles.titleBy}>
+          by
+          <br />
+        </span>
         Leo Jeong
       </div>
       <Search />

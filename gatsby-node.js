@@ -33,16 +33,18 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   })
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
   actions.setWebpackConfig({
     resolve: {
       modules: [path.resolve(__dirname, "src"), "node_modules"],
       alias: {
-        'Components': path.resolve(__dirname, './src/components'),
-        'Static': path.resolve(__dirname, './src/static'),
-        'Styles': path.resolve(__dirname, './src/styles'),
-        'Templates': path.resolve(__dirname, './src/templates'),
+        Constants: path.resolve(__dirname, "./src/constants"),
+        Components: path.resolve(__dirname, "./src/components"),
+        Static: path.resolve(__dirname, "./src/static"),
+        Styles: path.resolve(__dirname, "./src/styles"),
+        Templates: path.resolve(__dirname, "./src/templates"),
       },
-    }
+    },
   })
 }

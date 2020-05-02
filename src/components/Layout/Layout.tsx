@@ -1,23 +1,19 @@
 import React from "react"
 
-import Header from '../Header'
+import Header from "../Header"
 import styles from "./Layout.module.scss"
 
 interface LayoutProps {
   children: React.ReactNode
 }
 
-export default function Layout({
-  children,
-}: LayoutProps) {
+export default function Layout({ children }: LayoutProps) {
   return (
     <>
       <Header />
       <div className={styles.rootContainer}>
         <main>{children}</main>
-        <div className={styles.footerContainer}>
-          © Leo jeong, 2020
-        </div>
+        <div className={styles.footerContainer}>© Leo jeong, 2020</div>
       </div>
     </>
   )

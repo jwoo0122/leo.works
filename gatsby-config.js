@@ -14,7 +14,7 @@ module.exports = {
       options: {
         path: `${__dirname}/src/posts`,
         name: `markdown-pages`,
-      }
+      },
     },
     `gatsby-plugin-sharp`,
     {
@@ -23,23 +23,23 @@ module.exports = {
         plugins: [
           {
             resolve: `gatsby-remark-images`,
-            options:{
+            options: {
               maxWidth: 600,
               linkImagesToOriginal: true,
               disableBgImage: true,
             },
           },
           {
-            resolve: 'gatsby-remark-emoji',
+            resolve: "gatsby-remark-emoji",
             options: {
-              emojiConversion: 'shortnameToUnicode',
+              emojiConversion: "shortnameToUnicode",
               ascii: true,
             },
           },
           `gatsby-remark-sub-sup`,
           `gatsby-remark-copy-linked-files`,
-        ]
-      }
+        ],
+      },
     },
     `gatsby-plugin-react-helmet`,
     {
@@ -63,11 +63,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-algolia`,
       options: {
-        appId: process.env.ALGOLIA_APP_ID || '',
-        apiKey: process.env.ALGOLIA_ADMIN_API_KEY || '',
-        indexName: process.env.ALGOLIA_INDEX_NAME || '',
-        queries: [{
-          query: `{
+        appId: process.env.ALGOLIA_APP_ID || "",
+        apiKey: process.env.ALGOLIA_ADMIN_API_KEY || "",
+        indexName: process.env.ALGOLIA_INDEX_NAME || "",
+        queries: [
+          {
+            query: `{
             allMarkdownRemark {
               edges {
                 node {
@@ -81,8 +82,9 @@ module.exports = {
               }
             }
           }`,
-          transformer,
-        }]
+            transformer,
+          },
+        ],
       },
     },
     `gatsby-plugin-typescript`,
@@ -93,17 +95,17 @@ module.exports = {
           {
             family: `Noto Sans KR`,
             subsets: [`korean`],
-            variants: [`100`, `400`, `700`]
+            variants: [`100`, `400`, `700`],
           },
-        ]
-      }
+        ],
+      },
     },
     {
-      resolve: 'gatsby-plugin-react-svg',
+      resolve: "gatsby-plugin-react-svg",
       options: {
-          rule: {
-            include: /images/,
-          },
+        rule: {
+          include: /images/,
+        },
       },
     },
     `gatsby-plugin-sass`,

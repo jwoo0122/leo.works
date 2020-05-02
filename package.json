@@ -66,9 +66,9 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.js": "eslint",
-    "*.ts": "eslint",
-    "*.tsx": "eslint"
+    "src/**/*.js": "eslint",
+    "src/**/*.ts": "eslint",
+    "src/**/*.tsx": "eslint"
   },
   "repository": {
     "type": "git",

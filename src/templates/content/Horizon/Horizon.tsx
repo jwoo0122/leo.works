@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { memo } from 'react'
 import styles from './Horizon.module.scss'
 
-export default function Horizon({ children }) {
+function Horizon() {
   return (
     <div className={styles.horizon}/>
   )
 }
+
+export default memo(Horizon)

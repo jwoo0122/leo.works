@@ -1,9 +1,10 @@
-@import '~Styles/global';
+@import "~Styles/global";
 
 .wrapper {
   padding-left: 30px;
   color: $text-black;
   font-size: $content-text-size;
+  list-style-type: lower-roman;
 
   @media (prefers-color-scheme: dark) {
     color: $text-white;

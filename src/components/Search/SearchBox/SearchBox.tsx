@@ -1,22 +1,22 @@
 // Ext
-import React, { useCallback, ChangeEvent } from 'react'
-import { connectSearchBox } from 'react-instantsearch-dom'
+import React, { useCallback, ChangeEvent } from "react"
+import { connectSearchBox } from "react-instantsearch-dom"
 
 // Int
-import styles from './SearchBox.module.scss'
+import styles from "./SearchBox.module.scss"
 
 interface SearchBoxProps {
   currentRefinement: string
-  refine: (value: any) => void
+  refine: (value: string) => void
 }
 
-function SearchBox({
-  currentRefinement,
-  refine,
-}: SearchBoxProps) {
-  const handleChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-    refine(event.currentTarget.value)
-  }, [refine])
+function SearchBox({ currentRefinement, refine }: SearchBoxProps) {
+  const handleChange = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      refine(event.currentTarget.value)
+    },
+    [refine],
+  )
 
   return (
     <div className={styles.inputWrapper}>

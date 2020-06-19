@@ -4,7 +4,7 @@ import RehypeReact from 'rehype-react'
 
 import Layout from 'Components/Layout'
 import Utterances from 'Components/Utterances'
-import SEO from 'Components/seo'
+import SEO from 'Components/Seo'
 import styles from './blogTemplate.module.scss'
 import {
   Heading,

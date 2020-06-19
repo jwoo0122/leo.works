@@ -21,9 +21,10 @@ interface TemplateProps {
   data: {
     markdownRemark: {
       frontmatter: {
-        title: string
         date: string
+        title: string
         author: string
+        description: string
       }
       htmlAst: any
     }
@@ -49,11 +50,15 @@ const rehype = new RehypeReact({
     data,
   }: TemplateProps) {
     const { markdownRemark } = data
-    const { frontmatter: { title, date, author }, htmlAst } = markdownRemark
+    const { frontmatter: { title, date, author, description }, htmlAst } = markdownRemark
 
   return (
     <Layout>
-      <SEO title={`Leo.works | ${title}`} />
+      <SEO
+        title={title}
+        author={author}
+        description={description}
+      />
       <div className={styles.postContainer}>
         <div className={styles.postMeta}>
           <div className={styles.postTitle}>
@@ -62,7 +67,7 @@ const rehype = new RehypeReact({
           <Link to="/" style={{ textDecoration: 'none' }}>
             <div className={styles.postAuthorWrapper}>
               <span>by </span>
-              <span className={styles.postAuthor}>{author} </span>
+              <span className={styles.postAuthor}>{author}</span>
             </div>
           </Link>
           <div className={styles.postDate}>

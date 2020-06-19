@@ -1,6 +1,6 @@
 import React from "react"
 
-import Header from "../Header"
+import Header from "Components/Header"
 import styles from "./Layout.module.scss"
 
 interface LayoutProps {

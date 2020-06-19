@@ -1,7 +1,7 @@
 import React, { memo } from "react"
 
-import Layout from "../components/Layout"
-import SEO from "../components/seo"
+import Layout from "Components/Layout"
+import SEO from "Components/Seo"
 
 function NotFoundPage() {
   return (

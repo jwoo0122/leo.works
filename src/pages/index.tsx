@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 
 // Int
 import Layout from "Components/Layout"
-import SEO from "Components/seo"
+import SEO from "Components/Seo"
 import Search from "Components/Search"
 import styles from "./index.module.scss"
 

@@ -11,7 +11,7 @@ import styles from "./index.module.scss"
 export default function IndexPage() {
   return (
     <Layout>
-      <SEO title="leo.works" />
+      <SEO />
       <div className={styles.titleContainer}>
         <span className={styles.titleBy}>
           by

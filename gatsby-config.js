@@ -4,9 +4,9 @@ const transformer = ({ data }) => {
 
 module.exports = {
   siteMetadata: {
-    title: `Leo.works`,
-    description: `공부하며 개발하는 정진우의 블로그입니다.`,
+    title: `by Leo Jeong`,
     author: `Leo Jeong`,
+    description: `공부하며 개발하는 정진우의 블로그입니다.`,
   },
   plugins: [
     {
@@ -96,6 +96,10 @@ module.exports = {
             family: `Noto Sans KR`,
             subsets: [`korean`],
             variants: [`100`, `400`, `700`],
+          },
+          {
+            family: `Montserrat`,
+            variants: [`900`],
           },
         ],
       },

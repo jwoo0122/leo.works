@@ -4,20 +4,20 @@ import { graphql } from "gatsby"
 
 // Int
 import Layout from "Components/Layout"
-import SEO from "Components/seo"
+import SEO from "Components/Seo"
 import Search from "Components/Search"
 import styles from "./index.module.scss"
 
 export default function IndexPage() {
   return (
     <Layout>
-      <SEO title="leo.works" />
+      <SEO />
       <div className={styles.titleContainer}>
-        <span className={styles.titleBy}>
-          by
-          <br />
-        </span>
-        Leo Jeong
+        <div className={styles.titleBy}>
+          <div className={styles.string}>
+            BY LEO JEONG
+          </div>
+        </div>
       </div>
       <Search />
     </Layout>

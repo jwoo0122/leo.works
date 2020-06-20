@@ -10,34 +10,40 @@
 
   .searchInput {
     width: 100%;
-    padding: 5px;
+    padding: 10px;
     color: $text-black;
-    font-size: 20px;
-    font-family: $title-font;
+    font-size: 15px;
+    font-family: $content-font;
     border: none;
-    border-bottom: 1px solid $light-gray;
+    border-radius: 10px;
     outline: none;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.05);
     transition: all 150ms ease-in-out;
 
     &:focus {
-      border-bottom: 1px solid $theme-color;
       transition: all 150ms ease-in-out;
+
+      &::placeholder {
+        transition: all 150ms ease-in-out;
+        color: rgba(0, 0, 0, 0.1);
+      }
     }
 
     &::placeholder {
-      color: $light-gray;
+      transition: all 150ms ease-in-out;
+      color: rgba(0, 0, 0, 0.2);
     }
 
     @media (prefers-color-scheme: dark) {
       color: $text-white;
+      background-color: rgba(255, 255, 255, 0.05);
 
-      &:focus {
-        border-bottom: 1px solid $theme-color-dark;
-        transition: all 150ms ease-in-out;
+      &:focus::placeholder {
+        color: rgb(50, 50, 50);
       }
 
       &::placeholder {
+        transition: all 150ms ease-in-out;
         color: $gray;
       }
     }

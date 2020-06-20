@@ -1,26 +1,43 @@
 @import '~Styles/global.scss';
 
 .title-container {
-  margin-bottom: 20px;
-  font-family: $title-font;
-  font-size: 50px;
-  font-weight: bold;
-  color: rgba(0,0,0,.8);
-  line-height: 1;
-  transition: all 200ms ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
   box-sizing: border-box;
 
   @media screen and (min-width: $mobile-width) {
     padding-left: 20px;
   }
 
-  @media (prefers-color-scheme: dark) {
-    color: white;
-    transition: all 200ms ease-in-out;
-  }
-
   .title-by {
-    font-size: 30px;
-    padding-left: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10px;
+    padding: 0 20px;
+    overflow: visible;
+    background-color: $theme-color;
+
+    @media (prefers-color-scheme: dark) {
+      background-color: $theme-color-dark;
+    }
+
+    .string {
+      @include textBorder(white, 3);
+
+      color: $text-black;
+      font-size: 30px;
+      font-weight: bold;
+      font-family: $title-font;
+
+      @media (prefers-color-scheme: dark) {
+        @include textBorder(rgb(20, 20, 20), 3);
+
+        color: $text-white;
+        transition: all 200ms ease-in-out;
+      }
+    }
   }
 }

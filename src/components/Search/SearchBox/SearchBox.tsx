@@ -22,7 +22,7 @@ function SearchBox({ currentRefinement, refine }: SearchBoxProps) {
     <div className={styles.inputWrapper}>
       <input
         type="search"
-        placeholder="Search (Beta)"
+        placeholder="Search title"
         value={currentRefinement}
         onChange={handleChange}
         className={styles.searchInput}

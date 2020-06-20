@@ -25,7 +25,7 @@
       font-family: $title-font, sans-serif;
       font-size: 17px;
       font-weight: bold;
-      margin-top: 10px;
+      margin-top: 15px;
       color: $text-black;
 
       @media (prefers-color-scheme: dark) {
@@ -42,7 +42,7 @@
       font-weight: lighter;
       font-family: $title-font, sans-serif;
       color: grey;
-      margin-top: 3px;
+      margin-top: 10px;
     }
   }
 
@@ -50,7 +50,7 @@
     font-family: $content-font, sans-serif;
     line-height: 1.9;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
-    margin-top: 15px;
+    margin-top: 20px;
 
     @media (prefers-color-scheme: dark) {
       border-top: 1px solid rgb(100, 100, 100);

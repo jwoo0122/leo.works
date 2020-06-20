@@ -11,13 +11,13 @@ import styles from "./index.module.scss"
 export default function IndexPage() {
   return (
     <Layout>
-      <SEO title="leo.works" />
+      <SEO />
       <div className={styles.titleContainer}>
-        <span className={styles.titleBy}>
-          by
-          <br />
-        </span>
-        Leo Jeong
+        <div className={styles.titleBy}>
+          <div className={styles.string}>
+            BY LEO JEONG
+          </div>
+        </div>
       </div>
       <Search />
     </Layout>

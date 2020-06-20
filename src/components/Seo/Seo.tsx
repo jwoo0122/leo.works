@@ -6,7 +6,7 @@ import { useStaticQuery, graphql } from "gatsby"
 const SITE_NAME = "by Leo Jeong"
 
 interface SeoProps {
-  title: string
+  title?: string
   author?: string
   description?: string
   lang?: string

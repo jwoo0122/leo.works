@@ -14,10 +14,8 @@ export default function IndexPage() {
       <SEO />
       <div className={styles.titleContainer}>
         <span className={styles.titleBy}>
-          by
-          <br />
+          By Leo Jeong.
         </span>
-        Leo Jeong
       </div>
       <Search />
     </Layout>

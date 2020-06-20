@@ -13,9 +13,11 @@ export default function IndexPage() {
     <Layout>
       <SEO />
       <div className={styles.titleContainer}>
-        <span className={styles.titleBy}>
-          By Leo Jeong.
-        </span>
+        <div className={styles.titleBy}>
+          <div className={styles.string}>
+            BY LEO JEONG
+          </div>
+        </div>
       </div>
       <Search />
     </Layout>

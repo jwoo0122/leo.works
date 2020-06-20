@@ -17,6 +17,14 @@ $content-text-size: 15px;
 
 $mobile-width: 600px;
 
+@mixin textBorder($color, $width) {
+	text-shadow:
+		-#{$width}px -#{$width}px 0 #{$color},
+		#{$width}px -#{$width}px 0 #{$color},
+		-#{$width}px #{$width}px 0 #{$color},
+		#{$width}px #{$width}px 0 #{$color};
+}
+
 // reset.css
 
 /* http://meyerweb.com/eric/tools/css/reset/

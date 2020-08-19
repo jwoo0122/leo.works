@@ -6,6 +6,7 @@ import { connectHits } from "react-instantsearch-dom"
 import Loader from 'Components/Search/Loader'
 import PostLink from "Components/PostLink"
 import Hit from "Constants/Hit"
+import styles from './Hits.module.scss'
 
 interface HitsProps {
   hits: Hit[]
@@ -23,12 +24,16 @@ function Hits({ hits }: HitsProps) {
         .map((hit) => <PostLink key={hit.objectID} hit={hit} />);
     }
 
-    return <div>no result. Fuck!</div>;
+    return (
+      <span className={styles.noHitsText}>
+        No Post
+      </span>
+    );
   }, [hits])
 
   return (
     <Loader>
-      <div>{renderResult()}</div>
+      { renderResult() }
     </Loader>
   );
 }

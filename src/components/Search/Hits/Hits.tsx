@@ -1,13 +1,14 @@
 // Ext
-import React, { useCallback } from "react";
-import { connectHits } from "react-instantsearch-dom";
+import React, { useCallback } from "react"
+import { connectHits } from "react-instantsearch-dom"
 
 // Int
-import PostLink from "Components/PostLink";
-import Hit from "Constants/Hit";
+import Loader from 'Components/Search/Loader'
+import PostLink from "Components/PostLink"
+import Hit from "Constants/Hit"
 
 interface HitsProps {
-  hits: Hit[];
+  hits: Hit[]
 }
 
 function Hits({ hits }: HitsProps) {
@@ -17,15 +18,19 @@ function Hits({ hits }: HitsProps) {
         .sort((h1, h2) => {
           if (h1.frontmatter.date < h2.frontmatter.date) return 1;
           if (h1.frontmatter.date === h2.frontmatter.date) return 0;
-          else return -1;
+          else return -1
         })
         .map((hit) => <PostLink key={hit.objectID} hit={hit} />);
     }
 
     return <div>no result. Fuck!</div>;
-  }, [hits]);
+  }, [hits])
 
-  return <div>{renderResult()}</div>;
+  return (
+    <Loader>
+      <div>{renderResult()}</div>
+    </Loader>
+  );
 }
 
 export default connectHits(Hits);

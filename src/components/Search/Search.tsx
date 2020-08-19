@@ -14,7 +14,10 @@ const searchClient = algoliasearch(
 
 export default function Search() {
   return (
-    <InstantSearch indexName="leo.works.posts" searchClient={searchClient}>
+    <InstantSearch
+      indexName="leo.works.posts"
+      searchClient={searchClient}
+    >
       <SearchBox />
       <Hits />
     </InstantSearch>

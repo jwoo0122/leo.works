@@ -2,59 +2,59 @@
 
 @keyframes blink1 {
   0% {
-    opacity: 25%;
+    opacity: 0.25;
   }
 
   25% {
-    opacity: 100%;
+    opacity: 1;
   }
 
   50% {
-    opacity: 25%;
+    opacity: 0.25;
   }
 
   100% {
-    opacity: 25%;
+    opacity: 0.25;
   }
 }
 
 @keyframes blink2 {
   0% {
-    opacity: 25%;
+    opacity: 0.25;
   }
 
   25% {
-    opacity: 25%;
+    opacity: 0.25;
   }
 
   50% {
-    opacity: 100%;
+    opacity: 1;
   }
 
   75% {
-    opacity: 25%;
+    opacity: 0.25;
   }
 
   100% {
-    opacity: 25%;
+    opacity: 0.25;
   }
 }
 
 @keyframes blink3 {
   0% {
-    opacity: 25%;
+    opacity: 0.25;
   }
 
   50% {
-    opacity: 25%;
+    opacity: 0.25;
   }
 
   75% {
-    opacity: 100%;
+    opacity: 1;
   }
 
   100% {
-    opacity: 25%;
+    opacity: 0.25;
   }
 }
 

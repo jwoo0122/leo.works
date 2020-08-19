@@ -77,6 +77,10 @@
       animation-duration: .75s;
       animation-iteration-count: infinite;
 
+      @media (prefers-color-scheme: dark) {
+        background-color: $gray;
+      }
+
       &:not(:last-child) {
         margin-right: 10px;
       }

@@ -13,9 +13,24 @@ $light-gray: rgb(150, 150, 150);
 $gray: rgb(80, 80, 80);
 $dark-gray: rgb(20, 20, 20);
 
+$light-box-shadow: rgba(0, 0, 0, 0.1);
+$dark-box-shadow-link: rgba(0, 0, 0, 0.8);
+$dark-box-shadow-head: rfgba(0, 0, 0, 0.1);
+
 $content-text-size: 15px;
 
 $mobile-width: 600px;
+
+$header-line-z-index: 10000000;
+
+%appleBackdrop {
+	backdrop-filter: blur(20px) saturate(180%);
+	background-color: rgba(255, 255, 255, 0.72);
+
+	@media (prefers-color-scheme: dark) {
+		background-color: rgba(29, 29, 31, 0.72);
+	}
+}
 
 @mixin textBorder($color, $width) {
 	text-shadow:

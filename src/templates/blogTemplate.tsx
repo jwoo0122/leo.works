@@ -1,10 +1,13 @@
+// Ext
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import RehypeReact from 'rehype-react'
 
+// Int
 import Layout from 'Components/Layout'
 import Utterances from 'Components/Utterances'
 import SEO from 'Components/Seo'
+import PostHead from 'Components/PostHead'
 import styles from './blogTemplate.module.scss'
 import {
   Heading,
@@ -46,11 +49,11 @@ const rehype = new RehypeReact({
   }).Compiler
 
 
-  export default function blogTemplate({
-    data,
-  }: TemplateProps) {
-    const { markdownRemark } = data
-    const { frontmatter: { title, date, author, description }, htmlAst } = markdownRemark
+export default function blogTemplate({
+  data,
+}: TemplateProps) {
+  const { markdownRemark } = data
+  const { frontmatter: { title, date, author, description }, htmlAst } = markdownRemark
 
   return (
     <Layout>
@@ -59,6 +62,7 @@ const rehype = new RehypeReact({
         author={author}
         description={description}
       />
+      <PostHead postTitle={title} />
       <div className={styles.postContainer}>
         <div className={styles.postMeta}>
           <div className={styles.postTitle}>

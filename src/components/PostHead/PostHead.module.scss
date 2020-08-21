@@ -10,15 +10,16 @@
   height: 50px;
   padding: 0 15px;
   color: $text-black;
-  box-shadow: 0 3px 10px $light-box-shadow;
+  box-shadow: 0 3px 10px $light-box-shadow-head;
   z-index: $header-line-z-index - 1;
   font-family: $title-font;
   will-change: top;
-  transition: top ease-in-out 200ms;
+  transition: top 300ms $smooth-transition;
   box-sizing: border-box;
 
   &:not(.show) {
     top: -55px;
+    transition: top 600ms $smooth-transition;
   }
 
   @media (prefers-color-scheme: dark) {

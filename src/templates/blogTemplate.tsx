@@ -60,20 +60,20 @@ export default function blogTemplate({
       <SEO
         title={title}
         author={author}
+        date={date}
         description={description}
       />
       <PostHead postTitle={title} />
       <div className={styles.postContainer}>
         <div className={styles.postMeta}>
-          <div className={styles.postTitle}>
-            {title}
-          </div>
           <Link to="/" style={{ textDecoration: 'none' }}>
             <div className={styles.postAuthorWrapper}>
-              <span>by </span>
               <span className={styles.postAuthor}>{author}</span>
             </div>
           </Link>
+          <div className={styles.postTitle}>
+            {title}
+          </div>
           <div className={styles.postDate}>
             {date}
           </div>

@@ -9,6 +9,8 @@
   margin-top: 45px;
 
   .heading1 {
+    padding-top: 65px;
+    margin-top: -65px;
     margin-right: 10px;
     font-family: 'Montserrat';
     font-size: 30px;
@@ -27,7 +29,6 @@
         color: $theme-color-dark;
       }
     }
-
   }
 
   .linkIcon {

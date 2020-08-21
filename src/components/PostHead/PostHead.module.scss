@@ -1,0 +1,73 @@
+@import '~Styles/global.scss';
+
+.headWrapper {
+  @extend %appleBackdrop;
+
+  position: fixed;
+  top: 5px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  padding: 0 15px;
+  color: $text-black;
+  box-shadow: 0 3px 10px $light-box-shadow-head;
+  z-index: $header-line-z-index - 1;
+  font-family: $title-font;
+  will-change: top;
+  transition: top 300ms $smooth-transition;
+  box-sizing: border-box;
+
+  &:not(.show) {
+    top: -55px;
+    transition: top 600ms $smooth-transition;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    color: $text-white;
+    box-shadow: 0 3px 10px $dark-box-shadow-head;
+  }
+
+  .headContents {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    max-width: $mobile-width;
+    margin: 0 auto;
+
+    .blogName {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+
+      .blogNameWrapper {
+        width: 8px;
+        height: 8px;
+        overflow: visible;
+        background-color: $theme-color;
+
+        @media (prefers-color-scheme: dark) {
+          background-color: $theme-color-dark;
+        }
+      }
+
+      .blogNameText {
+        margin: 0 3px;
+        color: $text-black;
+        font-size: 17px;
+        font-weight: bold;
+
+        @media (prefers-color-scheme: dark) {
+          color: $text-white;
+          transition: all 200ms ease-in-out;
+        }
+      }
+    }
+
+    .postTitle {
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+}

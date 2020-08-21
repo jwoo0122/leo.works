@@ -8,8 +8,10 @@
   .post-meta {
 
     .post-title {
+      margin-top: 10px;
       font-size: 40px;
       font-family: $title-font;
+      font-weight: bold;
       line-height: 50px;
       color: $text-black;
       word-wrap: normal;
@@ -25,7 +27,6 @@
       font-family: $title-font, sans-serif;
       font-size: 17px;
       font-weight: bold;
-      margin-top: 15px;
       color: $text-black;
 
       @media (prefers-color-scheme: dark) {

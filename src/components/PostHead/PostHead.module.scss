@@ -7,13 +7,15 @@
   top: 5px;
   left: 0;
   width: 100%;
-  height: 40px;
+  height: 50px;
+  padding: 0 15px;
   color: $text-black;
   box-shadow: 0 3px 10px $light-box-shadow;
   z-index: $header-line-z-index - 1;
   font-family: $title-font;
   will-change: top;
   transition: top ease-in-out 200ms;
+  box-sizing: border-box;
 
   &:not(.show) {
     top: -55px;
@@ -40,7 +42,7 @@
 
       .blogNameWrapper {
         width: 8px;
-        height: 7px;
+        height: 8px;
         overflow: visible;
         background-color: $theme-color;
 
@@ -52,7 +54,7 @@
       .blogNameText {
         margin: 0 3px;
         color: $text-black;
-        font-size: 15px;
+        font-size: 17px;
         font-weight: bold;
 
         @media (prefers-color-scheme: dark) {
@@ -63,7 +65,7 @@
     }
 
     .postTitle {
-      font-size: 14px;
+      font-size: 16px;
       font-weight: bold;
     }
   }

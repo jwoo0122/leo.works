@@ -13,7 +13,8 @@
       "Components/*": ["src/components/*"],
       "Static/*": ["src/static/*"],
       "Styles/*": ["src/styles/*"],
-      "Templates/*": ["src/templates/*"]
+      "Templates/*": ["src/templates/*"],
+      "Hooks/*": ["src/hooks/*"]
     }
   }
 }

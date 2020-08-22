@@ -17,6 +17,7 @@ import {
   Anchor,
   SuperScript,
   CodeBlock,
+  CodePiece,
   OrderedList,
 } from './content'
 
@@ -44,6 +45,7 @@ const rehype = new RehypeReact({
       a: Anchor,
       p: Paragraph,
       pre: CodeBlock,
+      code: CodePiece,
       ol: OrderedList,
     }
   }).Compiler

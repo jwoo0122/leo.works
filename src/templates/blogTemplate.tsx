@@ -4,6 +4,7 @@ import { graphql, Link } from 'gatsby'
 import RehypeReact from 'rehype-react'
 
 // Int
+import { profileUrl } from 'Constants/Gravatar'
 import Layout from 'Components/Layout'
 import Utterances from 'Components/Utterances'
 import SEO from 'Components/Seo'
@@ -68,7 +69,11 @@ export default function blogTemplate({
       <PostHead postTitle={title} />
       <div className={styles.postContainer}>
         <div className={styles.postMeta}>
-          <Link to="/" style={{ textDecoration: 'none' }}>
+          <Link to="/" style={{ textDecoration: 'none', display: 'block' }}>
+            <img
+              className={styles.profileImg}
+              src={profileUrl}
+            />
             <div className={styles.postAuthorWrapper}>
               <span className={styles.postAuthor}>{author}</span>
             </div>

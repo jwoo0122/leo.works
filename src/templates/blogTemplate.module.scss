@@ -8,7 +8,7 @@
   .post-meta {
 
     .post-title {
-      margin-top: 10px;
+      margin-top: 20px;
       font-size: 40px;
       font-family: $title-font;
       font-weight: bold;
@@ -21,6 +21,13 @@
       @media (prefers-color-scheme: dark) {
         color: $text-white;
       }
+    }
+
+    .profileImg {
+      width: 40px;
+      height: 40px;
+      border-radius: 100%;
+      margin-bottom: 5px;
     }
 
     .post-author-wrapper {

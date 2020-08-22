@@ -10,15 +10,17 @@
   margin-bottom: 70px;
 
   .profileContainer {
+    display: block;
     width: 80px;
     height: 80px;
-    margin-bottom: 38px;
+    margin-bottom: 45px;
 
     .profileImage {
       width: 100%;
       height: 100%;
       border-radius: 100%;
       box-shadow: 0 8px 25px $light-box-shadow-link;
+      transition: filter 200ms ease-out;
 
       @media (prefers-color-scheme: dark) {
         box-shadow: 0 8px 25px $dark-box-shadow-link;

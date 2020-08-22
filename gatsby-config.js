@@ -57,7 +57,7 @@ module.exports = {
         short_name: `Leo`,
         start_url: `/`,
         display: `minimal-ui`,
-        icon: `src/static/images/star.png`,
+        icon: `src/static/images/cat.jpeg`,
       },
     },
     {

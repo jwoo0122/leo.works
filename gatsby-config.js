@@ -87,6 +87,7 @@ module.exports = {
                     path
                     title
                     date
+                    description
                   }
                 }
               }

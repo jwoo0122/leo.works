@@ -6,19 +6,13 @@ import { graphql } from "gatsby"
 import Layout from "Components/Layout"
 import SEO from "Components/Seo"
 import Search from "Components/Search"
-import styles from "./index.module.scss"
+import IndexTitle from 'Components/IndexTitle'
 
 export default function IndexPage() {
   return (
     <Layout>
       <SEO />
-      <div className={styles.titleContainer}>
-        <div className={styles.titleBy}>
-          <div className={styles.string}>
-            BY LEO JEONG
-          </div>
-        </div>
-      </div>
+      <IndexTitle />
       <Search />
     </Layout>
   )

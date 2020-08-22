@@ -10,7 +10,7 @@
   height: 50px;
   padding: 0 15px;
   color: $text-black;
-  box-shadow: 0 3px 10px $light-box-shadow-head;
+  box-shadow: 0 5px 10px $light-box-shadow-head;
   z-index: $header-line-z-index - 1;
   font-family: $title-font;
   will-change: top;
@@ -24,7 +24,7 @@
 
   @media (prefers-color-scheme: dark) {
     color: $text-white;
-    box-shadow: 0 3px 10px $dark-box-shadow-head;
+    box-shadow: 0 5px 10px $dark-box-shadow-head;
   }
 
   .headContents {

@@ -2,17 +2,17 @@
   overflow: hidden;
   overflow-x: scroll;
   padding: 15px;
-  background-color: rgba(0, 0, 0, .05);
-  color: rgba(0, 0, 0, 0.6);
-  border-radius: 10px;
-  font-family: 'Hack' !important;
+  background-color: rgba(0,0,0,.05);
+  border-radius: 5px;
+  font-family: 'Hack';
   font-size: 14px;
+  color: rgba(0,0,0,.7);
   line-height: 22px;
   word-wrap: normal;
   word-break: keep-all;
 
   @media (prefers-color-scheme: dark) {
-    color: inherit;
     background-color: rgba(0,0,0,.3);
+    color: rgba(255, 255, 255, .5);
   }
 }

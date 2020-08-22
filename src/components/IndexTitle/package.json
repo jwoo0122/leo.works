@@ -1,0 +1,6 @@
+{
+  "name": "IndexTitle",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./IndexTitle.tsx"
+}

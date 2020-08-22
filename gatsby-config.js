@@ -7,6 +7,7 @@ module.exports = {
     title: `by Leo Jeong`,
     author: `Leo Jeong`,
     description: `공부하며 개발하는 정진우의 블로그입니다.`,
+    siteUrl: 'https://leo.works',
   },
   plugins: [
     {
@@ -17,6 +18,15 @@ module.exports = {
       },
     },
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+        host: 'https://leo.works',
+        sitemap: 'https://leo.works/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -77,6 +87,7 @@ module.exports = {
                     path
                     title
                     date
+                    description
                   }
                 }
               }

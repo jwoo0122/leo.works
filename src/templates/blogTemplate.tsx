@@ -57,6 +57,7 @@ export default function blogTemplate({
 }: TemplateProps) {
   const { markdownRemark } = data
   const { frontmatter: { title, date, author, description }, htmlAst } = markdownRemark
+  console.log(title, date, author, description)
 
   return (
     <Layout>
@@ -103,6 +104,7 @@ export const pageQuery = graphql`
         path
         title
         author
+        description
       }
     }
   }

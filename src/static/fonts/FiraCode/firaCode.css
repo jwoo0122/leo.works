@@ -43,15 +43,6 @@
        url("FiraCode-Bold.woff") format("woff");
 }
 
-/* -------------------------------------------------------
-Variable font.
-Usage:
-
-  html { font-family: 'FiraCode', sans-serif; }
-  @supports (font-variation-settings: normal) {
-    html { font-family: 'FiraCode var', sans-serif; }
-  }
-*/
 @font-face {
   font-family: 'FiraCode var';
   font-weight: 100 900;

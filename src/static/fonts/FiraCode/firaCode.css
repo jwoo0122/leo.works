@@ -1,0 +1,63 @@
+@font-face {
+  font-family: 'FiraCode';
+  font-style:  normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("FiraCode-Light.woff2") format("woff2"),
+       url("FiraCode-Light.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'FiraCode';
+  font-style:  normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("FiraCode-Regular.woff2") format("woff2"),
+       url("FiraCode-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'FiraCode';
+  font-style:  normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("FiraCode-Medium.woff2") format("woff2"),
+       url("FiraCode-Medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'FiraCode';
+  font-style:  normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("FiraCode-SemiBold.woff2") format("woff2"),
+       url("FiraCode-SemiBold.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'FiraCode';
+  font-style:  normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("FiraCode-Bold.woff2") format("woff2"),
+       url("FiraCode-Bold.woff") format("woff");
+}
+
+/* -------------------------------------------------------
+Variable font.
+Usage:
+
+  html { font-family: 'FiraCode', sans-serif; }
+  @supports (font-variation-settings: normal) {
+    html { font-family: 'FiraCode var', sans-serif; }
+  }
+*/
+@font-face {
+  font-family: 'FiraCode var';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: 'Regular';
+  src: url("FiraCode-VF.woff2") format("woff2"),
+       url("FiraCode-VF.woff") format("woff");
+}

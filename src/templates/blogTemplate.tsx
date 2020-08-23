@@ -12,6 +12,7 @@ import PostHead from 'Components/PostHead'
 import styles from './blogTemplate.module.scss'
 import {
   Heading,
+  Heading2,
   Paragraph,
   Quote,
   Horizon,
@@ -40,6 +41,7 @@ const rehype = new RehypeReact({
     createElement: React.createElement,
     components: {
       h1: Heading,
+      h2: Heading2,
       blockquote: Quote,
       hr: Horizon,
       sup: SuperScript,

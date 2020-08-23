@@ -1,0 +1,17 @@
+@import '~Styles/global.scss';
+
+.heading1 {
+  padding-top: 65px;
+  margin-top: -65px;
+  margin-right: 10px;
+  font-family: 'Montserrat';
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 28px;
+  color: $text-black;
+  transition: all 100ms ease-in-out;
+
+  @media (prefers-color-scheme: dark) {
+    color: $text-white;
+  }
+}

@@ -16,7 +16,7 @@ function PostHead({ postTitle }: PostHeadProps) {
   const [scrolled, setScrolled] = useState(false)
 
   const handleScroll = useCallback(_.throttle(() => {
-    if (document.documentElement.scrollTop >= 100) { setScrolled(true) }
+    if (document.documentElement.scrollTop >= 150) { setScrolled(true) }
     else { setScrolled(false) }
   }, 200), [])
 

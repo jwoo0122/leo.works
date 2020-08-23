@@ -1,4 +1,5 @@
 export { default as Heading } from './Heading'
+export { default as Heading2 } from './Heading2'
 export { default as Paragraph } from './Paragraph'
 export { default as Quote } from './Quote'
 export { default as Horizon } from './Horizon'

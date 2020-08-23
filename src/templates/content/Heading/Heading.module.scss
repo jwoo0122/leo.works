@@ -14,8 +14,9 @@
     margin-right: 10px;
     font-family: 'Montserrat';
     font-size: 30px;
+    font-weight: bold;
     line-height: 35px;
-    color: rgba(0,0,0,.8);
+    color: $text-black;
     transition: all 100ms ease-in-out;
 
     &.hover {
@@ -23,7 +24,7 @@
     }
 
     @media (prefers-color-scheme: dark) {
-      color: white;
+      color: $text-white;
 
       &.hover {
         color: $theme-color-dark;

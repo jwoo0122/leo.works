@@ -151,15 +151,6 @@
        url("Inter-BlackItalic.woff?v=3.15") format("woff");
 }
 
-/* -------------------------------------------------------
-Variable font.
-Usage:
-
-  html { font-family: 'Inter', sans-serif; }
-  @supports (font-variation-settings: normal) {
-    html { font-family: 'Inter var', sans-serif; }
-  }
-*/
 @font-face {
   font-family: 'Inter var';
   font-weight: 100 900;

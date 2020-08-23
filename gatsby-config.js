@@ -101,27 +101,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-typescript`,
-    // {
-    //   resolve: `gatsby-plugin-prefetch-google-fonts`,
-    //   options: {
-    //     fonts: [
-    //       {
-    //         family: `Inter`,
-    //         variants: [`100`, `400`, `700`],
-    //       },
-    //       {
-    //         family: `Montserrat`,
-    //         variants: [`400`, `700`, `900`],
-    //       },
-    //       {
-    //         family: `Noto Sans KR`,
-    //         subsets: [`korean`],
-    //         variants: [`100`, `400`, `700`],
-    //       },
-    //     ],
-    //     stats: false,
-    //   },
-    // },
     {
       resolve: "gatsby-plugin-react-svg",
       options: {

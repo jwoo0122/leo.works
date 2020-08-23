@@ -33,7 +33,7 @@
   }
 
   .post-title {
-    font-family: $title-font, sans-serif;
+    font-family: $title-font;
     font-size: 25px;
     font-weight: bold;
     line-height: 35px;
@@ -45,7 +45,7 @@
   }
 
   .post-meta {
-    font-family: $title-font, sans-serif;
+    font-family: $title-font;
     font-size: 13px;
     margin-bottom: 5px;
     color: rgba(0, 0, 0, 0.5);

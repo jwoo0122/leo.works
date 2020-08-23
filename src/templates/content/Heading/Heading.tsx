@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import classnames from 'classnames'
 
 // Int
-import LinkIcon from 'static/images/link.svg'
 import styles from './Heading.module.scss'
 
 interface HeadingProps {
@@ -30,12 +29,6 @@ export default function Heading({
       >
         { children }
       </div>
-
-      <LinkIcon
-        className={classnames(styles.linkIcon, {
-          [styles.visible]: isHover,
-        })}
-      />
     </a>
   )
 }

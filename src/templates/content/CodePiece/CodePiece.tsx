@@ -8,6 +8,7 @@ import _ from 'lodash'
 
 // Int
 import useDarkMode from 'Hooks/useDarkMode'
+import styles from './CodePiece.module.scss'
 
 interface CodePieceProps {
   className?: string
@@ -65,7 +66,7 @@ function CodePiece({
 
   if (!language) {
     return (
-      <code>
+      <code className={styles.singleCodePiece}>
         { children }
       </code>
     )

@@ -11,6 +11,7 @@ interface SeoProps {
   date?: string
   description?: string
   lang?: string
+  image?: string
   meta?: Array<any>
 }
 
@@ -20,6 +21,7 @@ export default function Seo({
   date = '',
   description = '',
   lang = 'ko',
+  image,
   meta = [],
 }: SeoProps) {
   const { site } = useStaticQuery(
@@ -51,6 +53,7 @@ export default function Seo({
       <meta property="og:title" content={title} />
       <meta property="og:site_name" content={SITE_NAME} />
       <meta property="og:description" content={metaDescription} />
+      <meta property="og:image" content={image} />
       <meta property="og:type" content="website" />
 
       <style type="text/css">{`

@@ -19,32 +19,16 @@
     color: $text-black;
     transition: all 100ms ease-in-out;
 
-    &.hover {
+    &:hover {
       color: $theme-color;
     }
 
     @media (prefers-color-scheme: dark) {
       color: $text-white;
 
-      &.hover {
+      &:hover {
         color: $theme-color-dark;
       }
-    }
-  }
-
-  .linkIcon {
-    opacity: 0;
-    width: 15px;
-    height: 15px;
-    fill: rgba(0,0,0,.6);
-    transition: all 100ms ease-in-out;
-
-    @media (prefers-color-scheme: dark) {
-      fill: white;
-    }
-
-    &.visible {
-      opacity: 1;
     }
   }
 }

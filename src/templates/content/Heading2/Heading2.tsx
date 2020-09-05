@@ -12,8 +12,16 @@ export default function Heading({
   children,
 }: HeadingProps) {
   return (
-    <div className={styles.heading1}>
-      { children }
-    </div>
+    <a
+      href={`#${children[0]}`}
+      className={styles.linkWrapper}
+    >
+      <div
+        id={children[0]}
+        className={styles.heading1}
+      >
+        { children }
+      </div>
+    </a>
   )
 }

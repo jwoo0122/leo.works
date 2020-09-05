@@ -34,7 +34,7 @@ interface TemplateProps {
         title: string
         author: string
         description: string
-        featuredImage: string
+        featuredImage: any
       }
       htmlAst: any
     }
@@ -71,7 +71,13 @@ export default function blogTemplate({
       date,
       author,
       description,
-      featuredImage,
+      featuredImage: {
+        childImageSharp: {
+          fluid: {
+            src,
+          },
+        },
+      },
     },
     htmlAst,
   } = markdownRemark
@@ -83,7 +89,7 @@ export default function blogTemplate({
         author={author}
         date={date}
         description={description}
-        image={featuredImage}
+        image={src}
       />
       <PostHead postTitle={title} />
       <div className={styles.postContainer}>
@@ -123,6 +129,13 @@ export const pageQuery = graphql`
         title
         author
         description
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 1200, quality: 99) {
+              src
+            }
+          }
+        }
       }
     }
   }

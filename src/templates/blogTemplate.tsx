@@ -34,6 +34,7 @@ interface TemplateProps {
         title: string
         author: string
         description: string
+        featuredImage: string
       }
       htmlAst: any
     }
@@ -64,8 +65,16 @@ export default function blogTemplate({
   data,
 }: TemplateProps) {
   const { markdownRemark } = data
-  const { frontmatter: { title, date, author, description }, htmlAst } = markdownRemark
-  console.log(title, date, author, description)
+  const {
+    frontmatter: {
+      title,
+      date,
+      author,
+      description,
+      featuredImage,
+    },
+    htmlAst,
+  } = markdownRemark
 
   return (
     <Layout>
@@ -74,6 +83,7 @@ export default function blogTemplate({
         author={author}
         date={date}
         description={description}
+        image={featuredImage}
       />
       <PostHead postTitle={title} />
       <div className={styles.postContainer}>

@@ -1,10 +1,11 @@
 @import "~Styles/global";
 
 .wrapper {
+  margin: 10px 0;
   padding-left: 30px;
   color: $text-black;
   font-size: $content-text-size;
-  list-style: decimal;
+  list-style: disc;
 
   @media (prefers-color-scheme: dark) {
     color: $text-white;

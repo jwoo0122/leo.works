@@ -1,7 +1,10 @@
+@import '~Styles/global.scss';
+
 .codeWrapper {
   overflow: hidden;
   overflow-x: scroll;
   padding: 15px;
+  margin: 15px 0;
   background-color: rgba(0, 0, 0, .05);
   color: rgba(0, 0, 0, 0.6);
   border-radius: 10px;
@@ -13,6 +16,6 @@
 
   @media (prefers-color-scheme: dark) {
     color: inherit;
-    background-color: rgba(0,0,0,.3);
+    background-color: rgba(0, 0, 0, .3);
   }
 }

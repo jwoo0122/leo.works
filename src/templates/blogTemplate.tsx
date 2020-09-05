@@ -13,6 +13,7 @@ import styles from './blogTemplate.module.scss'
 import {
   Heading,
   Heading2,
+  Bold,
   Paragraph,
   Quote,
   Horizon,
@@ -21,6 +22,7 @@ import {
   CodeBlock,
   CodePiece,
   OrderedList,
+  UnorderedList,
 } from './content'
 
 interface TemplateProps {
@@ -42,6 +44,7 @@ const rehype = new RehypeReact({
     components: {
       h1: Heading,
       h2: Heading2,
+      strong: Bold,
       blockquote: Quote,
       hr: Horizon,
       sup: SuperScript,
@@ -50,6 +53,7 @@ const rehype = new RehypeReact({
       pre: CodeBlock,
       code: CodePiece,
       ol: OrderedList,
+      ul: UnorderedList,
     }
   }).Compiler
 

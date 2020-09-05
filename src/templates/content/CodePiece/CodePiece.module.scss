@@ -1,18 +1,14 @@
-.codeWrapper {
-  overflow: hidden;
-  overflow-x: scroll;
-  padding: 15px;
-  background-color: rgba(0,0,0,.05);
+.singleCodePiece {
+  display: inline-block;
+  padding: 0 7px;
+  background-color: rgba(0, 0, 0, .05);
+  font-family: 'FiraCode';
+  font-size: 13px;
+  color: rgba(255, 0, 0, .8);
   border-radius: 5px;
-  font-family: 'Hack';
-  font-size: 14px;
-  color: rgba(0,0,0,.7);
-  line-height: 22px;
-  word-wrap: normal;
-  word-break: keep-all;
 
   @media (prefers-color-scheme: dark) {
-    background-color: rgba(0,0,0,.3);
-    color: rgba(255, 255, 255, .5);
+    background-color: rgba(0, 0, 0, .3);
+    color: #2a77aa;
   }
 }

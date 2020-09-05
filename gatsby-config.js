@@ -17,7 +17,6 @@ module.exports = {
         name: `markdown-pages`,
       },
     },
-    `gatsby-plugin-sharp`,
     `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-robots-txt`,
@@ -61,6 +60,7 @@ module.exports = {
         path: `${__dirname}/src/static/images`,
       },
     },
+    `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -90,7 +90,6 @@ module.exports = {
                     title
                     date
                     description
-                    featuredImage
                   }
                 }
               }

@@ -36,6 +36,7 @@ module.exports = {
             options: {
               linkImagesToOriginal: false,
               disableBgImage: true,
+              quality: 100,
               withWebp: true,
               loading: 'lazy',
             },

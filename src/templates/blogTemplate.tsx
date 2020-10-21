@@ -10,6 +10,7 @@ import Utterances from 'Components/Utterances'
 import SEO from 'Components/Seo'
 import PostHead from 'Components/PostHead'
 import TransitionLink from 'Components/TransitionLink'
+import withTwoPassRendering from 'Hocs/withTwoPassRendering'
 import styles from './blogTemplate.module.scss'
 import {
   Heading,
@@ -38,6 +39,11 @@ interface TemplateProps {
         featuredImage: any
       }
       htmlAst: any
+      fields: {
+        readingTime: {
+          minutes: number
+        }
+      }
     }
   }
 }
@@ -62,7 +68,7 @@ const rehype = new RehypeReact({
   }).Compiler
 
 
-export default function blogTemplate({
+function blogTemplate({
   data,
 }: TemplateProps) {
   const { markdownRemark } = data
@@ -81,6 +87,11 @@ export default function blogTemplate({
       },
     },
     htmlAst,
+    fields: {
+      readingTime: {
+        minutes,
+      },
+    },
   } = markdownRemark
 
   return (
@@ -112,7 +123,7 @@ export default function blogTemplate({
             {title}
           </div>
           <div className={styles.postDate}>
-            {date}
+            {`${date} · ${Math.ceil(minutes)}min`}
           </div>
         </div>
         <div className={styles.content}>
@@ -142,6 +153,13 @@ export const pageQuery = graphql`
           }
         }
       }
+      fields {
+        readingTime {
+          minutes
+        }
+      }
     }
   }
 `
+
+export default withTwoPassRendering(blogTemplate)

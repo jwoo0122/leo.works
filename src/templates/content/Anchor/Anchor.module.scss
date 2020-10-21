@@ -1,6 +1,5 @@
 .link-container {
-  display: inline;
-  color: rgba(50, 150, 30, 0.8);
+  color: rgba(80, 190, 70, 0.8);
   transition: all 100ms ease-in-out;
 
   &:hover {
@@ -16,7 +15,7 @@
     display: inline;
     width: 11px;
     height: 11px;
-    fill: rgba(50, 150, 30, 0.8);
+    fill: rgba(80, 190, 70, 0.8);
     margin: 0 2px;
   }
 }

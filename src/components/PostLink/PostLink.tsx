@@ -1,8 +1,8 @@
 // Ext
 import React from 'react'
-import { Link } from 'gatsby'
 
 // Int
+import TransitionLink from 'Components/TransitionLink'
 import LinkStyle from 'Constants/LinkStyle'
 import Hit from 'Constants/Hit'
 import styles from './PostLink.module.scss'
@@ -17,11 +17,15 @@ export default function PostLink({ hit }: PostLinkProps) {
   } = hit
 
   return (
-    <Link to={path} style={LinkStyle}>
+    <TransitionLink
+      direction="down"
+      to={path}
+      style={LinkStyle}
+    >
       <div className={styles.postContainer}>
         <div className={styles.postMeta}>{date}</div>
         <div className={styles.postTitle}>{title}</div>
       </div>
-    </Link>
+    </TransitionLink>
   )
 }

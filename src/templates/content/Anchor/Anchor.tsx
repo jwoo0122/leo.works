@@ -1,5 +1,7 @@
+// Ext
 import React from 'react'
 
+// Int
 import LinkIcon from '../../../static/images/link.svg'
 import styles from './Anchor.module.scss'
 
@@ -14,12 +16,12 @@ export default function Anchor({
 }: AnchorProps) {
   return (
     <a href={href} style={{ textDecoration: 'none' }} target="_blank" rel="noopener noreferrer">
-      <div className={styles.linkContainer}>
+      <span className={styles.linkContainer}>
         { children }
         { (children as Array<any>).length === 1 && (
           <LinkIcon className={styles.linkIcon} />
         ) }
-      </div>
+      </span>
     </a>
   )
 }

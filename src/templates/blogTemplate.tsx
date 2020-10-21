@@ -1,6 +1,6 @@
 // Ext
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import RehypeReact from 'rehype-react'
 
 // Int
@@ -9,6 +9,7 @@ import Layout from 'Components/Layout'
 import Utterances from 'Components/Utterances'
 import SEO from 'Components/Seo'
 import PostHead from 'Components/PostHead'
+import TransitionLink from 'Components/TransitionLink'
 import styles from './blogTemplate.module.scss'
 import {
   Heading,
@@ -94,7 +95,11 @@ export default function blogTemplate({
       <PostHead postTitle={title} />
       <div className={styles.postContainer}>
         <div className={styles.postMeta}>
-          <Link to="/" style={{ textDecoration: 'none', display: 'block' }}>
+          <TransitionLink
+            direction="up"
+            to="/"
+            style={{ textDecoration: 'none', display: 'block' }}
+          >
             <img
               className={styles.profileImg}
               src={profileUrl}
@@ -102,7 +107,7 @@ export default function blogTemplate({
             <div className={styles.postAuthorWrapper}>
               <span className={styles.postAuthor}>{author}</span>
             </div>
-          </Link>
+          </TransitionLink>
           <div className={styles.postTitle}>
             {title}
           </div>

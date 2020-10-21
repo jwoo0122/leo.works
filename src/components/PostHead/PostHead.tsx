@@ -1,10 +1,9 @@
 // Ext
 import React, { useEffect, useCallback, useState } from 'react'
-import { Link } from 'gatsby'
 import classNames from 'classnames'
-import _ from 'lodash'
 
 // Int
+import TransitionLink from 'Components/TransitionLink'
 import LinkStyle from 'Constants/LinkStyle'
 import styles from './PostHead.module.scss'
 
@@ -15,10 +14,12 @@ interface PostHeadProps {
 function PostHead({ postTitle }: PostHeadProps) {
   const [scrolled, setScrolled] = useState(false)
 
-  const handleScroll = useCallback(_.throttle(() => {
-    if (document.documentElement.scrollTop >= 150) { setScrolled(true) }
-    else { setScrolled(false) }
-  }, 200), [])
+  const handleScroll = useCallback(() => {
+    window.requestAnimationFrame(() => {
+      if (document.documentElement.scrollTop >= 150) { setScrolled(true) }
+      else { setScrolled(false) }
+    })
+  }, [])
 
   useEffect(() => {
     document.addEventListener('scroll', handleScroll)
@@ -36,7 +37,11 @@ function PostHead({ postTitle }: PostHeadProps) {
       })}
     >
       <div className={styles.headContents}>
-        <Link to={'/'} style={LinkStyle}>
+        <TransitionLink
+          direction="up"
+          to={'/'}
+          style={LinkStyle}
+        >
           <div className={styles.blogName}>
             <div className={styles.blogNameWrapper} />
             <div className={styles.blogNameText}>
@@ -44,7 +49,7 @@ function PostHead({ postTitle }: PostHeadProps) {
             </div>
             <div className={styles.blogNameWrapper} />
           </div>
-        </Link>
+        </TransitionLink>
 
         <div className={styles.postTitle}>
           <span className={styles.titleText}>

@@ -7,8 +7,9 @@ import Layout from "Components/Layout"
 import SEO from "Components/Seo"
 import Search from "Components/Search"
 import IndexTitle from 'Components/IndexTitle'
+import withTwoPassRendering from "Hocs/withTwoPassRendering"
 
-export default function IndexPage() {
+function IndexPage() {
   return (
     <Layout>
       <SEO />
@@ -35,3 +36,5 @@ export const pageQuery = graphql`
     }
   }
 `
+
+export default withTwoPassRendering(IndexPage)

@@ -15,7 +15,8 @@
       "Static/*": ["src/static/*"],
       "Styles/*": ["src/styles/*"],
       "Templates/*": ["src/templates/*"],
-      "Hooks/*": ["src/hooks/*"]
+      "Hooks/*": ["src/hooks/*"],
+      "Hocs/*": ["src/hocs/*"]
     }
   }
 }

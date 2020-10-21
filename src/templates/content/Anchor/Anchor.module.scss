@@ -6,16 +6,4 @@
     color: rgba(20, 100, 15, 0.9);
     transition: all 100ms ease-in-out;
   }
-
-  & > img {
-    height: inherit !important;
-  }
-
-  .linkIcon {
-    display: inline;
-    width: 11px;
-    height: 11px;
-    fill: rgba(80, 190, 70, 0.8);
-    margin: 0 2px;
-  }
 }

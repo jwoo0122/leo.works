@@ -3,7 +3,7 @@ module.exports = function(api) {
 
   const presets = [
     [
-      "babel-preset-gatsby",
+      'babel-preset-gatsby',
       {
         reactRuntime: 'automatic'
       },

@@ -1,6 +1,3 @@
-// Ext
-import React from 'react'
-
 interface BoldProps {
   children: React.ReactNode
 }

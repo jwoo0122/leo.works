@@ -37,19 +37,21 @@
   "devDependencies": {
     "@types/classnames": "^2.2.11",
     "@types/lodash": "^4.14.165",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
     "@types/react-helmet": "^6.1.0",
     "@types/react-instantsearch-dom": "^5.2.6",
     "@types/react-syntax-highlighter": "^11.0.4",
     "@types/rehype-react": "^4.0.0",
     "@typescript-eslint/eslint-plugin": "^2.30.0",
     "@typescript-eslint/parser": "^2.30.0",
-    "babel-preset-gatsby": "^0.2.36",
+    "babel-preset-gatsby": "^0.8.0",
     "eslint": "^6.8.0",
     "eslint-config-react-app": "^5.2.1",
     "eslint-plugin-react": "^7.21.5",
     "husky": "^4.3.5",
     "lint-staged": "^10.5.3",
-    "typescript": "^3.8.3"
+    "typescript": "^4.1.3"
   },
   "license": "MIT",
   "scripts": {

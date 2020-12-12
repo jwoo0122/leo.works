@@ -1,7 +1,7 @@
 // See also: https://github.com/gatsbyjs/gatsby/issues/17914
 
 // Ext
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 /* eslint-disable react/display-name */
 export default function withTwoPassRendering(WrappedComponent) {

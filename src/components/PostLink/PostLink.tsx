@@ -1,6 +1,3 @@
-// Ext
-import React from 'react'
-
 // Int
 import TransitionLink from 'Components/TransitionLink'
 import LinkStyle from 'Constants/LinkStyle'

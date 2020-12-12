@@ -1,5 +1,5 @@
 // Ext
-import React, { useMemo } from 'react'
+import { useMemo } from 'react'
 import Link from 'gatsby-plugin-transition-link/AniLink'
 
 // Int

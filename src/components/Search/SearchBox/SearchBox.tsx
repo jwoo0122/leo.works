@@ -1,5 +1,5 @@
 // Ext
-import React, { useCallback, ChangeEvent } from "react"
+import { useCallback, ChangeEvent } from "react"
 import { connectSearchBox } from "react-instantsearch-dom"
 
 // Int

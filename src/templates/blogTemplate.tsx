@@ -1,5 +1,5 @@
 // Ext
-import React from 'react'
+import { createElement } from 'react'
 import { graphql } from 'gatsby'
 import RehypeReact from 'rehype-react'
 
@@ -49,7 +49,7 @@ interface TemplateProps {
 }
 
 const rehype = new RehypeReact({
-    createElement: React.createElement,
+    createElement,
     components: {
       h1: Heading,
       h2: Heading2,

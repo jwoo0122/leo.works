@@ -1,5 +1,10 @@
 // Ext
-import React, { createRef, useLayoutEffect } from "react"
+import {
+  createRef,
+  useLayoutEffect,
+  memo,
+  FC,
+} from "react"
 import _ from 'lodash'
 
 // Int
@@ -11,7 +16,7 @@ export interface UtterancesProps {
   repo: string
 }
 
-const Utterances: React.FC<UtterancesProps> = React.memo(({ repo }) => {
+const Utterances: FC<UtterancesProps> = memo(({ repo }) => {
   const containerRef = createRef<HTMLDivElement>()
   const isDarkMode = useDarkMode()
 

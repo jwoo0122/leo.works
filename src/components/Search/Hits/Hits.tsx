@@ -1,5 +1,5 @@
 // Ext
-import React, { useCallback } from "react"
+import { useCallback } from "react"
 import { connectHits } from "react-instantsearch-dom"
 
 // Int

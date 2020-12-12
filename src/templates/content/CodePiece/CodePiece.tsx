@@ -1,5 +1,5 @@
 // Ext
-import React, { useMemo } from 'react'
+import { useMemo } from 'react'
 import { Prism as SyntaxHighLighter } from 'react-syntax-highlighter'
 // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 // @ts-ignore

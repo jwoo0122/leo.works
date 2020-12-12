@@ -1,6 +1,3 @@
-// Ext
-import React from 'react'
-
 // Int
 import styles from './Heading2.module.scss'
 

@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './CodeBlock.module.scss'
 interface CodeBlockProps {
   children: React.ReactNode

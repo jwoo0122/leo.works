@@ -1,5 +1,5 @@
 // Ext
-import React, { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { connectStateResults } from 'react-instantsearch-dom'
 import _ from 'lodash'
 import classNames from 'classnames'

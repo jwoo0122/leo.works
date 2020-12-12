@@ -9,6 +9,7 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "noImplicitAny": false,
+    "noExplicitAny": false,
     "paths": {
       "Constants/*": ["src/constants/*"],
       "Components/*": ["src/components/*"],

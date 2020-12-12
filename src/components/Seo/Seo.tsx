@@ -12,7 +12,6 @@ interface SeoProps {
   description?: string
   lang?: string
   image?: string
-  meta?: Array<any>
 }
 
 export default function Seo({
@@ -22,7 +21,6 @@ export default function Seo({
   description = '',
   lang = 'ko',
   image,
-  meta = [],
 }: SeoProps) {
   const { site } = useStaticQuery(
     graphql`
@@ -62,7 +60,7 @@ export default function Seo({
           transition: all 200ms ease-in-out;
         }
         @media (prefers-color-scheme: dark) {
-          html {
+        html {
             background-color: rgb(20, 20, 20);
             transition: all 200ms ease-in-out;
           }

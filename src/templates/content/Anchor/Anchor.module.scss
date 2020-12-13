@@ -1,9 +1,33 @@
-.link-container {
-  color: rgba(80, 190, 70, 0.8);
-  transition: all 100ms ease-in-out;
+@import '~Styles/global';
 
+.link-container {
+  position: relative;
+  display: inline-block;
+  margin: 0 1px;
+  color: inherit;
+  transition: all 100ms ease-in-out;
+  font-weight: bold;
+  z-index: 0;
+
+  &::after {
+    position: absolute;
+    content: '';
+    right: -1px;
+    bottom: 5px;
+    left: -1px;
+    height: 5px;
+    background-color: $theme-color;
+    z-index: -1;
+    transition: all 100ms ease-out;
+    
+    @media (prefers-color-scheme: dark) {
+      background-color: $theme-color-dark;
+    }
+  }
+  
   &:hover {
-    color: rgba(20, 100, 15, 0.9);
-    transition: all 100ms ease-in-out;
+    &::after {
+      height: 18px;
+    }
   }
 }

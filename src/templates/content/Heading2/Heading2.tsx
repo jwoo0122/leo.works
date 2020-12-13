@@ -13,12 +13,12 @@ export default function Heading({
       href={`#${children[0]}`}
       className={styles.linkWrapper}
     >
-      <div
+      <h2
         id={children[0]}
         className={styles.heading1}
       >
         { children }
-      </div>
+      </h2>
     </a>
   )
 }

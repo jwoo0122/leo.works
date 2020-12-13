@@ -105,11 +105,16 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /images/,
+          include: /svgs/,
         },
       },
     },
-    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        useResolveUrlLoader: true,
+      },
+    },
     {
       resolve: 'gatsby-plugin-transition-link',
       options: {

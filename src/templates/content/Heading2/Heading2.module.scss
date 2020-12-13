@@ -6,13 +6,14 @@
   flex-direction: row;
   justify-content: flex-start;
   text-decoration: none;
+  width: fit-content;
 
   .heading1 {
     padding-top: 70px;
     margin-top: -55px;
     margin-right: 10px;
     font-family: 'Montserrat';
-    font-size: 20px;
+    font-size: 23px;
     font-weight: bold;
     line-height: 28px;
     color: $text-black;

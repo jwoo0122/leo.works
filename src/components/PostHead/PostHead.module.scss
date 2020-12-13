@@ -43,22 +43,10 @@
       align-items: center;
       height: 100%;
 
-      .blogNameWrapper {
-        width: 8px;
-        height: 8px;
-        overflow: visible;
-        background-color: $theme-color;
-
-        @media (prefers-color-scheme: dark) {
-          background-color: $theme-color-dark;
-        }
-      }
-
       .blogNameText {
-        margin: 0 3px;
         color: $text-black;
         font-size: 17px;
-        font-weight: 900;
+        font-weight: 600;
 
         @media (prefers-color-scheme: dark) {
           color: $text-white;

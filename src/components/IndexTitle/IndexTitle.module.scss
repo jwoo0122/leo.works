@@ -1,5 +1,7 @@
 @import '~Styles/global.scss';
 
+$rotate-skew-deg: -6deg;
+
 .title-container {
   display: flex;
   flex-direction: column;
@@ -12,7 +14,7 @@
     display: block;
     width: 120px;
     height: 120px;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
 
     .profileImage {
       width: 100%;
@@ -28,13 +30,15 @@
   }
 
   .title-by {
+    position: relative;
     display: flex;
     align-items: center;
     height: 10px;
     width: 100%;
     overflow: visible;
     background-color: $theme-color;
-    transform: rotate(-7deg);
+    transform: rotate($rotate-skew-deg) skew($rotate-skew-deg);
+    border-radius: 3px;
 
     @media (prefers-color-scheme: dark) {
       background-color: $theme-color-dark;
@@ -45,6 +49,23 @@
       margin-bottom: 20px;
     }
 
+    .center-strike {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background-color: $theme-color-dark;
+      z-index: -1;
+      
+      @media (prefers-color-scheme: dark) {
+        background-color: $theme-color;
+      }
+      
+      @media screen and (min-width: $mobile-width) {
+        height: 5px;
+      }
+    }
+    
     .string {
       @include textBorder(white, 3);
 

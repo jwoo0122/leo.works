@@ -10,12 +10,14 @@ export default function Layout({
   ...otherProps
 }: LayoutProps) {
   return (
-    <>
+    <div className={styles.ancient}>
       <Header />
-      <div className={styles.rootContainer}>
-        <div {...otherProps}>{children}</div>
-        <div className={styles.footerContainer}>© Leo jeong, 2020</div>
+      <div className={styles.rootWithBackground}>
+        <div className={styles.rootContainer}>
+          <div {...otherProps}>{children}</div>
+          <div className={styles.footerContainer}>© Leo jeong, 2020</div>
+        </div>
       </div>
-    </>
+    </div>
   )
 }

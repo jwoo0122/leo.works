@@ -1,18 +1,64 @@
 @import '~Styles/global.scss';
 
-.root-container {
-  margin: 0 auto;
-  max-width: $mobile-width;
-  padding: 45px 15px 0 15px;
-  color: black;
-  height: 100%;
+@mixin sidePattern {
+  position: absolute;
+  display: block;
+  content: '';
+  top: 0;
+  bottom: 0;
+  width: 150px;
+  min-height: 100vh;
+  background-image: url('../../static/images/background-pattern.png');
+  background-position: 0 0;
+  background-repeat: repeat;
+  background-size: 150px 150px;
+}
 
-  .footer-container {
-    font-family: $content-font;
-    height: 50px;
-    margin-top: 30px;
-    text-align: center;
-    font-size: 13px;
-    color: grey;
+.ancient {
+  height: 100%;
+  transition: all 200ms ease-in-out;
+  min-height: 100vh;
+  
+  @media (prefers-color-scheme: dark) {
+    background-color: rgb(20, 20, 20);
+  }
+  
+  .root-with-background {
+    position: relative;
+    display: flex;
+    
+    &::before {
+      @include sidePattern();
+      left: 0;
+    }
+    
+    &::after {
+      @include sidePattern();
+      right: 0;
+    }
+    
+    .root-container {
+      z-index: 1;
+      margin: 0 auto;
+      width: 100%;
+      max-width: $mobile-width;
+      padding: 45px 15px 0 15px;
+      color: black;
+      height: 100%;
+      background-color: white;
+      
+      @media (prefers-color-scheme: dark) {
+        background-color: rgb(20, 20, 20);
+      }
+      
+      .footer-container {
+        font-family: $content-font;
+        height: 50px;
+        margin-top: 30px;
+        text-align: center;
+        font-size: 13px;
+        color: grey;
+      }
+    }
   }
 }

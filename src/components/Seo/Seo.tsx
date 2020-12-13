@@ -52,24 +52,6 @@ export default function Seo({
       <meta property="og:description" content={metaDescription} />
       <meta property="og:image" content={image} />
       <meta property="og:type" content="website" />
-
-      <style type="text/css">{`
-        html {
-          height: 100%;
-          transition: all 200ms ease-in-out;
-        }
-        @media (prefers-color-scheme: dark) {
-        html {
-            background-color: rgb(20, 20, 20);
-            transition: all 200ms ease-in-out;
-          }
-        }
-        body {
-          margin: 0;
-          height: 100%;
-        }
-      `}
-      </style>
     </Helmet>
   )
 }

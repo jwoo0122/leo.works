@@ -12,6 +12,7 @@ function IndexTitle() {
         />
       </div>
       <div className={styles.titleBy}>
+        <div className={styles.centerStrike}/>
         <div className={styles.string}>
           BY LEO JEONG
         </div>

@@ -7,6 +7,8 @@ import TransitionLink from 'Components/TransitionLink'
 import LinkStyle from 'Constants/LinkStyle'
 import styles from './PostHead.module.scss'
 
+const SCROLL_THRESHOLD = 150
+
 interface PostHeadProps {
   postTitle: string
 }
@@ -16,12 +18,15 @@ function PostHead({ postTitle }: PostHeadProps) {
 
   const handleScroll = useCallback(() => {
     window.requestAnimationFrame(() => {
-      if (document.documentElement.scrollTop >= 150) { setScrolled(true) }
+      if (document.documentElement.scrollTop >= SCROLL_THRESHOLD) { setScrolled(true) }
       else { setScrolled(false) }
     })
   }, [])
 
   useEffect(() => {
+    if (document.documentElement.scrollTop >= SCROLL_THRESHOLD) {
+      setScrolled(true)
+    }
     document.addEventListener('scroll', handleScroll)
 
     return function cleanUp() {
@@ -43,11 +48,9 @@ function PostHead({ postTitle }: PostHeadProps) {
           style={LinkStyle}
         >
           <div className={styles.blogName}>
-            <div className={styles.blogNameWrapper} />
             <div className={styles.blogNameText}>
-              B L J
+              Leo Jeong
             </div>
-            <div className={styles.blogNameWrapper} />
           </div>
         </TransitionLink>
 

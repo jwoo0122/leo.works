@@ -10,7 +10,12 @@ interface PostLinkProps {
 
 export default function PostLink({ hit }: PostLinkProps) {
   const {
-    frontmatter: { path, title, date },
+    frontmatter: {
+      path,
+      title,
+      date,
+      description,
+    },
   } = hit
 
   return (
@@ -20,8 +25,9 @@ export default function PostLink({ hit }: PostLinkProps) {
       style={LinkStyle}
     >
       <div className={styles.postContainer}>
-        <div className={styles.postMeta}>{date}</div>
-        <div className={styles.postTitle}>{title}</div>
+        <div className={styles.postMeta}>{ date }</div>
+        <div className={styles.postTitle}>{ title }</div>
+        <div className={styles.postDescription}>{ description }</div>
       </div>
     </TransitionLink>
   )

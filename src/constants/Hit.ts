@@ -4,5 +4,6 @@ export default interface Hit {
     path: string
     title: string
     date: string
+    description: string
   }
 }

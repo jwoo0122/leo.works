@@ -10,7 +10,7 @@ import withTwoPassRendering from "Hocs/withTwoPassRendering"
 
 function IndexPage() {
   return (
-    <Layout hideHeaderLine>
+    <Layout>
       <SEO />
       <IndexTitle />
       <Search />

@@ -10,12 +10,13 @@
   height: 50px;
   padding: 0 15px;
   color: $text-black;
-  box-shadow: 0 5px 10px $light-box-shadow-head;
   z-index: $header-line-z-index - 1;
   font-family: $title-font;
   will-change: top;
   transition: top 300ms $smooth-transition;
   box-sizing: border-box;
+  box-shadow: 0 5px 8px $light-box-shadow-head;
+  border-bottom: 1px solid rgba(0, 0, 0, .05);
 
   &:not(.show) {
     top: -55px;
@@ -24,7 +25,8 @@
 
   @media (prefers-color-scheme: dark) {
     color: $text-white;
-    box-shadow: 0 5px 10px $dark-box-shadow-head;
+    box-shadow: 0 5px 8px $dark-box-shadow-head;
+    border-bottom: 1px solid rgba(255, 255, 255, .05);
   }
 
   .headContents {

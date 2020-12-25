@@ -11,7 +11,7 @@
     font-size: 16px;
     font-family: $content-font;
     border: none;
-    border-radius: 10px;
+    border-radius: 7px;
     outline: none;
     background-color: rgba(0, 0, 0, 0.05);
     transition: all 150ms ease-in-out;
@@ -21,7 +21,7 @@
 
       &::placeholder {
         transition: all 150ms ease-in-out;
-        color: rgba(0, 0, 0, 0.1);
+        color: rgba(0, 0, 0, .07);
       }
     }
 
@@ -32,7 +32,7 @@
 
     @media (prefers-color-scheme: dark) {
       color: $text-white;
-      background-color: rgba(255, 255, 255, 0.05);
+      background-color: rgba(167, 167, 255, 0.04);
 
       &:focus::placeholder {
         color: rgb(50, 50, 50);
@@ -40,7 +40,7 @@
 
       &::placeholder {
         transition: all 150ms ease-in-out;
-        color: $gray;
+        color: rgba(230, 230, 255, .2);
       }
     }
   }

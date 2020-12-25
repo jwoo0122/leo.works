@@ -6,11 +6,11 @@
   content: '';
   right: 0;
   left: 0;
-  height: 100px;
+  height: 70px;
   background-image: url('../../static/images/background-pattern.png');
   background-position: 0 0;
   background-repeat: repeat;
-  background-size: 100px 100px;
+  background-size: 70px 70px;
   pointer-events: none;
 }
 
@@ -19,7 +19,7 @@
   transition: all 200ms ease-in-out;
   
   @media (prefers-color-scheme: dark) {
-    background-color: rgb(20, 20, 20);
+    background-color: $dark-gray;
   }
   
   .root-with-background {
@@ -32,12 +32,7 @@
       top: 0;
       transform: rotate(180deg);
     }
-    
-    &::after {
-      @include sidePattern();
-      bottom: 0;
-    }
-    
+
     .root-container {
       z-index: 1;
       margin: 0 auto;
@@ -50,7 +45,7 @@
       box-sizing: border-box;
       
       @media (prefers-color-scheme: dark) {
-        background-color: rgb(20, 20, 20);
+        background-color: $dark-gray;
       }
       
       @media screen and (max-width: $mobile-width) {

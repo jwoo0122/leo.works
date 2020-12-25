@@ -2,13 +2,38 @@
 
 .post-container {
   @media (prefers-color-scheme: dark) {
-    color: $background-dark;
+    color: $text-white;
   }
 
   .post-meta {
+    margin: 20px 0 40px;
+
+    .post-author-wrapper {
+      display: flex;
+      align-items: center;
+      font-family: $title-font;
+      font-size: 17px;
+      font-weight: bold;
+      color: $text-black;
+
+      @media (prefers-color-scheme: dark) {
+        color: $text-white;
+      }
+      
+      .backIcon {
+        display: inline-block;
+      }
+      
+      .profileImg {
+        width: 25px;
+        height: 25px;
+        margin-left: 10px;
+        border-radius: 100%;
+      }
+    }
 
     .post-title {
-      margin-top: 20px;
+      margin-top: 15px;
       font-size: 40px;
       font-family: $title-font;
       font-weight: 900;
@@ -23,45 +48,17 @@
       }
     }
 
-    .profileImg {
-      width: 40px;
-      height: 40px;
-      border-radius: 100%;
-      margin-bottom: 5px;
-    }
-
-    .post-author-wrapper {
-      font-family: $title-font;
-      font-size: 17px;
-      font-weight: bold;
-      color: $text-black;
-
-      @media (prefers-color-scheme: dark) {
-        color: $text-white;
-      }
-
-      .post-author {
-        font-size: 20px;
-      }
-    }
-
     .post-date {
       font-size: 14px;
       font-family: $title-font;
       color: grey;
-      margin-top: 10px;
+      margin-top: 5px;
     }
   }
 
   .content {
     font-family: $content-font;
     line-height: 1.9;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-
-    @media (prefers-color-scheme: dark) {
-      border-top: 1px solid rgb(100, 100, 100);
-    }
 
     img[alt=gif] {
       width: 100%;

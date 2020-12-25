@@ -6,7 +6,7 @@
   }
 
   .post-meta {
-    margin: 20px 0 40px;
+    margin: 20px 0 0;
 
     .post-author-wrapper {
       display: flex;
@@ -53,6 +53,17 @@
       font-family: $title-font;
       color: grey;
       margin-top: 5px;
+    }
+  }
+  
+  .divider {
+    width: 50px;
+    height: 3px;
+    margin: 25px 0;
+    background-color: $theme-color;
+    
+    @media (prefers-color-scheme: dark) {
+      background-color: $theme-color-dark;
     }
   }
 

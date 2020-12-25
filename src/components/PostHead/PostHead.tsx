@@ -7,7 +7,7 @@ import TransitionLink from 'Components/TransitionLink'
 import LinkStyle from 'Constants/LinkStyle'
 import styles from './PostHead.module.scss'
 
-const SCROLL_THRESHOLD = 150
+const SCROLL_THRESHOLD = 200
 
 interface PostHeadProps {
   postTitle: string

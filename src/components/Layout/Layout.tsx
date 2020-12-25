@@ -1,4 +1,4 @@
-import Header from "Components/Header"
+// Int
 import styles from "./Layout.module.scss"
 
 interface LayoutProps extends React.HTMLProps<HTMLDivElement> {
@@ -11,7 +11,6 @@ export default function Layout({
 }: LayoutProps) {
   return (
     <div className={styles.ancient}>
-      <Header />
       <div className={styles.rootWithBackground}>
         <div className={styles.rootContainer}>
           <div {...otherProps}>{children}</div>

@@ -111,12 +111,12 @@ function blogTemplate({
             to="/"
             style={{ textDecoration: 'none', display: 'block' }}
           >
-            <img
-              className={styles.profileImg}
-              src={profileUrl}
-            />
             <div className={styles.postAuthorWrapper}>
-              <span className={styles.postAuthor}>{author}</span>
+              <span className={styles.backIcon}>{'〈'}</span>
+              <img
+                className={styles.profileImg}
+                src={profileUrl}
+              />
             </div>
           </TransitionLink>
           <div className={styles.postTitle}>
@@ -126,6 +126,7 @@ function blogTemplate({
             {`${date} · ${Math.ceil(minutes)}min`}
           </div>
         </div>
+        <div className={styles.divider}/>
         <div className={styles.content}>
           { rehype(htmlAst) }
         </div>

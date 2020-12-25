@@ -1,2 +1,2 @@
-export const LightAccent = '#8DCCB2'
-export const DarkAccent = '#A35686'
+export const LightAccent = '#A8CEBF'
+export const DarkAccent = '#864E71'

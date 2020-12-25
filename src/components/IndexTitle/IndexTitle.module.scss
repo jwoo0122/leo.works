@@ -49,7 +49,7 @@ $rotate-skew-deg: -6deg;
     }
 
     .string {
-      @include textBorder(white, 3);
+      @include textBorder(white, 4);
 
       margin-left: 10px;
       color: $text-black;
@@ -58,18 +58,18 @@ $rotate-skew-deg: -6deg;
       font-family: $title-font;
 
       @media (prefers-color-scheme: dark) {
-        @include textBorder($dark-gray, 3);
+        @include textBorder($dark-gray, 4);
 
         color: $text-white;
         transition: all 200ms ease-in-out;
       }
       
       @media screen and (min-width: $mobile-width) {
-        @include textBorder(white, 4);
+        @include textBorder(white, 5);
         font-size: 45px;
         
         @media (prefers-color-scheme: dark) {
-          @include textBorder($dark-gray, 4);
+          @include textBorder($dark-gray, 5);
         }
       }
     }

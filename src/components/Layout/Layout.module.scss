@@ -34,32 +34,23 @@
     }
 
     .root-container {
+      position: relative;
       z-index: 1;
       margin: 0 auto;
       width: 100%;
       max-width: $mobile-width;
-      padding: 45px 0 0;
       color: black;
       height: 100%;
-      background-color: white;
       box-sizing: border-box;
-      
-      @media (prefers-color-scheme: dark) {
-        background-color: $dark-gray;
-      }
-      
-      @media screen and (max-width: $mobile-width) {
-        padding: 45px 15px 0 15px;
-      }
-      
-      .footer-container {
-        font-family: $content-font;
-        height: 50px;
-        margin-top: 80px;
-        text-align: center;
-        font-size: 13px;
-        color: grey;
-      }
+    }
+    
+    .footer-container {
+      font-family: $content-font;
+      height: 50px;
+      margin-top: 80px;
+      text-align: center;
+      font-size: 13px;
+      color: grey;
     }
   }
 }

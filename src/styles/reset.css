@@ -19,8 +19,6 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
-	font: inherit;
 	vertical-align: baseline;
 }
 html{
@@ -47,7 +45,8 @@ footer, header, hgroup, menu, nav, section {
 body {
 	margin: 0;
 	height: 100%;
-  line-height: 1;
+	line-height: 1;
+	-webkit-text-size-adjust: none;
 }
 ol, ul {
 	list-style: none;

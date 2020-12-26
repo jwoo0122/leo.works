@@ -2,7 +2,6 @@
 import { graphql } from "gatsby"
 
 // Int
-import Layout from "Components/Layout"
 import SEO from "Components/Seo"
 import Search from "Components/Search"
 import IndexTitle from 'Components/IndexTitle'
@@ -10,11 +9,11 @@ import withTwoPassRendering from "Hocs/withTwoPassRendering"
 
 function IndexPage() {
   return (
-    <Layout>
+    <>
       <SEO />
       <IndexTitle />
       <Search />
-    </Layout>
+    </>
   )
 }
 

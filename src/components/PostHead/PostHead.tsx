@@ -1,20 +1,21 @@
 // Ext
 import { useEffect, useCallback, useState } from 'react'
+import { Link } from 'gatsby'
 import classNames from 'classnames'
 
 // Int
-import TransitionLink from 'Components/TransitionLink'
 import LinkStyle from 'Constants/LinkStyle'
 import styles from './PostHead.module.scss'
 
 const SCROLL_THRESHOLD = 200
 
 interface PostHeadProps {
-  postTitle: string
+  postTitle?: string
 }
 
 function PostHead({ postTitle }: PostHeadProps) {
   const [scrolled, setScrolled] = useState(false)
+  const [hasTitle, setHasTitle] = useState(false)
 
   const handleScroll = useCallback(() => {
     window.requestAnimationFrame(() => {
@@ -23,6 +24,14 @@ function PostHead({ postTitle }: PostHeadProps) {
     })
   }, [])
 
+  useEffect(() => {
+    const timer = setTimeout(() => setHasTitle(!!postTitle), 500)
+    
+    return function cleanUp() {
+      clearTimeout(timer)
+    }
+  }, [postTitle])
+  
   useEffect(() => {
     if (document.documentElement.scrollTop >= SCROLL_THRESHOLD) {
       setScrolled(true)
@@ -34,16 +43,14 @@ function PostHead({ postTitle }: PostHeadProps) {
     }
   }, [])
 
-
   return (
     <div
       className={classNames(styles.headWrapper, {
-        [styles.show]: scrolled,
+        [styles.show]: scrolled && hasTitle,
       })}
     >
       <div className={styles.headContents}>
-        <TransitionLink
-          direction="up"
+        <Link
           to={'/'}
           style={LinkStyle}
         >
@@ -52,7 +59,7 @@ function PostHead({ postTitle }: PostHeadProps) {
               Leo Jeong
             </div>
           </div>
-        </TransitionLink>
+        </Link>
 
         <div className={styles.postTitle}>
           <span className={styles.titleText}>

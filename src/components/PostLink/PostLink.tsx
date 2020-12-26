@@ -1,5 +1,7 @@
+// Ext
+import { Link } from 'gatsby'
+
 // Int
-import TransitionLink from 'Components/TransitionLink'
 import LinkStyle from 'Constants/LinkStyle'
 import Hit from 'Constants/Hit'
 import styles from './PostLink.module.scss'
@@ -19,8 +21,7 @@ export default function PostLink({ hit }: PostLinkProps) {
   } = hit
 
   return (
-    <TransitionLink
-      direction="down"
+    <Link
       to={path}
       style={LinkStyle}
     >
@@ -29,6 +30,6 @@ export default function PostLink({ hit }: PostLinkProps) {
         <div className={styles.postTitle}>{ title }</div>
         <div className={styles.postDescription}>{ description }</div>
       </div>
-    </TransitionLink>
+    </Link>
   )
 }

@@ -1,15 +1,12 @@
 // Ext
 import { createElement } from 'react'
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import RehypeReact from 'rehype-react'
 
 // Int
 import { profileUrl } from 'Constants/Gravatar'
-import Layout from 'Components/Layout'
 import Utterances from 'Components/Utterances'
 import SEO from 'Components/Seo'
-import PostHead from 'Components/PostHead'
-import TransitionLink from 'Components/TransitionLink'
 import withTwoPassRendering from 'Hocs/withTwoPassRendering'
 import styles from './blogTemplate.module.scss'
 import {
@@ -95,7 +92,7 @@ function blogTemplate({
   } = markdownRemark
 
   return (
-    <Layout>
+    <>
       <SEO
         title={title}
         author={author}
@@ -103,11 +100,9 @@ function blogTemplate({
         description={description}
         image={src}
       />
-      <PostHead postTitle={title} />
       <div className={styles.postContainer}>
         <div className={styles.postMeta}>
-          <TransitionLink
-            direction="up"
+          <Link
             to="/"
             style={{ textDecoration: 'none', display: 'block' }}
           >
@@ -118,7 +113,7 @@ function blogTemplate({
                 src={profileUrl}
               />
             </div>
-          </TransitionLink>
+          </Link>
           <div className={styles.postTitle}>
             {title}
           </div>
@@ -132,7 +127,7 @@ function blogTemplate({
         </div>
       </div>
       <Utterances repo="jwoo0122/leo.works"/>
-    </Layout>
+    </>
   )
 }
 

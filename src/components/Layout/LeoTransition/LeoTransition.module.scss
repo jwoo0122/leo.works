@@ -1,0 +1,73 @@
+@import '~Styles/global';
+
+$translate-x: 100%;
+$cubic: cubic-bezier(.62,0,0,.99);
+
+@mixin active-transition($cubic-beizer) {
+  transition-property: all;
+  transition-duration: 500ms;
+  transition-timing-function: $cubic-beizer;
+}
+
+@mixin enter($x) {
+  position: absolute;
+  transform: translateX($x);
+  opacity: 0;
+}
+
+@mixin exitActive($x) {
+  @include active-transition($cubic);
+  opacity: 0;
+  transform: translateX($x);
+}
+
+@mixin exitDone($x) {
+  opacity: 0;
+  transform: translateX($x);
+}
+
+.post-enter {
+  @include enter($translate-x);
+}
+
+.index-enter {
+  @include enter(-$translate-x);
+}
+
+.post-enter-active, .index-enter-active {
+  @include active-transition($cubic);
+  position: absolute;
+  width: 100%;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.post-enter-done, .index-enter-done {
+  position: initial;
+}
+
+.post-exit, .index-exit {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.post-exit-active {
+  @include exitActive($translate-x);
+}
+
+.post-exit-done {
+  @include exitDone($translate-x);
+}
+
+.index-exit-active {
+  @include exitActive(-$translate-x);
+}
+
+.index-exit-done {
+  @include exitDone(-$translate-x);
+}
+
+.content-base {
+  padding: 45px 15px 0;
+  box-sizing: border-box;
+}

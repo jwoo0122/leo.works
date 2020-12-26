@@ -1,16 +1,16 @@
 // Ext
 import { useEffect, useCallback, useState } from 'react'
+import { Link } from 'gatsby'
 import classNames from 'classnames'
 
 // Int
-import TransitionLink from 'Components/TransitionLink'
 import LinkStyle from 'Constants/LinkStyle'
 import styles from './PostHead.module.scss'
 
 const SCROLL_THRESHOLD = 200
 
 interface PostHeadProps {
-  postTitle: string
+  postTitle?: string
 }
 
 function PostHead({ postTitle }: PostHeadProps) {
@@ -34,6 +34,7 @@ function PostHead({ postTitle }: PostHeadProps) {
     }
   }, [])
 
+  if (!postTitle) { return null }
 
   return (
     <div
@@ -42,8 +43,7 @@ function PostHead({ postTitle }: PostHeadProps) {
       })}
     >
       <div className={styles.headContents}>
-        <TransitionLink
-          direction="up"
+        <Link
           to={'/'}
           style={LinkStyle}
         >
@@ -52,7 +52,7 @@ function PostHead({ postTitle }: PostHeadProps) {
               Leo Jeong
             </div>
           </div>
-        </TransitionLink>
+        </Link>
 
         <div className={styles.postTitle}>
           <span className={styles.titleText}>

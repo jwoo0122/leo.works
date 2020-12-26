@@ -115,12 +115,12 @@ module.exports = {
         useResolveUrlLoader: true,
       },
     },
-    {
-      resolve: 'gatsby-plugin-transition-link',
-      options: {
-        injectPageProps: false,
-      }
-    },
     'gatsby-remark-reading-time',
+    {
+      resolve: 'gatsby-plugin-layout',
+      options: {
+        component: require.resolve('./src/components/Layout/Layout.tsx'),
+      },
+    },
   ],
 }

@@ -1,21 +1,35 @@
 // Int
+import PostHead from '../PostHead'
+import LeoTransition from './LeoTransition'
 import styles from "./Layout.module.scss"
 
-interface LayoutProps extends React.HTMLProps<HTMLDivElement> {
+interface LayoutProps {
+  data: {
+    markdownRemark?: {
+      frontmatter?: {
+        title?: string
+      }
+    }
+  }
+  location: Location
   children: React.ReactNode
 }
 
 export default function Layout({
+  data,
+  location,
   children,
-  ...otherProps
 }: LayoutProps) {
   return (
     <div className={styles.ancient}>
       <div className={styles.rootWithBackground}>
+        <PostHead postTitle={data?.markdownRemark?.frontmatter?.title}/>
         <div className={styles.rootContainer}>
-          <div {...otherProps}>{children}</div>
-          <div className={styles.footerContainer}>© Leo jeong, 2020</div>
+          <LeoTransition location={location}>
+            { children }
+          </LeoTransition>
         </div>
+        <div className={styles.footerContainer}>© Leo jeong, 2020</div>
       </div>
     </div>
   )

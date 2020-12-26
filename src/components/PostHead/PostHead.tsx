@@ -15,6 +15,7 @@ interface PostHeadProps {
 
 function PostHead({ postTitle }: PostHeadProps) {
   const [scrolled, setScrolled] = useState(false)
+  const [hasTitle, setHasTitle] = useState(false)
 
   const handleScroll = useCallback(() => {
     window.requestAnimationFrame(() => {
@@ -23,6 +24,14 @@ function PostHead({ postTitle }: PostHeadProps) {
     })
   }, [])
 
+  useEffect(() => {
+    const timer = setTimeout(() => setHasTitle(!!postTitle), 500)
+    
+    return function cleanUp() {
+      clearTimeout(timer)
+    }
+  }, [postTitle])
+  
   useEffect(() => {
     if (document.documentElement.scrollTop >= SCROLL_THRESHOLD) {
       setScrolled(true)
@@ -37,7 +46,7 @@ function PostHead({ postTitle }: PostHeadProps) {
   return (
     <div
       className={classNames(styles.headWrapper, {
-        [styles.show]: scrolled && !!postTitle,
+        [styles.show]: scrolled && hasTitle,
       })}
     >
       <div className={styles.headContents}>

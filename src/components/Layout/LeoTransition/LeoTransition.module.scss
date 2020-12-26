@@ -1,5 +1,6 @@
-$translate-x: 100%;
+@import '~Styles/global';
 
+$translate-x: 100%;
 $cubic: cubic-bezier(.62,0,0,.99);
 
 @mixin active-transition($cubic-beizer) {
@@ -10,7 +11,6 @@ $cubic: cubic-bezier(.62,0,0,.99);
 
 @mixin enter($x) {
   position: absolute;
-  width: 100%;
   transform: translateX($x);
   opacity: 0;
 }
@@ -66,4 +66,9 @@ $cubic: cubic-bezier(.62,0,0,.99);
 
 .index-exit-done {
   @include exitDone(-$translate-x);
+}
+
+.content-base {
+  padding: 45px 15px 0;
+  box-sizing: border-box;
 }

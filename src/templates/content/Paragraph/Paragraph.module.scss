@@ -1,7 +1,7 @@
 @import '~Styles/global';
 
 .pwrapper {
-  font-size: $content-text-size;
+  font-size: $content-text-size !important;
   line-height: 28px;
   color: $text-black;
   margin: 10px 0;

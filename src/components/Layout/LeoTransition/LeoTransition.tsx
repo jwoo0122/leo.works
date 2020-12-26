@@ -48,7 +48,7 @@ function LeoTransition({
         timeout={500}
         classNames={transitionClassNames}
       >
-        <div style={{ width: '100%' }}>
+        <div className={styles.contentBase}>
           { children }
         </div>
       </CSSTransition>

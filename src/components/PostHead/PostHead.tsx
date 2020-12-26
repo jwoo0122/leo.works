@@ -34,12 +34,10 @@ function PostHead({ postTitle }: PostHeadProps) {
     }
   }, [])
 
-  if (!postTitle) { return null }
-
   return (
     <div
       className={classNames(styles.headWrapper, {
-        [styles.show]: scrolled,
+        [styles.show]: scrolled && !!postTitle,
       })}
     >
       <div className={styles.headContents}>

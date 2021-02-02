@@ -1,11 +1,11 @@
 .quote-container {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
   align-items: center;
-  height: 50px;
+  min-height: 50px;
+  margin: 5px 0;
 
   .quote-block {
+    flex: 0 0 auto;
     width: 5px;
     align-self: stretch;
     background-color: rgb(230, 230, 230);
@@ -16,12 +16,18 @@
   }
 
   .contents {
+    box-sizing: border-box;
     margin-left: 20px;
     font-size: 18px;
-    color: rgba(0, 0, 0, 0.5);
+    
+    p {
+      color: rgba(0, 0, 0, 0.5);
+    }
 
     @media (prefers-color-scheme: dark) {
-      color: rgb(130, 130, 130);
+      p {
+        color: rgb(170, 170, 170);
+      }
     }
   }
 }

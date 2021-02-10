@@ -1,23 +1,30 @@
 @import '~Styles/global';
 
 .inputWrapper {
+  display: flex;
+  justify-content: center;
   width: 100%;
   box-sizing: border-box;
+  padding: 0 15px;
+  
+  @media screen and (max-width: $mobile-width) {
+    padding: 0;
+  }
 
   .searchInput {
     width: 100%;
-    padding: 10px;
+    padding: 10px 15px;
     color: $text-black;
     font-size: 16px;
     font-family: $content-font;
-    border: none;
-    border-radius: 7px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 36px;
     outline: none;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: white;
     transition: all 150ms ease-in-out;
 
     &:focus {
-      transition: all 150ms ease-in-out;
+      box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.05);
 
       &::placeholder {
         transition: all 150ms ease-in-out;
@@ -32,11 +39,17 @@
 
     @media (prefers-color-scheme: dark) {
       color: $text-white;
-      background-color: rgba(167, 167, 255, 0.04);
+      background-color: $dark-gray;
+      border: 1px solid rgba(255, 255, 255, 0.1);
 
-      &:focus::placeholder {
-        color: rgb(50, 50, 50);
+      &:focus {
+        box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);
+        
+        &::placeholder {
+          color: rgb(50, 50, 50);
+        }
       }
+      
 
       &::placeholder {
         transition: all 150ms ease-in-out;

@@ -1,5 +1,7 @@
-$theme-color: rgb(168, 206, 191);
+$theme-color: rgb(135, 200, 173);
+$theme-color-second: rgb(42, 155, 108);
 $theme-color-dark: rgb(134, 78, 113);
+$theme-color-dark-second: rgb(179, 102, 148);
 
 $title-font: 'Montserrat', sans-serif;
 $content-font: 'Inter', sans-serif;
@@ -25,18 +27,10 @@ $header-line-z-index: 10000000;
 $smooth-transition: cubic-bezier(.15, 1.16, 1, 1);
 
 %appleBackdrop {
-	backdrop-filter: blur(20px) saturate(180%);
-	background-color: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.72);
 
-	@media (prefers-color-scheme: dark) {
-		background-color: rgba(29, 29, 31, 0.72);
-	}
-}
-
-@mixin textBorder($color, $width) {
-	text-shadow:
-		-#{$width}px -#{$width}px 0 #{$color},
-		#{$width}px -#{$width}px 0 #{$color},
-		-#{$width}px #{$width}px 0 #{$color},
-		#{$width}px #{$width}px 0 #{$color};
+  @media (prefers-color-scheme: dark) {
+    background-color: rgba(29, 29, 31, 0.72);
+  }
 }

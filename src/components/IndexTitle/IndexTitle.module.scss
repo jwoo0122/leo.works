@@ -1,20 +1,21 @@
 @import '~Styles/global.scss';
 
-$rotate-skew-deg: -6deg;
-
 .title-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   box-sizing: border-box;
-  margin-top: 40px;
-  margin-bottom: 70px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding: 0 20px;
+  
+  @media screen and (max-width: $mobile-width) {
+    padding: 0 5px;
+  }
 
   .profileContainer {
+    flex: 1 1 auto;
     display: block;
-    width: 120px;
-    height: 120px;
-    margin-bottom: 27px;
 
     .profileImage {
       width: 100%;
@@ -31,46 +32,25 @@ $rotate-skew-deg: -6deg;
 
   .title-by {
     position: relative;
-    display: flex;
+    justify-content: center;
     align-items: center;
-    height: 7px;
     width: 100%;
-    overflow: visible;
-    background-color: $theme-color;
-    transform: rotate($rotate-skew-deg) skew($rotate-skew-deg);
-
-    @media (prefers-color-scheme: dark) {
-      background-color: $theme-color-dark;
-    }
-    
-    @media screen and (min-width: $mobile-width) {
-      height: 10px;
-      margin-bottom: 20px;
-    }
 
     .string {
-      @include textBorder(white, 4);
-
-      margin-left: 10px;
+      user-select: none;
       color: $text-black;
-      font-size: 33px;
+      font-size: 37px;
       font-weight: 900;
       font-family: $title-font;
+      margin-bottom: 5px;
 
       @media (prefers-color-scheme: dark) {
-        @include textBorder($dark-gray, 4);
-
         color: $text-white;
         transition: all 200ms ease-in-out;
       }
       
       @media screen and (min-width: $mobile-width) {
-        @include textBorder(white, 5);
         font-size: 45px;
-        
-        @media (prefers-color-scheme: dark) {
-          @include textBorder($dark-gray, 5);
-        }
       }
     }
   }

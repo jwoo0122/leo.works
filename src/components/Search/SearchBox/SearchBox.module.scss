@@ -5,6 +5,11 @@
   justify-content: center;
   width: 100%;
   box-sizing: border-box;
+  padding: 0 15px;
+  
+  @media screen and (max-width: $mobile-width) {
+    padding: 0;
+  }
 
   .searchInput {
     width: 100%;

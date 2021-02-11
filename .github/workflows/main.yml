@@ -19,7 +19,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Cache node_modules
-        uses: actions/caceh@v1
+        uses: actions/cache@v1
         with:
           path: node_modules
           key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}

@@ -1,0 +1,49 @@
+name: deploy to S3
+
+on:
+  push:
+    branches: [ master ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout to master
+        uses: actions/checkout@master
+
+      # Runs a single command using the runners shell
+      - name: Cache node_modules
+        uses: actions/caceh@v1
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-build-
+            ${{ runner.OS }}-
+            
+      - name: Use node v15, npm 7
+        with:
+          node-version: '15'
+
+      - name: Install dependencies
+        run: npm i
+      
+      - name: Gatsby Build
+        run: npm run build
+
+      # Runs a set of commands using the runners shell
+      - name: Send public to s3
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_ACCESS_SECRET_KEY: ${{ secrets.AWS_ACCESS_SECRET_KEY }}
+        run: |
+          aws s3 cp \
+            --recursive \
+            --region ap-northeast-2 \
+            public s3://leo-works-s3

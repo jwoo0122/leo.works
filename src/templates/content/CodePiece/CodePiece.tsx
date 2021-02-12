@@ -8,11 +8,10 @@ import _ from 'lodash'
 
 // Int
 import useDarkMode from 'Hooks/useDarkMode'
-import styles from './CodePiece.module.scss'
 
 interface CodePieceProps {
   className?: string
-  children: React.ReactNode[]
+  children: string
 }
 
 const codeTagProps: React.HTMLProps<HTMLElement> = {
@@ -35,8 +34,8 @@ const lineNumberStyle = {
   color: 'rgba(150, 150, 150, 0.5)',
 }
 
-function languageDetector(className?: string): string | null {
-  if (_.isNil(className)) return null
+function languageDetector(className?: string): string | undefined {
+  if (_.isNil(className)) return undefined
   return className?.split('-')[1]
 }
 
@@ -58,20 +57,6 @@ function CodePiece({
 
   const highlightTheme = useMemo(() => isDarkMode ? nord : solarizedlight, [isDarkMode])
 
-  const trimmedChildren = useMemo(() => {
-    const [ targetChildren ] = children
-    const resultChildren = (targetChildren as string).split('').slice(0, (targetChildren as string).length - 1).join('')
-    return resultChildren
-  }, [children])
-
-  if (!language) {
-    return (
-      <code className={styles.singleCodePiece}>
-        { children }
-      </code>
-    )
-  }
-
   return (
     <SyntaxHighLighter
       PreTag={Pre}
@@ -82,7 +67,7 @@ function CodePiece({
       lineNumberStyle={lineNumberStyle}
       showLineNumbers
     >
-      { trimmedChildren }
+      { children.trim() }
     </SyntaxHighLighter>
   )
 }

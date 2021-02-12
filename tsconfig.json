@@ -9,6 +9,7 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "noImplicitAny": false,
+    "skipLibCheck": true,
     "paths": {
       "Constants/*": ["src/constants/*"],
       "Components/*": ["src/components/*"],

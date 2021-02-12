@@ -5,7 +5,7 @@ import styles from './IndexTitle.module.scss'
 function IndexTitle() {
   return (
     <div className={styles.titleContainer}>
-      <div className={styles.titleBy}>
+      <h1 className={styles.titleBy}>
         <div className={styles.string}>
           BY
         </div>
@@ -15,7 +15,7 @@ function IndexTitle() {
         <div className={styles.string}>
           JEONG
         </div>
-      </div>
+      </h1>
       <div className={styles.profileContainer}>
         <img
           className={styles.profileImage}

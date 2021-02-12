@@ -1,14 +1,46 @@
-import styles from './CodeBlock.module.scss'
-interface CodeBlockProps {
-  children: React.ReactNode
-}
+// Ext
+import { Prism as SyntaxHighLighter } from 'react-syntax-highlighter'
+import { nord, solarizedlight } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
-export default function CodeBlock({
-  children,
-}: CodeBlockProps) {
+// Intck'
+import useDarkMode from 'Hooks/useDarkMode'
+import styles from './CodeBlock.module.scss'
+
+function PreTag({ children }: React.PropsWithChildren<HTMLPreElement>) {
   return (
     <pre className={styles.codeWrapper}>
       { children }
     </pre>
   )
 }
+
+interface CodeBlockProps {
+  className?: string
+  children: string
+}
+
+const codeTagProps: React.HTMLProps<HTMLElement> = {
+  style: {
+    fontFamily: 'inherit',
+  }
+}
+
+function CodeBlock({
+  className,
+  children,
+}: CodeBlockProps) {
+  const isDarkMode = useDarkMode()
+
+  return (
+    <SyntaxHighLighter
+      PreTag={PreTag}
+      codeTagProps={codeTagProps}
+      language={className?.split('-')[1]}
+      style={isDarkMode ? nord : solarizedlight}
+    >
+      { children.trim() }
+    </SyntaxHighLighter>
+  )
+}
+
+export default CodeBlock

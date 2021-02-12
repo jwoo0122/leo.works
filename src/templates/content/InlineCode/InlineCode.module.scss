@@ -1,0 +1,16 @@
+.singleCodePiece {
+  display: inline-block;
+  padding: 0 7px;
+  margin: 0 2px;
+  background-color: rgba(0, 0, 0, .05);
+  font-family: 'FiraCode';
+  font-size: 13px;
+  line-height: 22px;
+  color: rgba(255, 0, 0, .8);
+  border-radius: 5px;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: rgba(100, 100, 100, .2);
+    color: #228fd8;
+  }
+}

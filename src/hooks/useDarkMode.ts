@@ -13,10 +13,10 @@ function useDarkMode() {
   }, [])
 
   useEffect(() => {
-    darkModeQuery.addListener(handleChangeDarkMode)
+    darkModeQuery.addEventListener('change', handleChangeDarkMode)
 
     return function cleanUp() {
-      darkModeQuery.removeListener(handleChangeDarkMode)
+      darkModeQuery.removeEventListener('change', handleChangeDarkMode)
     }
   }, [])
 

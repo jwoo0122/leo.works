@@ -1,7 +1,7 @@
 // Ext
-import { createElement } from 'react'
 import { Link, graphql } from 'gatsby'
-import RehypeReact from 'rehype-react'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
+import { MDXProvider } from '@mdx-js/react'
 
 // Int
 import { profileUrl } from 'Constants/Gravatar'
@@ -9,25 +9,29 @@ import Utterances from 'Components/Utterances'
 import SEO from 'Components/Seo'
 import withTwoPassRendering from 'Hocs/withTwoPassRendering'
 import styles from './blogTemplate.module.scss'
-import {
-  Heading,
-  Heading2,
-  Bold,
-  Italic,
-  Paragraph,
-  Quote,
-  Horizon,
-  Anchor,
-  SuperScript,
-  CodeBlock,
-  CodePiece,
-  OrderedList,
-  UnorderedList,
-} from './content'
+import * as TemplateBlocks from './content'
+
+const shortComponents = {
+  h1: TemplateBlocks.Heading,
+  h2: TemplateBlocks.Heading2,
+  strong: TemplateBlocks.Bold,
+  em: TemplateBlocks.Italic,
+  blockquote: TemplateBlocks.Quote,
+  hr: TemplateBlocks.Horizon,
+  sup: TemplateBlocks.SuperScript,
+  a: TemplateBlocks.Anchor,
+  p: TemplateBlocks.Paragraph,
+  pre: TemplateBlocks.CodeBlock,
+  code: TemplateBlocks.CodePiece,
+  ol: TemplateBlocks.OrderedList,
+  ul: TemplateBlocks.UnorderedList,
+  ...TemplateBlocks,
+}
 
 interface TemplateProps {
   data: {
-    markdownRemark: {
+    mdx: {
+      body: any
       frontmatter: {
         date: string
         title: string
@@ -45,30 +49,10 @@ interface TemplateProps {
   }
 }
 
-const rehype = new RehypeReact({
-    createElement,
-    components: {
-      h1: Heading,
-      h2: Heading2,
-      strong: Bold,
-      em: Italic,
-      blockquote: Quote,
-      hr: Horizon,
-      sup: SuperScript,
-      a: Anchor,
-      p: Paragraph,
-      pre: CodeBlock,
-      code: CodePiece,
-      ol: OrderedList,
-      ul: UnorderedList,
-    }
-  }).Compiler
-
-
 function blogTemplate({
   data,
 }: TemplateProps) {
-  const { markdownRemark } = data
+  const { mdx } = data
   const {
     frontmatter: {
       title,
@@ -83,16 +67,16 @@ function blogTemplate({
         },
       },
     },
-    htmlAst,
+    body,
     fields: {
       readingTime: {
         minutes,
       },
     },
-  } = markdownRemark
+  } = mdx
 
   return (
-    <>
+    <MDXProvider components={shortComponents}>
       <SEO
         title={title}
         author={author}
@@ -123,18 +107,20 @@ function blogTemplate({
         </div>
         <div className={styles.divider}/>
         <div className={styles.content}>
-          { rehype(htmlAst) }
+          <MDXRenderer>
+            { body }
+          </MDXRenderer>
         </div>
       </div>
       <Utterances repo="jwoo0122/leo.works"/>
-    </>
+    </MDXProvider>
   )
 }
 
 export const pageQuery = graphql`
   query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      htmlAst
+    mdx(frontmatter: { path: { eq: $path } }) {
+      body
       frontmatter {
         date(formatString: "MMM DD, YYYY")
         path

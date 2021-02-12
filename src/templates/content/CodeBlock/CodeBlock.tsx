@@ -1,8 +1,6 @@
 // Ext
-import { useMemo } from 'react'
 import { Prism as SyntaxHighLighter } from 'react-syntax-highlighter'
 import { nord, solarizedlight } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import _ from 'lodash'
 
 // Intck'
 import useDarkMode from 'Hooks/useDarkMode'
@@ -27,27 +25,18 @@ const codeTagProps: React.HTMLProps<HTMLElement> = {
   }
 }
 
-function languageDetector(className?: string): string | undefined {
-  if (_.isNil(className)) return undefined
-  return className?.split('-')[1]
-}
-
 function CodeBlock({
   className,
   children,
 }: CodeBlockProps) {
-  const language = useMemo(() => languageDetector(className), [className])
-
   const isDarkMode = useDarkMode()
-
-  const highlightTheme = useMemo(() => isDarkMode ? nord : solarizedlight, [isDarkMode])
 
   return (
     <SyntaxHighLighter
       PreTag={PreTag}
       codeTagProps={codeTagProps}
-      language={language}
-      style={highlightTheme}
+      language={className?.split('-')[1]}
+      style={isDarkMode ? nord : solarizedlight}
     >
       { children.trim() }
     </SyntaxHighLighter>

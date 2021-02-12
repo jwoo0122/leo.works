@@ -29,7 +29,7 @@ jobs:
 
       - name: Install dependencies
         if: steps.node-cache.outputs.cache-hit != 'true'
-        run: npm i
+        run: npm ci
       
       - name: Gatsby Build
         env:

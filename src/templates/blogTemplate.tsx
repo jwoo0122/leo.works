@@ -23,6 +23,7 @@ const shortComponents = {
   p: TemplateBlocks.Paragraph,
   pre: TemplateBlocks.CodeBlock,
   code: TemplateBlocks.CodePiece,
+  inlineCode: TemplateBlocks.InlineCode,
   ol: TemplateBlocks.OrderedList,
   ul: TemplateBlocks.UnorderedList,
   ...TemplateBlocks,

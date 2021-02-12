@@ -1,7 +1,7 @@
 // Ext
 import { useMemo } from 'react'
 import { Prism as SyntaxHighLighter } from 'react-syntax-highlighter'
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { nord, solarizedlight } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import _ from 'lodash'

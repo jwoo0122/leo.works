@@ -25,12 +25,12 @@ Gradual Upgrade, 한국어로 '점진적 업그레이드'로 번역되는 이 �
 ## How to
 이미 Gradual Upgrade 를 하는 방법은 [소개 되어 있다](https://github.com/reactjs/react-gradual-upgrade-demo/). 여기에 Vercel Next.js 의 [데모 링크](https://github.com/jtmthf/next-gradual-upgrade-demo)도 포함되어 있다.
 
-Repository 에 이미 훌륭한 설명이 있지만 그럼에도 간단하게 요약을 해본다. demo repository 는 크게 두 개의 directory 로 구분된다. <InlineCode>src/modern</InlineCode>(React 17)과 <InlineCode>src/legacy</InlineCode>(React 16.8) 이다. modern 의 코드는 lazyLoading 으로 legacy components 를 불러온다. React 17 에서 <InlineCode>createLegacyRoot</InlineCode> 라는 헬퍼 함수를 불러오면 (`lazyLegacyRoot`) 해당 코드는 React 16.8 을 target DOM 에 연결한다. 두 디렉토리가 구분되어 있으므로 dependency 가 혼선될 우려는 없다. React 17 의 변경사항으로 인해 우리는 서로 다른 버전의 React 를 동시에 사용할 수 있고 이를 통해서 Gradual Upgrade 를 달성할 수 있다.
+Repository 에 이미 훌륭한 설명이 있지만 그럼에도 간단하게 요약을 해본다. demo repository 는 크게 두 개의 directory 로 구분된다. `src/modern`(React 17)과 `src/legacy`(React 16.8) 이다. modern 의 코드는 lazyLoading 으로 legacy components 를 불러온다. React 17 에서 `createLegacyRoot` 라는 헬퍼 함수를 불러오면 (`lazyLegacyRoot`) 해당 코드는 React 16.8 을 target DOM 에 연결한다. 두 디렉토리가 구분되어 있으므로 dependency 가 혼선될 우려는 없다. React 17 의 변경사항으로 인해 우리는 서로 다른 버전의 React 를 동시에 사용할 수 있고 이를 통해서 Gradual Upgrade 를 달성할 수 있다.
 
 ## What happened
 물론, 이 이전에도 React 의 두 버전을 동시에 사용할 수는 있었다. React 자체는 특정 DOM 으로부터 Virtual DOM 을 만들고 관리하는 라이브러리이므로, 서로 다른 독립적인 DOM 을 통해 하나의 페이지에서 복수의 React 를 운용할 수 있는 것은 물론 두 React 를 Nest 해서 활용할 수도 있었다. 다만 이 경우 기술적인 문제점이 있었는데, 바로 Event delegation 과 관련된 문제였다.
 
-우리가 React JSX 에 event handler 를 부착하면, 해당 handler 는 실제 우리가 작성한 위치가 아니라 <InlineCode>document</InlineCode> 레벨로 붙는다. 즉 React 는 event delegation 을 [매우 적극적으로 활용](https://blog.maddevs.io/a-bit-about-event-delegation-in-react-3b92fb0a978b)한다. 많은 이점이 있지만 치명적인 문제는 **<InlineCode>e.stopPropagation</InlineCode> 와 관련이 있다.**
+우리가 React JSX 에 event handler 를 부착하면, 해당 handler 는 실제 우리가 작성한 위치가 아니라 `document` 레벨로 붙는다. 즉 React 는 event delegation 을 [매우 적극적으로 활용](https://blog.maddevs.io/a-bit-about-event-delegation-in-react-3b92fb0a978b)한다. 많은 이점이 있지만 치명적인 문제는 **`e.stopPropagation` 와 관련이 있다.**
 
 두 개의 React tree 가 서로 nest 된 형태로 존재한다고 가정하자. 그리고 하위와 상위에서 각각 onClick event handler 를 element 에 할당하면, 이 onClick handler 는 모두 document 레벨에 할당된다.
 
@@ -94,11 +94,11 @@ React 팀은 이 문제만 짚고 넘어갔지만 사실 document 로 event dele
 이 외에도 몇가지 변경 사항이 더 있는데, 개인적으로 흥미로운 것 위주로 세 가지 정도를 가져왔다.
 
 ## No more event pooling
-React 는 성능 상의 이유로 SyntheticEvent 객체를 재사용해왔다. 이로 인해 Event 객체의 property 에 직접 접근하는 것은 금지되었고 (사용하더라도 원하는 데이터를 얻을 수 없다) 객체의 데이터를 여러번 재사용할 필요가 있을 경우 <InlineCode>event.presist()</InlineCode> 메서드를 사용하거나 property 의 데이터를 빠른 시간 안에 복제해야 했다.
+React 는 성능 상의 이유로 SyntheticEvent 객체를 재사용해왔다. 이로 인해 Event 객체의 property 에 직접 접근하는 것은 금지되었고 (사용하더라도 원하는 데이터를 얻을 수 없다) 객체의 데이터를 여러번 재사용할 필요가 있을 경우 `event.presist()` 메서드를 사용하거나 property 의 데이터를 빠른 시간 안에 복제해야 했다.
 
 React 17 부터는 더 이상 이러한 SyntheticEvent 객체 재사용을 하지 않는다. 구형 브라우저에서의 성능 이슈를 보완하기 위해 이런 트윅성 코드가 들어갔었지만, 더 이상 이러한 동작이 전체 프로덕트 개발 과정에서 이점을 가질 수 없다고 판단한 것 같다. 또한 Facebook 개발 팀은 이러한 변경 사항이 몇 가지 버그를 해결하기도 했단다(...).
 
-물론 <InlineCode>event.persist()</InlineCode> 메서드 자체는 여전히 남아있다. invoke 해도 아무런 동작을 하지 않을 뿐!
+물론 `event.persist()` 메서드 자체는 여전히 남아있다. invoke 해도 아무런 동작을 하지 않을 뿐!
 
 ## No more 'import React...'
 JSX 를 사용하기 위해선 늘 React 를 import 해야 했다(그것을 명시적으로 사용하지 않더라도). 왜냐하면 JSX 코드는 babel, typescript 등을 통해 React 를 사용하는 코드로 transpile 되었기 때문이다.
@@ -111,7 +111,7 @@ function sample() {
   return React.createElement('div', null, 'hello, world!')
 }
 ```
-그러나 이제는 더 이상 <InlineCode>import React...</InlineCode> 구문을 직접 입력하지 않아도 된다. CRA, Next 등의 framework 는 이미 해당 기능을 잘 지원하고 있으며, 직접 babel 을 설정한 경우에도 몇가지 세팅만 잡아주면 react 를 직접 가져오지 않고도 JSX 를 사용할 수 있다.
+그러나 이제는 더 이상 `import React...` 구문을 직접 입력하지 않아도 된다. CRA, Next 등의 framework 는 이미 해당 기능을 잘 지원하고 있으며, 직접 babel 을 설정한 경우에도 몇가지 세팅만 잡아주면 react 를 직접 가져오지 않고도 JSX 를 사용할 수 있다.
 
 다만 이것은 React 17 자체의 주요 변경점이라기 보단, React 17 을 공개하면서 함께 넣어준 기능에 가깝다. 나도 이번 기회에 블로그를 React 17 로 업데이트하면서 이런 변경 사항을 Gatsby 에 적용해 보았는데, 만약 궁금하다면 [gist](https://gist.github.com/jwoo0122/4e404682ce0b3b684a989a336dade350) 를 참고해보길 바란다.
 

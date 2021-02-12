@@ -21,10 +21,11 @@ const shortComponents = {
   sup: TemplateBlocks.SuperScript,
   a: TemplateBlocks.Anchor,
   p: TemplateBlocks.Paragraph,
-  pre: TemplateBlocks.CodeBlock,
-  code: TemplateBlocks.CodePiece,
+  code: TemplateBlocks.CodeBlock,
+  inlineCode: TemplateBlocks.InlineCode,
   ol: TemplateBlocks.OrderedList,
   ul: TemplateBlocks.UnorderedList,
+  pre: (props) => props.children,
   ...TemplateBlocks,
 }
 
@@ -98,9 +99,9 @@ function blogTemplate({
               />
             </div>
           </Link>
-          <div className={styles.postTitle}>
+          <h1 className={styles.postTitle}>
             {title}
-          </div>
+          </h1>
           <div className={styles.postDate}>
             {`${date} · ${Math.ceil(minutes)}min`}
           </div>

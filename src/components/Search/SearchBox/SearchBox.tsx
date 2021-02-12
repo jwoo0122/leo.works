@@ -26,6 +26,10 @@ function SearchBox({ currentRefinement, refine }: SearchBoxProps) {
         value={currentRefinement}
         onChange={handleChange}
         className={styles.searchInput}
+        autoComplete="off"
+        autoCapitalize="off"
+        autoCorrect="off"
+        spellCheck="false"
       />
     </div>
   )

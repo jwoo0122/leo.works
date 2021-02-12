@@ -1,5 +1,5 @@
 const transformer = ({ data }) => {
-  return data.allMarkdownRemark.edges.map(({ node }) => node)
+  return data.allMdx.edges.map(({ node }) => node)
 }
 
 module.exports = {
@@ -34,9 +34,9 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [
+        gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -81,7 +81,7 @@ module.exports = {
         queries: [
           {
             query: `{
-            allMarkdownRemark {
+            allMdx {
               edges {
                 node {
                   objectID: id

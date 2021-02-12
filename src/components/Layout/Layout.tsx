@@ -5,7 +5,7 @@ import styles from "./Layout.module.scss"
 
 interface LayoutProps {
   data: {
-    markdownRemark?: {
+    mdx?: {
       frontmatter?: {
         title?: string
       }
@@ -23,7 +23,7 @@ export default function Layout({
   return (
     <div className={styles.ancient}>
       <div className={styles.rootWithBackground}>
-        <PostHead postTitle={data?.markdownRemark?.frontmatter?.title}/>
+        <PostHead postTitle={data?.mdx?.frontmatter?.title}/>
         <div className={styles.rootContainer}>
           <LeoTransition location={location}>
             { children }

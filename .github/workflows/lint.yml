@@ -1,0 +1,35 @@
+name: Check lint
+
+on:
+  pull_request:
+    branches: [ dev ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout to current branch
+        uses: actions/checkout@v2
+        
+      - name: Use node v15, npm 7
+        uses: actions/setup-node@v2
+        with:
+          node-version: '15'
+    
+      - name: Cache node_modules
+        uses: actions/cache@v2
+        id: node-cache
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-build-
+            ${{ runner.OS }}-
+      
+      - name: Install dependencies
+        if: steps.node-cache.outputs.cache-hit != 'true'
+        run: npm ci
+      
+      - name: Run lint
+        run: npm run lint

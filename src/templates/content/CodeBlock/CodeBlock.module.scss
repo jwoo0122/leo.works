@@ -8,11 +8,12 @@
   background-color: rgba(0, 0, 0, .05);
   color: rgba(0, 0, 0, 0.6);
   border-radius: 10px;
+  border: 2px solid rgba(150, 150, 150, 0.1);
   font-family: 'FiraCode' !important;
-  font-size: 14px;
   line-height: 22px;
   word-wrap: normal;
   word-break: keep-all;
+  font-variant-ligatures: common-ligatures;
 
   @media (prefers-color-scheme: dark) {
     color: inherit;

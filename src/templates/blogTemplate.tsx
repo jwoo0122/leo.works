@@ -98,9 +98,9 @@ function blogTemplate({
               />
             </div>
           </Link>
-          <div className={styles.postTitle}>
+          <h1 className={styles.postTitle}>
             {title}
-          </div>
+          </h1>
           <div className={styles.postDate}>
             {`${date} · ${Math.ceil(minutes)}min`}
           </div>

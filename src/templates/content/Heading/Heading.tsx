@@ -2,7 +2,7 @@
 import styles from './Heading.module.scss'
 
 interface HeadingProps {
-  children: Array<string>
+  children: string
 }
 
 export default function Heading({
@@ -10,11 +10,11 @@ export default function Heading({
 }: HeadingProps) {
   return (
     <a
-      href={`#${children[0]}`}
+      href={`#${children}`}
       className={styles.linkWrapper}
     >
       <h1
-        id={children[0]}
+        id={children}
         className={styles.heading1}
       >
         { children }

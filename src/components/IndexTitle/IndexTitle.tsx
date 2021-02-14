@@ -1,6 +1,6 @@
 // Int
 import { profileUrl } from 'Constants/Gravatar'
-import styles from './IndexTitle.module.scss'
+import styles from './IndexTitle.scss'
 
 function IndexTitle() {
   return (

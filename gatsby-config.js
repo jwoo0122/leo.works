@@ -112,6 +112,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sass`,
       options: {
+        sassRuleTest: /.^/,
+        sassRuleModulesTest: /\.s(a|c)ss$/,
         useResolveUrlLoader: true,
       },
     },

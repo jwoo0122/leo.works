@@ -1,5 +1,5 @@
 // Int
-import styles from './Anchor.module.scss'
+import styles from './Anchor.scss'
 
 interface AnchorProps {
   href: string

@@ -34,8 +34,7 @@
     "react-helmet": "^6.1.0",
     "react-instantsearch-dom": "^6.9.0",
     "react-syntax-highlighter": "^15.4.3",
-    "react-transition-group": "^4.4.1",
-    "rehype-react": "^6.2.0"
+    "react-transition-group": "^4.4.1"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.11",
@@ -46,7 +45,6 @@
     "@types/react-instantsearch-dom": "^6.8.0",
     "@types/react-syntax-highlighter": "^13.5.0",
     "@types/react-transition-group": "^4.4.0",
-    "@types/rehype-react": "^4.0.0",
     "@typescript-eslint/eslint-plugin": "^4.15.0",
     "@typescript-eslint/parser": "^4.15.0",
     "babel-preset-gatsby": "^0.12.1",

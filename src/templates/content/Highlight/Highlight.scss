@@ -3,24 +3,11 @@
 .wrapper {
   position: relative;
   cursor: pointer;
+  padding-bottom: 1px;
+  box-shadow: inset 0 -5px 0 $theme-color;
+  transition: box-shadow 300ms $smooth-transition;
   
-  &::after {
-    position: absolute;
-    z-index: -1;
-    content: '';
-    left: -1px;
-    bottom: -1px;
-    right: -1px;
-    height: 6px;
-    background-color: $theme-color;
-    transition: height 300ms $smooth-transition;
-    
-    @media (prefers-color-scheme: dark) {
-      background-color: $theme-color-dark;
-    }
-  }
-  
-  &:hover::after {
-    height: 20px;
+  &:hover {
+    box-shadow: inset 0 -20px 0 $theme-color;
   }
 }

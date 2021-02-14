@@ -3,7 +3,7 @@
 .wrapper {
   position: relative;
   cursor: pointer;
-  padding-bottom: 1px;
+  padding: 0 1px 1px 1px;
   box-shadow: inset 0 -5px 0 $theme-color;
   transition: box-shadow 300ms $smooth-transition;
   
@@ -11,7 +11,7 @@
     box-shadow: inset 0 -5px 0 $theme-color-dark;
   }
   
-  &:hover {
+  &.isShowing, &:hover {
     box-shadow: inset 0 -20px 0 $theme-color;
     
     @media (prefers-color-scheme: dark) {

@@ -36,7 +36,7 @@
     max-width: $mobile-width;
     min-height: 80px;
     margin: 0 auto;
-    padding: 20px 15px 35px;
+    padding: 20px 15px calc(env(safe-area-inset-bottom) + 15px);
     box-sizing: border-box;
     color: $text-black;
     background-color: white;
@@ -45,7 +45,10 @@
     transform: translateY(100%);
     transition: transform 300ms $smooth-transition;
     opacity: 1;
-    pointer-events: none;
+    pointer-events: auto;
+    cursor: initial;
+    font-family: $content-font;
+    line-height: 1.4;
 
     &.show {
       transform: translateY(0);
@@ -58,26 +61,59 @@
     
     .targetContent {
       display: flex;
+      justify-content: space-between;
       margin-bottom: 10px;
       font-size: 14px;
-      opacity: .5;
+      opacity: .7;
       
-      .label {
-        width: 15px;
-        height: 2px;
-        margin-top: 6px;
-        margin-right: 5px;
-        margin-left: 2px;
-        background-color: $theme-color;
+      .targetContentTitle {
+        display: flex;
+        max-width: 80%;
         
-        @media (prefers-color-scheme: dark) {
-          background-color: $theme-color-dark;
+        .label {
+          flex: 0 0 auto;
+          width: 10px;
+          height: 2px;
+          margin-top: 8px;
+          margin-right: 5px;
+          margin-left: 2px;
+          background-color: $theme-color;
+          
+          @media (prefers-color-scheme: dark) {
+            background-color: $theme-color-dark;
+          }
         }
       }
-    }
-    
-    .contentText {
-      line-height: 1.4;
+      
+      .closeButton {
+        flex: 0 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 25px;
+        height: 25px;
+        margin-top: -5px;
+        transform: translateX(5px);
+        margin-right: 5px;
+        border-radius: 5px;
+        background-color: rgba(150, 150, 150, .3);
+        cursor: pointer;
+        
+        .closeChevron {
+          width: 10px;
+          height: 10px;
+          border-width: 0 3px 3px 0;
+          box-sizing: border-box;
+          border-style: solid;
+          border-color: $dark-gray;
+          transform: rotate(45deg);
+          margin-top: -4px;
+          
+          @media (prefers-color-scheme: dark) {
+            border-color: $light-gray;
+          }
+        }
+      }
     }
   }
 }

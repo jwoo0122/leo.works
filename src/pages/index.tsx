@@ -1,6 +1,3 @@
-// Ext
-import { graphql } from "gatsby"
-
 // Int
 import SEO from "Components/Seo"
 import Search from "Components/Search"
@@ -16,23 +13,5 @@ function IndexPage() {
     </>
   )
 }
-
-export const pageQuery = graphql`
-  query {
-    allMdx(sort: { order: DESC, fields: [frontmatter___date] }) {
-      edges {
-        node {
-          id
-          excerpt(pruneLength: 250)
-          frontmatter {
-            date(formatString: "MMM DD, YYYY")
-            path
-            title
-          }
-        }
-      }
-    }
-  }
-`
 
 export default withTwoPassRendering(IndexPage)

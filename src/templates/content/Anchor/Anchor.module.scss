@@ -3,30 +3,34 @@
 .link-container {
   position: relative;
   display: inline-block;
-  margin: 0 1px;
+  padding: 0 8px 0 0;
+  margin-right: 5px;
   color: inherit;
   transition: all 100ms ease-in-out;
   z-index: 0;
+  color: $theme-color;
 
   &::after {
     position: absolute;
     content: '';
-    right: -1px;
-    bottom: 4px;
-    left: -1px;
-    height: 8px;
-    background-color: $theme-color;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 5px;
+    height: 5px;
+    margin: auto;
+    border-style: solid;
+    border-width: 2px 2px 0 0 ;
+    border-color: $theme-color;
+    transform: rotate(45deg);
     z-index: -1;
-    transition: all 100ms ease-out;
-    
-    @media (prefers-color-scheme: dark) {
-      background-color: $theme-color-dark;
-    }
   }
   
-  &:hover {
+  @media (prefers-color-scheme: dark) {
+    color: $theme-color-dark;
+    
     &::after {
-      height: 20px;
+      border-color: $theme-color-dark;
     }
   }
 }

@@ -1,6 +1,6 @@
-import { useCallback, useState, ReactNode } from 'react'
+import { ReactNode } from 'react'
 
-import Tooltip from 'Components/Tooltip'
+import useTooltip from 'Hooks/useTooltip'
 import styles from './Highlight.scss'
 
 interface HighLightProps {
@@ -12,25 +12,14 @@ export default function HighLight({
   comment,
   children,
 }: HighLightProps) {
-  const [showTooltip, setShowTooltip] = useState(false)
-  
-  const handleShowTooltip = useCallback(() => setShowTooltip(true), [])
-  const handleHideTooltip = useCallback(() => setShowTooltip(false), [])
+  const handleShowTooltip = useTooltip(children, comment)
   
   return (
-    <>
-      <Tooltip
-        targetContent={children}
-        content={comment}
-        show={showTooltip}
-        onHide={handleHideTooltip}
-      />
-      <span
-        className={styles.wrapper}
-        onClick={handleShowTooltip}
-      >
-        { children }
-      </span>
-    </>
+    <span
+      className={styles.wrapper}
+      onClick={handleShowTooltip}
+    >
+      { children }
+    </span>
   )
 }

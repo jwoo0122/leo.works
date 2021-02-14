@@ -1,3 +1,26 @@
+@import '~Styles/global';
+
 .wrapper {
+  position: relative;
   cursor: pointer;
+  
+  &::after {
+    position: absolute;
+    z-index: -1;
+    content: '';
+    left: -1px;
+    bottom: -1px;
+    right: -1px;
+    height: 6px;
+    background-color: $theme-color;
+    transition: height 300ms $smooth-transition;
+    
+    @media (prefers-color-scheme: dark) {
+      background-color: $theme-color-dark;
+    }
+  }
+  
+  &:hover::after {
+    height: 20px;
+  }
 }

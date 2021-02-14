@@ -1,4 +1,5 @@
 // Int
+import Tooltip from 'Components/Tooltip'
 import PostHead from '../PostHead'
 import LeoTransition from './LeoTransition'
 import styles from "./Layout.scss"
@@ -23,14 +24,15 @@ export default function Layout({
   return (
     <div className={styles.ancient}>
       <div className={styles.rootWithBackground}>
-        <div id="portal-container"/>
-        <PostHead postTitle={data?.mdx?.frontmatter?.title}/>
-        <div className={styles.rootContainer}>
-          <LeoTransition location={location}>
-            { children }
-          </LeoTransition>
-        </div>
-        <div className={styles.footerContainer}>© Leo jeong, 2020</div>
+        <Tooltip>
+          <PostHead postTitle={data?.mdx?.frontmatter?.title}/>
+          <div className={styles.rootContainer}>
+            <LeoTransition location={location}>
+              { children }
+            </LeoTransition>
+          </div>
+          <div className={styles.footerContainer}>© Leo jeong, 2020</div>
+        </Tooltip>
       </div>
     </div>
   )

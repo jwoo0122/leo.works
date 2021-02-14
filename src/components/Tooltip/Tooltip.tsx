@@ -36,8 +36,6 @@ export default function Tooltip({
   
   const handleHide = useCallback(() => {
     setShow(false)
-    setTargetContent('')
-    setTooltipContent('')
   }, [])
   
   useLayoutEffect(() => {
@@ -62,7 +60,8 @@ export default function Tooltip({
               [styles.show]: show,
             })}>
               <div className={styles.targetContent}>
-                &quot;{ targetContent }&quot;의 주석
+                <div className={styles.label} />
+                &quot;<b>{ targetContent }</b>&quot;의 주석
               </div>
               <div className={styles.contentText}>
                 { tooltipContent }

@@ -1,4 +1,4 @@
-import { ReactNode, useContext, useCallback } from 'react'
+import { ReactNode, useState, useContext, useCallback } from 'react'
 
 import { TooltipContext } from 'Components/Tooltip'
 
@@ -8,7 +8,19 @@ export default function useTooltip(
 ) {
   const showTooltip = useContext(TooltipContext)
   
-  const handleShowTooltip = useCallback(() => showTooltip(targetContent, tooltipContent), [])
+  const [isShowing, setIsShowing] = useState(false)
   
-  return handleShowTooltip
+  const handleOnHide = useCallback(() => {
+    setIsShowing(false)
+  }, [])
+  
+  const handleShowTooltip = useCallback(() => {
+    setIsShowing(true)
+    showTooltip(targetContent, tooltipContent, handleOnHide)
+  }, [])
+  
+  return {
+    handleShowTooltip,
+    isShowing,
+  }
 }

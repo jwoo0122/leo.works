@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import classNames from 'classnames'
 
 import useTooltip from 'Hooks/useTooltip'
 import styles from './Highlight.scss'
@@ -12,11 +13,13 @@ export default function HighLight({
   comment,
   children,
 }: HighLightProps) {
-  const handleShowTooltip = useTooltip(children, comment)
+  const { handleShowTooltip, isShowing } = useTooltip(children, comment)
   
   return (
     <span
-      className={styles.wrapper}
+      className={classNames(styles.wrapper, {
+        [styles.isShowing]: isShowing,
+      })}
       onClick={handleShowTooltip}
     >
       { children }

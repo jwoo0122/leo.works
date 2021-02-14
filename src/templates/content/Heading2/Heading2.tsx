@@ -1,5 +1,5 @@
 // Int
-import styles from './Heading2.module.scss'
+import styles from './Heading2.scss'
 
 interface HeadingProps {
   children: string

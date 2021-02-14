@@ -3,7 +3,7 @@ import { useCallback, ChangeEvent } from "react"
 import { connectSearchBox } from "react-instantsearch-dom"
 
 // Int
-import styles from "./SearchBox.module.scss"
+import styles from "./SearchBox.scss"
 
 interface SearchBoxProps {
   currentRefinement: string

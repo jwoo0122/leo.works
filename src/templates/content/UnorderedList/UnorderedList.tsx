@@ -1,4 +1,4 @@
-import styles from './UnorderedList.module.scss'
+import styles from './UnorderedList.scss'
 
 interface OrderedList {
   children: React.ReactNode

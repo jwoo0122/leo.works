@@ -1,0 +1,83 @@
+@import '~Styles/global.scss';
+
+.wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99999999999;
+  pointer-events: none;
+  
+  .dim {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 400ms $smooth-transition;
+    pointer-events: none;
+    
+    &.show {
+      pointer-events: auto;
+      opacity: 1;
+      cursor: pointer;
+    }
+  }
+  
+  .content {
+    position: absolute;
+    z-index: 9999999999;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    max-width: $mobile-width;
+    min-height: 80px;
+    margin: 0 auto;
+    padding: 20px 15px 35px;
+    box-sizing: border-box;
+    color: $text-black;
+    background-color: white;
+    border-radius: 15px 15px 0 0;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(100%);
+    transition: transform 300ms $smooth-transition;
+    opacity: 1;
+    pointer-events: none;
+
+    &.show {
+      transform: translateY(0);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      color: $text-white;
+      background-color: $dark-gray;
+    }
+    
+    .targetContent {
+      display: flex;
+      margin-bottom: 10px;
+      font-size: 14px;
+      opacity: .5;
+      
+      .label {
+        width: 15px;
+        height: 2px;
+        margin-top: 6px;
+        margin-right: 5px;
+        margin-left: 2px;
+        background-color: $theme-color;
+        
+        @media (prefers-color-scheme: dark) {
+          background-color: $theme-color-dark;
+        }
+      }
+    }
+    
+    .contentText {
+      line-height: 1.4;
+    }
+  }
+}

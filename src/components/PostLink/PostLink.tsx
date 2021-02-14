@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 // Int
 import LinkStyle from 'Constants/LinkStyle'
 import Hit from 'Constants/Hit'
-import styles from './PostLink.module.scss'
+import styles from './PostLink.scss'
 
 interface PostLinkProps {
   hit: Hit

@@ -5,7 +5,7 @@ import classNames from 'classnames'
 
 // Int
 import LinkStyle from 'Constants/LinkStyle'
-import styles from './PostHead.module.scss'
+import styles from './PostHead.scss'
 
 const SCROLL_THRESHOLD = 200
 

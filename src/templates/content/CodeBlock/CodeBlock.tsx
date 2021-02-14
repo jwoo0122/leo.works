@@ -4,7 +4,7 @@ import { nord, solarizedlight } from 'react-syntax-highlighter/dist/esm/styles/p
 
 // Intck'
 import useDarkMode from 'Hooks/useDarkMode'
-import styles from './CodeBlock.module.scss'
+import styles from './CodeBlock.scss'
 
 function PreTag({ children }: React.PropsWithChildren<HTMLPreElement>) {
   return (

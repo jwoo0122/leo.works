@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import styles from './Horizon.module.scss'
+import styles from './Horizon.scss'
 
 function Horizon() {
   return (

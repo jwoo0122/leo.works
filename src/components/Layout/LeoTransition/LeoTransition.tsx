@@ -6,7 +6,7 @@ import {
 } from 'react-transition-group'
 
 // Int
-import styles from './LeoTransition.module.scss'
+import styles from './LeoTransition.scss'
 
 const rootPathname = '/'
 

@@ -22,7 +22,7 @@ $mobile-width: 650px;
 
 $header-line-z-index: 10000000;
 
-$smooth-transition: cubic-bezier(.15, 1.16, 1, 1);
+$smooth-transition: cubic-bezier(.15, 1, 1, 1);
 
 %appleBackdrop {
   backdrop-filter: blur(20px) saturate(180%);

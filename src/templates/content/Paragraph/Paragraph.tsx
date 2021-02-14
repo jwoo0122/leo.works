@@ -1,4 +1,4 @@
-import styles from './Paragraph.module.scss'
+import styles from './Paragraph.scss'
 
 interface ParagraphProps {
   children: React.ReactNode

@@ -8,7 +8,7 @@ import { profileUrl } from 'Constants/Gravatar'
 import Utterances from 'Components/Utterances'
 import SEO from 'Components/Seo'
 import withTwoPassRendering from 'Hocs/withTwoPassRendering'
-import styles from './blogTemplate.module.scss'
+import styles from './blogTemplate.scss'
 import * as TemplateBlocks from './content'
 
 const shortComponents = {
@@ -18,7 +18,6 @@ const shortComponents = {
   em: TemplateBlocks.Italic,
   blockquote: TemplateBlocks.Quote,
   hr: TemplateBlocks.Horizon,
-  sup: TemplateBlocks.SuperScript,
   a: TemplateBlocks.Anchor,
   p: TemplateBlocks.Paragraph,
   code: TemplateBlocks.CodeBlock,

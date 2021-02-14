@@ -59,7 +59,7 @@ React의 전략은 **Virtual DOM** 이라는 개념을 활용하는 것이다. V
 
 이 과정은 React Element (Virtual DOM)의 변경 전 후에 대한 비교로 이루어진다. React Element 는 `react-dom`, `react-native` 등의 코어 라이브러리를 통해 [해석되고](https://ko.reactjs.org/blog/2015/12/18/react-components-elements-and-instances.html#top-down-reconciliation) Flat 한 Virtual DOM 으로 만들어진다. 이 Virtual DOM 의 변경 사항을 계산하는 과정을 통해 React 는 DOM 에 적용할 최종 변경 사항을 만들어낸다. 이 과정을 **재조정**, 혹은 **Reconciliation** 이라고 부른다. 자세한 과정은 [공식 문서](https://reactjs.org/docs/reconciliation.html)에 소개되어 있다. 간단하게 코드로 확인해보자.
 
-만약 어떤 Element 가 (편의상 JSX 형태로 작성한다, JSX 와 createElement 는 동치이다) 다음과 같이 변경된다고 생각해보자.
+만약 어떤 Element 가 <Highlight comment="편의상 JSX 형태로 작성한다, JSX 와 createElement 는 동치이다.">다음과 같이</Highlight> 변경된다고 생각해보자.
 ```html
 <!-- from -->
 <div>

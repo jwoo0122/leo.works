@@ -1,7 +1,7 @@
 // Int
 import PostHead from '../PostHead'
 import LeoTransition from './LeoTransition'
-import styles from "./Layout.module.scss"
+import styles from "./Layout.scss"
 
 interface LayoutProps {
   data: {
@@ -23,6 +23,7 @@ export default function Layout({
   return (
     <div className={styles.ancient}>
       <div className={styles.rootWithBackground}>
+        <div id="portal-container"/>
         <PostHead postTitle={data?.mdx?.frontmatter?.title}/>
         <div className={styles.rootContainer}>
           <LeoTransition location={location}>

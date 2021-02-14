@@ -5,7 +5,7 @@ import _ from 'lodash'
 import classNames from 'classnames'
 
 // Int
-import styles from './Loader.module.scss'
+import styles from './Loader.scss'
 
 interface LoaderProps {
   isSearchStalled: boolean

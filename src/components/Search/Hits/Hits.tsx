@@ -6,7 +6,7 @@ import { connectHits } from "react-instantsearch-dom"
 import Loader from 'Components/Search/Loader'
 import PostLink from "Components/PostLink"
 import Hit from "Constants/Hit"
-import styles from './Hits.module.scss'
+import styles from './Hits.scss'
 
 interface HitsProps {
   hits: Hit[]

@@ -15,7 +15,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.5);
     opacity: 0;
     transition: opacity 400ms $smooth-transition;
     pointer-events: none;
@@ -36,13 +36,14 @@
     max-width: $mobile-width;
     min-height: 80px;
     margin: 0 auto;
-    padding: 20px 15px calc(env(safe-area-inset-bottom) + 15px);
+    padding: 15px;
     box-sizing: border-box;
     color: $text-black;
     background-color: white;
-    border-radius: 15px 15px 0 0;
-    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.2);
-    transform: translateY(100%);
+    border: 1px solid rgba(150, 150, 150, 0.15);
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    transform: translateY(120%);
     transition: transform 300ms $smooth-transition;
     opacity: 1;
     pointer-events: auto;
@@ -51,7 +52,7 @@
     line-height: 1.4;
 
     &.show {
-      transform: translateY(0);
+      transform: translateY(calc(-30px - env(safe-area-inset-bottom)));
     }
     
     @media (prefers-color-scheme: dark) {
@@ -96,18 +97,17 @@
         transform: translateX(5px);
         margin-right: 5px;
         border-radius: 5px;
-        background-color: rgba(150, 150, 150, .3);
         cursor: pointer;
         
         .closeChevron {
           width: 10px;
           height: 10px;
-          border-width: 0 3px 3px 0;
+          border-width: 0 2px 2px 0;
           box-sizing: border-box;
           border-style: solid;
           border-color: $dark-gray;
           transform: rotate(45deg);
-          margin-top: -4px;
+          margin-top: -6px;
           
           @media (prefers-color-scheme: dark) {
             border-color: $light-gray;

@@ -2,7 +2,7 @@ import {
   ReactNode,
   useState,
   useCallback,
-  useLayoutEffect,
+  useEffect,
   createContext,
   useRef,
 } from 'react'
@@ -16,8 +16,6 @@ interface TooltipProps {
   children?: ReactNode
 }
 
-const PORTAL_CONTAINER_ID = 'portal-container-id'
-
 type TooltipContextValue = (target: ReactNode, tooltip: ReactNode, hideCallback) => void
 
 export const TooltipContext = createContext<TooltipContextValue>(_.noop)
@@ -26,6 +24,7 @@ export default function Tooltip({
   children,
 }: TooltipProps) {
   const [show, setShow] = useState(false)
+  const [shouldRender, setShouldRender] = useState(false)
   const [targetContent, setTargetContent] = useState('')
   const [tooltipContent, setTooltipContent] = useState('')
   const onHideCallbackRef = useRef<() => void | null>(_.noop)
@@ -33,7 +32,7 @@ export default function Tooltip({
   const [portalContainer, setPortalContainer] = useState<HTMLElement | null>(null)
   
   const showTooltip = useCallback(async (targetContent, tooltipContent, hideCallback) => {
-    setShow(true)
+    setShouldRender(true)
     setTargetContent(targetContent)
     setTooltipContent(tooltipContent)
     onHideCallbackRef.current = hideCallback
@@ -47,19 +46,26 @@ export default function Tooltip({
     setShow(false)
   }, [])
   
-  useLayoutEffect(() => {
-    setPortalContainer(document.getElementById(PORTAL_CONTAINER_ID))
-  }, [])
+  const handleTransitionEnd = useCallback(() => {
+    if (!show) { setShouldRender(false) }
+  }, [show])
+  
+  const handlePortalContainerRef = useCallback((reference) => { setPortalContainer(reference)}, [])
+  
+  useEffect(function triggerRender() {
+    if (shouldRender) { setShow(true) }
+  }, [shouldRender])
 
   return (
     <>
       {
-        (portalContainer) ?
+        (portalContainer && (shouldRender || show)) ?
         createPortal(
           <div
             className={classNames(styles.wrapper, {
               [styles.show]: show,
             })}
+            onTransitionEnd={handleTransitionEnd}
           >
             <div className={classNames(styles.content, {
               [styles.show]: show,
@@ -90,7 +96,7 @@ export default function Tooltip({
           portalContainer,
         ) : null
       }
-      <div id={PORTAL_CONTAINER_ID}/>
+      <div ref={handlePortalContainerRef}/>
       <TooltipContext.Provider value={showTooltip}>
         { children }
       </TooltipContext.Provider>

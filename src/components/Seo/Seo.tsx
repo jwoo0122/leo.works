@@ -2,6 +2,9 @@
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
+// Int
+import useDarkMode from "Hooks/useDarkMode"
+
 const SITE_NAME = "by Leo Jeong"
 
 interface SeoProps {
@@ -21,6 +24,8 @@ export default function Seo({
   lang = 'ko',
   image,
 }: SeoProps) {
+  const isDarkMode = useDarkMode()
+  
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -52,6 +57,7 @@ export default function Seo({
       <meta property="og:description" content={metaDescription} />
       <meta property="og:image" content={image} />
       <meta property="og:type" content="website" />
+      <meta name="theme-color" content={isDarkMode ? 'rgb(170, 101, 143)' : 'rgb(115, 190, 159)'} />
     </Helmet>
   )
 }

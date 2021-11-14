@@ -16,20 +16,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '15'
-
-      - name: Cache node_modules
-        uses: actions/cache@v2
-        id: node-cache
-        with:
-          path: node_modules
-          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.OS }}-build-
-            ${{ runner.OS }}-
-
-      - name: Install dependencies
-        if: steps.node-cache.outputs.cache-hit != 'true'
-        run: npm ci
       
       - name: Gatsby Build
         env:
@@ -37,7 +23,7 @@ jobs:
           ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
           ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
           ALGOLIA_SEARCH_ONLY_API_KEY: ${{ secrets.ALGOLIA_SEARCH_ONLY_API_KEY }}
-        run: npm run build
+        run: yarn build
 
       - name: Send public to s3
         env:

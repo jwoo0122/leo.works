@@ -2,7 +2,7 @@ name: Deploy to S3
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -12,10 +12,10 @@ jobs:
       - name: Checkout to master
         uses: actions/checkout@master
       
-      - name: Use node v15, npm 7
+      - name: Use node v16, npm 7
         uses: actions/setup-node@v2
         with:
-          node-version: '15'
+          node-version: '16'
       
       - name: Gatsby Build
         env:

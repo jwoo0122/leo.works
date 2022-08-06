@@ -2,20 +2,20 @@ name: Check lint
 
 on:
   pull_request:
-    branches: [ dev ]
+    branches: [ main ]
 
 jobs:
   lint:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout to current branch
         uses: actions/checkout@v2
-        
+
       - name: Use node v15, npm 7
         uses: actions/setup-node@v2
         with:
-          node-version: '15'
+          node-version: "15"
 
       - name: Run lint
         run: yarn lint

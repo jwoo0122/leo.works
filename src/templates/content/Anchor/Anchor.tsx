@@ -1,24 +1,21 @@
 // Int
-import styles from './Anchor.scss'
+import styles from "./Anchor.scss";
 
 interface AnchorProps {
-  href: string
-  children: React.ReactNode
+  href?: string;
+  children?: React.ReactNode;
 }
 
-export default function Anchor({
-  href,
-  children,
-}: AnchorProps) {
+export default function Anchor({ href, children }: AnchorProps) {
   return (
     <a
-      style={{ textDecoration: 'none' }}
+      style={{ textDecoration: "none" }}
       className={styles.linkContainer}
       href={href}
       target="_blank"
       rel="noopener noreferrer"
     >
-      { children }
+      {children}
     </a>
-  )
+  );
 }

@@ -1,14 +1,8 @@
-import styles from './Paragraph.scss'
+import styles from "./Paragraph.scss";
 
 interface ParagraphProps {
-  children: React.ReactNode
+  children?: React.ReactNode;
 }
-export default function Paragraph({
-  children,
-}: ParagraphProps) {
-  return (
-    <p className={styles.pwrapper}>
-      { children }
-    </p>
-  )
+export default function Paragraph({ children }: ParagraphProps) {
+  return <p className={styles.pwrapper}>{children}</p>;
 }

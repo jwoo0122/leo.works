@@ -1,15 +1,14 @@
 // Ext
-import { Link, graphql } from 'gatsby'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { MDXProvider } from '@mdx-js/react'
+import { Link, graphql } from "gatsby";
+import { MDXProvider } from "@mdx-js/react";
 
 // Int
-import { profileUrl } from 'Constants/Gravatar'
-import Utterances from 'Components/Utterances'
-import SEO from 'Components/Seo'
-import withTwoPassRendering from 'Hocs/withTwoPassRendering'
-import styles from './blogTemplate.scss'
-import * as TemplateBlocks from './content'
+import { profileUrl } from "Constants/Gravatar";
+import Utterances from "Components/Utterances";
+import SEO from "Components/Seo";
+import withTwoPassRendering from "Hocs/withTwoPassRendering";
+import styles from "./blogTemplate.scss";
+import * as TemplateBlocks from "./content";
 
 const shortComponents = {
   h1: TemplateBlocks.Heading,
@@ -26,33 +25,32 @@ const shortComponents = {
   ul: TemplateBlocks.UnorderedList,
   pre: (props) => props.children,
   ...TemplateBlocks,
-}
+};
 
 interface TemplateProps {
   data: {
     mdx: {
-      body: any
+      body: any;
       frontmatter: {
-        date: string
-        title: string
-        author: string
-        description: string
-        featuredImage: any
-      }
-      htmlAst: any
+        date: string;
+        title: string;
+        author: string;
+        description: string;
+        featuredImage: any;
+      };
+      htmlAst: any;
       fields: {
         readingTime: {
-          minutes: number
-        }
-      }
-    }
-  }
+          minutes: number;
+        };
+      };
+    };
+  };
+  children: React.ReactNode;
 }
 
-function blogTemplate({
-  data,
-}: TemplateProps) {
-  const { mdx } = data
+function blogTemplate({ data, children }: TemplateProps) {
+  const { mdx } = data;
   const {
     frontmatter: {
       title,
@@ -61,19 +59,14 @@ function blogTemplate({
       description,
       featuredImage: {
         childImageSharp: {
-          fluid: {
-            src,
-          },
+          fluid: { src },
         },
       },
     },
-    body,
     fields: {
-      readingTime: {
-        minutes,
-      },
+      readingTime: { minutes },
     },
-  } = mdx
+  } = mdx;
 
   return (
     <MDXProvider components={shortComponents}>
@@ -86,41 +79,28 @@ function blogTemplate({
       />
       <div className={styles.postContainer}>
         <div className={styles.postMeta}>
-          <Link
-            to="/"
-            style={{ textDecoration: 'none', display: 'block' }}
-          >
+          <Link to="/" style={{ textDecoration: "none", display: "block" }}>
             <div className={styles.postAuthorWrapper}>
-              <span className={styles.backIcon}>{'〈'}</span>
-              <img
-                className={styles.profileImg}
-                src={profileUrl}
-              />
+              <span className={styles.backIcon}>{"〈"}</span>
+              <img className={styles.profileImg} src={profileUrl} />
             </div>
           </Link>
-          <h1 className={styles.postTitle}>
-            {title}
-          </h1>
+          <h1 className={styles.postTitle}>{title}</h1>
           <div className={styles.postDate}>
             {`${date} · ${Math.ceil(minutes)}min`}
           </div>
         </div>
-        <div className={styles.divider}/>
-        <div className={styles.content}>
-          <MDXRenderer>
-            { body }
-          </MDXRenderer>
-        </div>
+        <div className={styles.divider} />
+        <div className={styles.content}>{children}</div>
       </div>
-      <Utterances repo="jwoo0122/leo.works"/>
+      <Utterances repo="jwoo0122/leo.works" />
     </MDXProvider>
-  )
+  );
 }
 
 export const pageQuery = graphql`
-  query($path: String!) {
-    mdx(frontmatter: { path: { eq: $path } }) {
-      body
+  query ($slug: String!) {
+    mdx(fields: { slug: { eq: $slug } }) {
       frontmatter {
         date(formatString: "MMM DD, YYYY")
         path
@@ -142,6 +122,6 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
 
-export default withTwoPassRendering(blogTemplate)
+export default withTwoPassRendering(blogTemplate);

@@ -1,9 +1,9 @@
-interface BoldProps {
-  children: React.ReactNode
+interface ItalicProps {
+  children?: React.ReactNode;
 }
 
-function Bold({ children }: BoldProps) {
-  return <span style={{ fontStyle: 'italic' }}>{ children }</span>
+function Italic({ children }: ItalicProps) {
+  return <span style={{ fontStyle: "italic" }}>{children}</span>;
 }
 
-export default Bold
+export default Italic;

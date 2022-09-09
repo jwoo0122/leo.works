@@ -1,15 +1,9 @@
-import styles from './OrderedList.scss'
+import styles from "./OrderedList.scss";
 
 interface OrderedList {
-  children: React.ReactNode
+  children?: React.ReactNode;
 }
 
-export default function OrderedList({
-  children,
-}: OrderedList) {
-  return (
-    <ol className={styles.wrapper}>
-      { children }
-    </ol>
-  )
+export default function OrderedList({ children }: OrderedList) {
+  return <ol className={styles.wrapper}>{children}</ol>;
 }

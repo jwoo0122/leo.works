@@ -1,9 +1,9 @@
 interface BoldProps {
-  children: React.ReactNode
+  children?: React.ReactNode;
 }
 
 function Bold({ children }: BoldProps) {
-  return <span style={{ fontWeight: 'bold' }}>{ children }</span>
+  return <span style={{ fontWeight: "bold" }}>{children}</span>;
 }
 
-export default Bold
+export default Bold;

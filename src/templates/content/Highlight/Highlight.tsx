@@ -1,20 +1,17 @@
-import { ReactNode } from 'react'
-import classNames from 'classnames'
+import { ReactNode } from "react";
+import classNames from "classnames";
 
-import useTooltip from 'Hooks/useTooltip'
-import styles from './Highlight.scss'
+import useTooltip from "Hooks/useTooltip";
+import styles from "./Highlight.scss";
 
 interface HighLightProps {
-  comment: ReactNode
-  children: string
+  comment: ReactNode;
+  children?: React.ReactNode;
 }
 
-export default function HighLight({
-  comment,
-  children,
-}: HighLightProps) {
-  const { handleShowTooltip, isShowing } = useTooltip(children, comment)
-  
+export default function HighLight({ comment, children }: HighLightProps) {
+  const { handleShowTooltip, isShowing } = useTooltip(children, comment);
+
   return (
     <span
       className={classNames(styles.wrapper, {
@@ -22,7 +19,7 @@ export default function HighLight({
       })}
       onClick={handleShowTooltip}
     >
-      { children }
+      {children}
     </span>
-  )
+  );
 }

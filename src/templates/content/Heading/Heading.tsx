@@ -1,24 +1,16 @@
 // Int
-import styles from './Heading.scss'
+import styles from "./Heading.scss";
 
 interface HeadingProps {
-  children: string
+  children?: React.ReactNode;
 }
 
-export default function Heading({
-  children,
-}: HeadingProps) {
+export default function Heading({ children }: HeadingProps) {
   return (
-    <a
-      href={`#${children}`}
-      className={styles.linkWrapper}
-    >
-      <h1
-        id={children}
-        className={styles.heading1}
-      >
-        { children }
+    <a href={`#${children}`} className={styles.linkWrapper}>
+      <h1 id={children?.toString()} className={styles.heading1}>
+        {children}
       </h1>
     </a>
-  )
+  );
 }

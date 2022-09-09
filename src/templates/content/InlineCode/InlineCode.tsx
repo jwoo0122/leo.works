@@ -1,21 +1,15 @@
 // Ext
-import { ReactNode } from 'react'
+import { ReactNode } from "react";
 
 // Int
-import styles from './InlineCode.scss'
+import styles from "./InlineCode.scss";
 
 interface InlineCodeProps {
-  children: ReactNode
+  children?: ReactNode;
 }
 
-function InlineCode({
-  children
-}: InlineCodeProps) {
-  return (
-    <code className={styles.singleCodePiece}>
-      { children }
-    </code>
-  )
+function InlineCode({ children }: InlineCodeProps) {
+  return <code className={styles.singleCodePiece}>{children}</code>;
 }
 
-export default InlineCode
+export default InlineCode;

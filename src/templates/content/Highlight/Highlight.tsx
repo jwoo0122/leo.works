@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import classNames from "classnames";
 
 import useTooltip from "Hooks/useTooltip";
-import styles from "./Highlight.scss";
+import * as styles from "./Highlight.scss";
 
 interface HighLightProps {
   comment: ReactNode;

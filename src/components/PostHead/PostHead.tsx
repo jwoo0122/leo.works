@@ -1,47 +1,50 @@
 // Ext
-import { useEffect, useCallback, useState } from 'react'
-import { Link } from 'gatsby'
-import classNames from 'classnames'
+import { useEffect, useCallback, useState } from "react";
+import { Link } from "gatsby";
+import classNames from "classnames";
 
 // Int
-import LinkStyle from 'Constants/LinkStyle'
-import styles from './PostHead.scss'
+import LinkStyle from "Constants/LinkStyle";
+import * as styles from "./PostHead.scss";
 
-const SCROLL_THRESHOLD = 200
+const SCROLL_THRESHOLD = 200;
 
 interface PostHeadProps {
-  postTitle?: string
+  postTitle?: string;
 }
 
 function PostHead({ postTitle }: PostHeadProps) {
-  const [scrolled, setScrolled] = useState(false)
-  const [hasTitle, setHasTitle] = useState(false)
+  const [scrolled, setScrolled] = useState(false);
+  const [hasTitle, setHasTitle] = useState(false);
 
   const handleScroll = useCallback(() => {
     window.requestAnimationFrame(() => {
-      if (document.documentElement.scrollTop >= SCROLL_THRESHOLD) { setScrolled(true) }
-      else { setScrolled(false) }
-    })
-  }, [])
+      if (document.documentElement.scrollTop >= SCROLL_THRESHOLD) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    });
+  }, []);
 
   useEffect(() => {
-    const timer = setTimeout(() => setHasTitle(!!postTitle), 500)
-    
+    const timer = setTimeout(() => setHasTitle(!!postTitle), 500);
+
     return function cleanUp() {
-      clearTimeout(timer)
-    }
-  }, [postTitle])
-  
+      clearTimeout(timer);
+    };
+  }, [postTitle]);
+
   useEffect(() => {
     if (document.documentElement.scrollTop >= SCROLL_THRESHOLD) {
-      setScrolled(true)
+      setScrolled(true);
     }
-    document.addEventListener('scroll', handleScroll)
+    document.addEventListener("scroll", handleScroll);
 
     return function cleanUp() {
-      document.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
+      document.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <div
@@ -50,25 +53,18 @@ function PostHead({ postTitle }: PostHeadProps) {
       })}
     >
       <div className={styles.headContents}>
-        <Link
-          to={'/'}
-          style={LinkStyle}
-        >
+        <Link to={"/"} style={LinkStyle}>
           <div className={styles.blogName}>
-            <div className={styles.blogNameText}>
-              Leo Jeong
-            </div>
+            <div className={styles.blogNameText}>Leo Jeong</div>
           </div>
         </Link>
 
         <div className={styles.postTitle}>
-          <span className={styles.titleText}>
-            { postTitle }
-          </span>
+          <span className={styles.titleText}>{postTitle}</span>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default PostHead
+export default PostHead;

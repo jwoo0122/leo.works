@@ -1,15 +1,41 @@
 const transformer = ({ data }) => {
-  return data.allMdx.edges.map(({ node }) => node)
-}
+  return data.allMdx.edges.map(({ node }) => node);
+};
 
 module.exports = {
   siteMetadata: {
     title: `by Leo Jeong`,
     author: `Leo Jeong`,
     description: `공부하며 개발하는 정진우의 블로그입니다.`,
-    siteUrl: 'https://leo.works',
+    siteUrl: "https://leo.works",
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              linkImagesToOriginal: false,
+              disableBgImage: true,
+              quality: 100,
+              withWebp: true,
+              loading: "lazy",
+            },
+          },
+          {
+            resolve: "gatsby-remark-emoji",
+            options: {
+              emojiConversion: "shortnameToUnicode",
+              ascii: true,
+            },
+          },
+          `gatsby-remark-sub-sup`,
+          `gatsby-remark-copy-linked-files`,
+        ],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -28,35 +54,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
-        host: 'https://leo.works',
-        sitemap: 'https://leo.works/sitemap.xml',
-        policy: [{ userAgent: '*', allow: '/' }],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        gatsbyRemarkPlugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              linkImagesToOriginal: false,
-              disableBgImage: true,
-              quality: 100,
-              withWebp: true,
-              loading: 'lazy',
-            },
-          },
-          {
-            resolve: "gatsby-remark-emoji",
-            options: {
-              emojiConversion: "shortnameToUnicode",
-              ascii: true,
-            },
-          },
-          `gatsby-remark-sub-sup`,
-          `gatsby-remark-copy-linked-files`,
-        ],
+        host: "https://leo.works",
+        sitemap: "https://leo.works/sitemap.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
       },
     },
     `gatsby-plugin-react-helmet`,
@@ -117,12 +117,5 @@ module.exports = {
         useResolveUrlLoader: true,
       },
     },
-    'gatsby-remark-reading-time',
-    {
-      resolve: 'gatsby-plugin-layout',
-      options: {
-        component: require.resolve('./src/components/Layout/Layout.tsx'),
-      },
-    },
   ],
-}
+};

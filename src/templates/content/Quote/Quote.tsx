@@ -1,4 +1,4 @@
-import styles from "./Quote.scss";
+import * as styles from "./Quote.scss";
 
 interface QuoteProps {
   children?: React.ReactNode;

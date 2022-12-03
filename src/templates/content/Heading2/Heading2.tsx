@@ -1,5 +1,5 @@
 // Int
-import styles from "./Heading2.scss";
+import * as styles from "./Heading2.scss";
 
 interface Heading2Props {
   children?: React.ReactNode;

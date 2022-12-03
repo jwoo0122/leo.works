@@ -2,7 +2,7 @@
 import Tooltip from "Components/Tooltip";
 import PostHead from "../PostHead";
 import LeoTransition from "./LeoTransition";
-import styles from "./Layout.scss";
+import * as styles from "./Layout.scss";
 
 interface LayoutProps {
   data: {

@@ -1,18 +1,15 @@
 // Ext
-import { useMemo } from 'react'
-import {
-  TransitionGroup,
-  CSSTransition,
-} from 'react-transition-group'
+import { useMemo } from "react";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 // Int
-import styles from './LeoTransition.scss'
+import * as styles from "./LeoTransition.scss";
 
-const rootPathname = '/'
+const rootPathname = "/";
 
 interface LeoTransitionProps {
-  location: Location
-  children: React.ReactNode
+  location: Location;
+  children: React.ReactNode;
 }
 
 function LeoTransition({
@@ -28,9 +25,9 @@ function LeoTransition({
         exit: styles.indexExit,
         exitActive: styles.indexExitActive,
         exitDone: styles.indexExitDone,
-      }
+      };
     }
-    
+
     return {
       enter: styles.postEnter,
       enterActive: styles.postEnterActive,
@@ -38,9 +35,9 @@ function LeoTransition({
       exit: styles.postExit,
       exitActive: styles.postExitActive,
       exitDone: styles.postExitDone,
-    }
-  }, [pathname])
-  
+    };
+  }, [pathname]);
+
   return (
     <TransitionGroup component={null}>
       <CSSTransition
@@ -48,12 +45,10 @@ function LeoTransition({
         timeout={500}
         classNames={transitionClassNames}
       >
-        <div className={styles.contentBase}>
-          { children }
-        </div>
+        <div className={styles.contentBase}>{children}</div>
       </CSSTransition>
     </TransitionGroup>
-  )
+  );
 }
 
-export default LeoTransition
+export default LeoTransition;

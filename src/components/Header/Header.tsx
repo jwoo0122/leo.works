@@ -1,5 +1,5 @@
-import styles from "./Header.scss"
+import * as styles from "./Header.scss";
 
 export default function Header() {
-  return <div className={styles.headerLine} />
+  return <div className={styles.headerLine} />;
 }

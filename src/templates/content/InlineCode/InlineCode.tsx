@@ -2,7 +2,7 @@
 import { ReactNode } from "react";
 
 // Int
-import styles from "./InlineCode.scss";
+import * as styles from "./InlineCode.scss";
 
 interface InlineCodeProps {
   children?: ReactNode;

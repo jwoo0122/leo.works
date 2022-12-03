@@ -7,7 +7,7 @@ import { profileUrl } from "Constants/Gravatar";
 import Utterances from "Components/Utterances";
 import SEO from "Components/Seo";
 import withTwoPassRendering from "Hocs/withTwoPassRendering";
-import styles from "./blogTemplate.scss";
+import * as styles from "./blogTemplate.scss";
 import * as TemplateBlocks from "./content";
 
 const shortComponents = {
@@ -99,8 +99,8 @@ function blogTemplate({ data, children }: TemplateProps) {
 }
 
 export const pageQuery = graphql`
-  query ($slug: String!) {
-    mdx(fields: { slug: { eq: $slug } }) {
+  query {
+    mdx {
       frontmatter {
         date(formatString: "MMM DD, YYYY")
         path

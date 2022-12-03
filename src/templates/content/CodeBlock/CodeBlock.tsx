@@ -7,7 +7,7 @@ import {
 
 // Intck'
 import useDarkMode from "Hooks/useDarkMode";
-import styles from "./CodeBlock.scss";
+import * as styles from "./CodeBlock.scss";
 
 function PreTag({ children }: React.PropsWithChildren<HTMLPreElement>) {
   return <pre className={styles.codeWrapper}>{children}</pre>;

@@ -1,10 +1,8 @@
-import { memo } from 'react'
-import styles from './Horizon.scss'
+import { memo } from "react";
+import * as styles from "./Horizon.scss";
 
 function Horizon() {
-  return (
-    <div className={styles.horizon}/>
-  )
+  return <div className={styles.horizon} />;
 }
 
-export default memo(Horizon)
+export default memo(Horizon);

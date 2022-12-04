@@ -13,6 +13,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
+        extensions: [".mdx", ".md"],
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
@@ -24,30 +25,14 @@ module.exports = {
               loading: "lazy",
             },
           },
-          {
-            resolve: "gatsby-remark-emoji",
-            options: {
-              emojiConversion: "shortnameToUnicode",
-              ascii: true,
-            },
-          },
-          `gatsby-remark-sub-sup`,
-          `gatsby-remark-copy-linked-files`,
         ],
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `pages`,
         path: `${__dirname}/src/posts`,
-        name: `markdown-pages`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/static/images`,
       },
     },
     `gatsby-plugin-sitemap`,
@@ -100,7 +85,6 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-typescript`,
     {
       resolve: "gatsby-plugin-react-svg",
       options: {

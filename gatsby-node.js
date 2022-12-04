@@ -3,30 +3,36 @@ const readingTime = require("reading-time");
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
-  const blogPostTemplate = path.resolve(`src/templates/blogTemplate.tsx`);
+  const blogPostTemplate = path.resolve(`./src/templates/blogTemplate.tsx`);
   const result = await graphql(`
-    {
-      allMdx(sort: { order: DESC, fields: [frontmatter___date] }, limit: 1000) {
-        edges {
-          node {
-            frontmatter {
-              path
-            }
+    query {
+      allMdx {
+        nodes {
+          frontmatter {
+            path
+          }
+          internal {
+            contentFilePath
           }
         }
       }
     }
   `);
+
   // Handle errors
   if (result.errors) {
     reporter.panicOnBuild(`Error while running GraphQL query.`);
     return;
   }
-  result.data.allMdx.edges.forEach(({ node }) => {
+
+  result.data.allMdx.nodes.forEach((node) => {
     createPage({
       path: node.frontmatter.path,
-      component: blogPostTemplate,
-      context: {}, // additional data can be passed via context
+      component: `${blogPostTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
+      // component: node.internal.contentFilePath,
+      context: {
+        id: node.id,
+      },
     });
   });
 };

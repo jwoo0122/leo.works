@@ -6,7 +6,7 @@ import { MDXProvider } from "@mdx-js/react";
 import { profileUrl } from "Constants/Gravatar";
 import Utterances from "Components/Utterances";
 import SEO from "Components/Seo";
-import withTwoPassRendering from "Hocs/withTwoPassRendering";
+// import withTwoPassRendering from "Hocs/withTwoPassRendering";
 import * as styles from "./blogTemplate.scss";
 import * as TemplateBlocks from "./content";
 
@@ -57,11 +57,11 @@ function blogTemplate({ data, children }: TemplateProps) {
       date,
       author,
       description,
-      featuredImage: {
-        childImageSharp: {
-          fluid: { src },
-        },
-      },
+      // featuredImage: {
+      //   childImageSharp: {
+      //     fluid: { src },
+      //   },
+      // },
     },
     fields: {
       readingTime: { minutes },
@@ -70,13 +70,13 @@ function blogTemplate({ data, children }: TemplateProps) {
 
   return (
     <MDXProvider components={shortComponents}>
-      <SEO
+      {/* <SEO
         title={title}
         author={author}
         date={date}
         description={description}
         image={src}
-      />
+      /> */}
       <div className={styles.postContainer}>
         <div className={styles.postMeta}>
           <Link to="/" style={{ textDecoration: "none", display: "block" }}>
@@ -99,21 +99,15 @@ function blogTemplate({ data, children }: TemplateProps) {
 }
 
 export const pageQuery = graphql`
-  query {
-    mdx {
+  query ($path: String!) {
+    mdx(frontmatter: { path: { eq: $path } }) {
+      body
       frontmatter {
         date(formatString: "MMM DD, YYYY")
         path
         title
         author
         description
-        featuredImage {
-          childImageSharp {
-            fluid(maxWidth: 1200, quality: 99) {
-              src
-            }
-          }
-        }
       }
       fields {
         readingTime {
@@ -124,4 +118,5 @@ export const pageQuery = graphql`
   }
 `;
 
-export default withTwoPassRendering(blogTemplate);
+// export default withTwoPassRendering(blogTemplate);
+export default blogTemplate;

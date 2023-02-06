@@ -12,14 +12,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     ],\
     "dependencyTreeRoots": [\
       {\
-        "name": "@example/blog",\
+        "name": "leo.works",\
         "reference": "workspace:."\
       }\
     ],\
     "enableTopLevelFallback": true,\
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
-      ["@example/blog", ["workspace:."]]\
+      ["leo.works", ["workspace:."]]\
     ],\
     "fallbackPool": [\
     ],\
@@ -787,19 +787,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@esbuild/win32-x64", "npm:0.16.17"]\
           ],\
           "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@example/blog", [\
-        ["workspace:.", {\
-          "packageLocation": "./",\
-          "packageDependencies": [\
-            ["@example/blog", "workspace:."],\
-            ["@astrojs/mdx", "npm:0.16.0"],\
-            ["@astrojs/rss", "npm:2.1.0"],\
-            ["@astrojs/sitemap", "npm:1.0.1"],\
-            ["astro", "npm:2.0.6"]\
-          ],\
-          "linkType": "SOFT"\
         }]\
       ]],\
       ["@gar/promisify", [\
@@ -3180,6 +3167,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["kleur", "npm:4.1.5"]\
           ],\
           "linkType": "HARD"\
+        }]\
+      ]],\
+      ["leo.works", [\
+        ["workspace:.", {\
+          "packageLocation": "./",\
+          "packageDependencies": [\
+            ["leo.works", "workspace:."],\
+            ["@astrojs/mdx", "npm:0.16.0"],\
+            ["@astrojs/rss", "npm:2.1.0"],\
+            ["@astrojs/sitemap", "npm:1.0.1"],\
+            ["astro", "npm:2.0.6"]\
+          ],\
+          "linkType": "SOFT"\
         }]\
       ]],\
       ["load-yaml-file", [\

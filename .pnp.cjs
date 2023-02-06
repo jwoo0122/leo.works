@@ -32,7 +32,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@astrojs/rss", "npm:2.1.0"],\
             ["@astrojs/sitemap", "npm:1.0.1"],\
             ["astro", "npm:2.0.6"],\
-            ["sass", "npm:1.58.0"]\
+            ["sass", "npm:1.58.0"],\
+            ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=d73830"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -3235,7 +3236,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@astrojs/rss", "npm:2.1.0"],\
             ["@astrojs/sitemap", "npm:1.0.1"],\
             ["astro", "npm:2.0.6"],\
-            ["sass", "npm:1.58.0"]\
+            ["sass", "npm:1.58.0"],\
+            ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=d73830"]\
           ],\
           "linkType": "SOFT"\
         }]\

@@ -3,6 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Utterance from '../components/Utterance.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
@@ -42,6 +43,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
         <slot />
       </article>
     </main>
+    <Utterance />
     <Footer />
   </body>
 </html>

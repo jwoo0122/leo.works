@@ -32,6 +32,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@astrojs/rss", "npm:2.1.0"],\
             ["@astrojs/sitemap", "npm:1.0.1"],\
             ["astro", "npm:2.0.6"],\
+            ["husky", "npm:8.0.3"],\
             ["sass", "npm:1.58.0"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=d73830"]\
           ],\
@@ -2843,6 +2844,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["husky", [\
+        ["npm:8.0.3", {\
+          "packageLocation": "./.yarn/cache/husky-npm-8.0.3-b0b59c5127-837bc7e441.zip/node_modules/husky/",\
+          "packageDependencies": [\
+            ["husky", "npm:8.0.3"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["iconv-lite", [\
         ["npm:0.6.3", {\
           "packageLocation": "./.yarn/cache/iconv-lite-npm-0.6.3-24b8aae27e-3f60d47a5c.zip/node_modules/iconv-lite/",\
@@ -3236,6 +3246,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@astrojs/rss", "npm:2.1.0"],\
             ["@astrojs/sitemap", "npm:1.0.1"],\
             ["astro", "npm:2.0.6"],\
+            ["husky", "npm:8.0.3"],\
             ["sass", "npm:1.58.0"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=d73830"]\
           ],\

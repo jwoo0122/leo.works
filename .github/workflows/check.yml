@@ -1,4 +1,4 @@
-name: Typecheck
+name: Astro check
 
 on:
   pull_request:
@@ -12,13 +12,13 @@ jobs:
       - name: Checkout to current branch
         uses: actions/checkout@v3
 
-      - name: Use node v15, npm 7
+      - name: Setup node, yarn
         uses: actions/setup-node@v3
         with:
-          node-version: "18"
+          node-version: 18
 
       - name: Install
         run: yarn install
 
-      - name: Typecheck
-        run: yarn typecheck
+      - name: Astro check
+        run: yarn check

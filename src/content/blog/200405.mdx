@@ -1,18 +1,15 @@
 ---
-id: "2004050"
-path: "/2004050"
-date: "2020-04-05"
+pubDate: "2020-04-05"
 title: "ProseMirror 사용기"
-author: "Leo Jeong"
 description: "이쯤되면 Notion 개발진은 얼마나 많은 고충이 있을지 상상하기도 힘듭니다."
-featuredImage: "../static/images/tiptap-screenshot.png"
+heroImage: "/tiptap-screenshot.png"
 ---
 
 # Why
 
 처음 ProseMirror 를 알게 된 건 작년 가을 쯤, 동아리 프로젝트를 진행하면서 였다. Vue 에서 쓸만한 Editor 라이브러리를 찾는 중이었는데 - 원래 쓰던 라이브러리는 deprecated 되어 있었으므로 - 마침 눈에 들어온 것이 tiptap 이라는 라이브러리였다. tiptap 은 ProseMirror 기반의 Vue 용 Wysiwyg Editor 라이브러리이다. 모듈화가 잘 되어 있고 기능도 다양한 편이라 사용하기 정말 좋았다. 특히 보통 이런 Wysiwyg 라이브러리들은 미리 만들어진 디자인 혹은 transition 등이 있는 편인데, tiptap 은 스타일링에 관여하지 않고 에디터 내부 컨텐츠의 조작에만 집중해주는 느낌이라 아주 마음에 들었다.
 
-![tiptap](../static/images/tiptap-screenshot.png)
+![tiptap](/tiptap-screenshot.png)
 
 최근 회사에서 Wysiwyg 에디터를 만들게 되었는데, 그때 딱 생각났던 것이 이 tiptap 이었다. 물론 회사에서는 React 를 쓰고 있기 때문에 tiptap 을 그대로 쓸 수는 없었지만, tiptap 을 꽤 마음에 들어하면서 썼던 기억이 있었기 때문에 ProseMirror 를 사용해보자고 추천했다. 쟁쟁한 에디터 라이브러리들이 거론되었지만, 최후의 후보로 올랐던 것은 Quill 과 ProseMirror 였다. Quill 은 이미 Slack 등 많은 회사에서 사용하는 전례가 있었고 작업이 상대적으로 쉽다는 장점이 있었다. 코드도 많이 건드릴 필요 없이 모듈만 갖다 꽂으면 알아서 동작하니까. 반면 ProseMirror 는 API 가 너무 많고 문서 및 레퍼런스가 좀 적은 느낌이었지만, 그만큼 자유도가 매우 높다는 장점도 있었다.
 
@@ -38,7 +35,7 @@ Transaction은 Redux 의 액션과 같다고 생각하면 된다. state에 Trans
 
 이외에 Plugin 이라는 개념도 있는데, Plugin은 State에 붙어서 각종 Side Effect를 일으키는 작업을 한다. 예를 들어 내가 만든 Plugin 중에는 아래처럼 사용자가 텍스트 일부를 select 하면 그 위치에 작은 메뉴를 띄워주는 것이 있었다.
 
-![gif](../static/images/floating-markup-widget.gif)
+![gif](/floating-markup-widget.gif)
 
 예시로 짧게 에디터를 만드는 코드를 작성하자면 아래와 같다.
 
@@ -69,16 +66,16 @@ const editor = new EditorView(document.querySelector('#editor'), {
 실제로 존재하는 Plugin 중 하나인 inputRule을 살펴보자. inputRule은 prosemirror에서 자체적으로 제공하는 Plugin 중 하나로, Regex를 받아 해당 Regex와 일치하는 텍스트를 받았을 때 정해진 동작을 수행하는 Plugin이다. 사용법은 굉장히 쉽다.
 
 ```javascript
-import { InputRule, inputRules } from "prosemirror-inputrules"
+import { InputRule, inputRules } from "prosemirror-inputrules";
 
 const arrowRule = new InputRule(/->/g, (state, match, start, end) => {
-  console.log(match)
-  return null
-})
+  console.log(match);
+  return null;
+});
 
 const inputRulesPlugin = inputRules({
   rules: [arrowRule],
-})
+});
 ```
 
 inputRule은 Regex를 첫째 인자로 받고, 둘째 인자로 callback을 받는다. 이 callback이 Transaction을 반환할 경우 해당 inputRule은 작동한 것으로 판단되고, 다른 값을 반환할 경우 무시된다. 따라서 위의 inputRule은 매칭되는 텍스트를 콘솔에 출력하는 작동을 하고 있다고 보면 된다. 그리고 마지막으로 inputRules을 이용해 플러그인을 만들면 된다. 더 자세한 내용은 [ProseMirror 도큐먼트](https://prosemirror.net/docs/ref/#inputrules)에 써있다.
@@ -88,8 +85,9 @@ inputRule은 Regex를 첫째 인자로 받고, 둘째 인자로 callback을 받�
 ```javascript
 export class InputRule {
   constructor(match, handler) {
-    this.match = match
-    this.handler = typeof handler == "string" ? stringHandler(handler) : handler
+    this.match = match;
+    this.handler =
+      typeof handler == "string" ? stringHandler(handler) : handler;
   }
 }
 
@@ -97,56 +95,61 @@ export function inputRules({ rules }) {
   let plugin = new Plugin({
     state: {
       init() {
-        return null
+        return null;
       },
       apply(tr, prev) {
-        let stored = tr.getMeta(this)
-        if (stored) return stored
-        return tr.selectionSet || tr.docChanged ? null : prev
+        let stored = tr.getMeta(this);
+        if (stored) return stored;
+        return tr.selectionSet || tr.docChanged ? null : prev;
       },
     },
 
     props: {
       handleTextInput(view, from, to, text) {
-        return run(view, from, to, text, rules, plugin)
+        return run(view, from, to, text, rules, plugin);
       },
       handleDOMEvents: {
-        compositionend: view => {
+        compositionend: (view) => {
           setTimeout(() => {
-            let { $cursor } = view.state.selection
-            if ($cursor) run(view, $cursor.pos, $cursor.pos, "", rules, plugin)
-          })
+            let { $cursor } = view.state.selection;
+            if ($cursor) run(view, $cursor.pos, $cursor.pos, "", rules, plugin);
+          });
         },
       },
     },
 
     isInputRules: true,
-  })
-  return plugin
+  });
+  return plugin;
 }
 
 function run(view, from, to, text, rules, plugin) {
-  if (view.composing) return false
+  if (view.composing) return false;
   let state = view.state,
-    $from = state.doc.resolve(from)
-  if ($from.parent.type.spec.code) return false
+    $from = state.doc.resolve(from);
+  if ($from.parent.type.spec.code) return false;
   let textBefore =
     $from.parent.textBetween(
       Math.max(0, $from.parentOffset - MAX_MATCH),
       $from.parentOffset,
       null,
       "\ufffc"
-    ) + text
+    ) + text;
   for (let i = 0; i < rules.length; i++) {
-    let match = rules[i].match.exec(textBefore)
+    let match = rules[i].match.exec(textBefore);
     let tr =
       match &&
-      rules[i].handler(state, match, from - (match[0].length - text.length), to)
-    if (!tr) continue
-    view.dispatch(tr.setMeta(plugin, { transform: tr, from, to, text }))
-    return true
+      rules[i].handler(
+        state,
+        match,
+        from - (match[0].length - text.length),
+        to
+      );
+    if (!tr) continue;
+    view.dispatch(tr.setMeta(plugin, { transform: tr, from, to, text }));
+    return true;
   }
-  return false
+  return false;
 }
 ```
 

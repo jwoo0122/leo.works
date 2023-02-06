@@ -1,11 +1,8 @@
 ---
-id: "1910170"
-path: "/1910170"
-date: "2019-10-17"
+pubDate: "2019-10-17"
 title: "JS: Generator"
-author: "Leo Jeong"
 description: "Javascript Generator의 문법과 사용법에 대해 알아봅니다."
-featuredImage: "../static/images/cat.jpeg"
+heroImage: "/cat.jpeg"
 ---
 
 redux saga 를 공부하다보니 Generator 를 공부해야 할 필요성을 느껴서, 글을 쓰기로 했다.
@@ -14,21 +11,21 @@ redux saga 를 공부하다보니 Generator 를 공부해야 할 필요성을 �
 
 Generator func 는 일반적인 함수와 비슷하다. 이 함수는 generator 를 리턴한다. 선언 문법은 다음과 같다.
 
-~~~javascript
+```javascript
 function* someGenerator() {
   //do something
 }
-~~~
+```
 
 으레 함수를 선언하듯 선언하면 되는데, 중요한 \점은 function 선언자 뒤에 \* 를 찍어줘야 한다. 이 함수는 일반적인 함수와 거의 똑같이 작동한다. 다만 실행 시에 약간의 차이점이 있다.
 
 ```javascript
 function* someFunc() {
-  console.log("hello, world")
+  console.log("hello, world");
 }
 
-const func = someFunc()
-func.next() //hello, world
+const func = someFunc();
+func.next(); //hello, world
 ```
 
 Generator function 은 그 자체로 실행할 수 있는 함수는 아니다. 우선 generator function 을 실행시켜서 generator 를 받아내고, 해당 generator 를 실행시켜야 비로소 우리가 선언한 코드가 작동한다. 위의 코드에서는 someFunc 로 generator function 을 선언하고, func 에 generator 를 받아서 실행시켰다. next() 를 사용한 것에 유의하자.
@@ -39,12 +36,12 @@ generator 안에서 쓸 수 있는 재밌는 키워드가 있는데, 바로 yiel
 
 ```javascript
 function* gen() {
-  yield 1
-  yield 2
+  yield 1;
+  yield 2;
 }
-const gengen = gen()
-gengen.next() // 1
-gengen.next() // 2
+const gengen = gen();
+gengen.next(); // 1
+gengen.next(); // 2
 ```
 
 Line 2 에서 yield 1 을 실행했다. generator 는 1을 반환하고 실행을 멈춘다. 해당 지점이 기억되고 있기 때문에, 이후에 다시 gengen.next() 를 실행하면 그 다음 구문이 실행된다. 이것이 generator 의 기본적인 사용법이다. yield 를 만나서 멈춘 generator 를 다시 실행시키고 싶다면 next 를 쓰면 된다.
@@ -70,15 +67,15 @@ next 는 위에서 보았듯, generator 를 실행시킬 때 쓴다. generator �
 ```javascript
 function* gen() {
   while (true) {
-    var value = yield null
-    console.log(value)
+    var value = yield null;
+    console.log(value);
   }
 }
 
-var g = gen()
-g.next(1)
+var g = gen();
+g.next(1);
 // { value: null, done: false }
-g.next(2)
+g.next(2);
 // { value: null, done: false }
 // 2
 ```
@@ -93,19 +90,19 @@ g.next(2)
 
 ```javascript
 function* gen() {
-  let a = 1
-  yield a
-  const b = yield (a = 2)
-  yield a
-  yield b
+  let a = 1;
+  yield a;
+  const b = yield (a = 2);
+  yield a;
+  yield b;
 }
 
-const gengen = gen()
-gengen.next(10)
-gengen.next(20)
-gengen.next(30)
-gengen.next(40)
-gengen.next(50)
+const gengen = gen();
+gengen.next(10);
+gengen.next(20);
+gengen.next(30);
+gengen.next(40);
+gengen.next(50);
 ```
 
 정답은 아래와 같다.

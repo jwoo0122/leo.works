@@ -2,30 +2,25 @@ name: Deploy to S3
 
 on:
   push:
-    branches: [ master ]
+    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout to master
-        uses: actions/checkout@master
-      
-      - name: Use node v15, npm 7
-        uses: actions/setup-node@v2
+      - name: Checkout to main
+        uses: actions/checkout@v3
+
+      - name: Use node v18, yarn
+        uses: actions/setup-node@v8
         with:
-          node-version: '15'
-      
-      - name: Gatsby Build
-        env:
-          ALGOLIA_ADMIN_API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
-          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
-          ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
-          ALGOLIA_SEARCH_ONLY_API_KEY: ${{ secrets.ALGOLIA_SEARCH_ONLY_API_KEY }}
+          node-version: "18"
+
+      - name: Astro build
         run: yarn build
 
-      - name: Send public to s3
+      - name: Send dist to s3
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ACCESS_SECRET_KEY }}
@@ -33,4 +28,4 @@ jobs:
           aws s3 cp \
             --recursive \
             --region ap-northeast-2 \
-            public s3://leo-works-s3
+            dist/ s3://leo-works-s3

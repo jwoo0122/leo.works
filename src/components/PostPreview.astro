@@ -1,0 +1,42 @@
+---
+interface Props {
+  title: string
+  date: string
+  slug: string
+  description: string
+}
+
+const { title, date, slug, description } = Astro.props;
+---
+
+<a id="preview-link" href={`/posts/${slug}/`}>
+  <li>
+    <h2>{title}</h2>
+    <span id="description">
+      {description}
+    </span>
+    <span id="date">{date}</span>
+  </li>
+</a>
+
+<style lang="scss">
+  #preview-link {
+    text-decoration: none;
+    outline: none;
+    color: black;
+  }
+  
+  li {
+    margin-bottom: 40px;
+  }
+  
+  #description {
+    display: block;
+    margin-bottom: 4px;
+  }
+  
+  #date {
+    font-size: 13px;
+    color: grey;
+  }
+</style>

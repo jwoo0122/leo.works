@@ -1,25 +1,65 @@
 ---
 import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../consts';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 ---
 
 <header>
-	<h2>
-		{SITE_TITLE}
-	</h2>
-	<nav>
-		<HeaderLink href="/">Home</HeaderLink>
-		<HeaderLink href="/blog">Blog</HeaderLink>
-		<HeaderLink href="/about">About</HeaderLink>
-		<HeaderLink href="https://twitter.com/astrodotbuild" target="_blank">Twitter</HeaderLink>
-		<HeaderLink href="https://github.com/withastro/astro" target="_blank">GitHub</HeaderLink>
-	</nav>
+  <h1 id="head">
+    <div id="strike"/>
+    {SITE_TITLE}
+  </h1>
+  <span id="description">{`[하학상달]: ${SITE_DESCRIPTION}`}</span>
+  <nav>
+    <HeaderLink href="/">Home</HeaderLink>
+    <HeaderLink href="/posts">Posts</HeaderLink>
+    <HeaderLink href="https://twitter.com/jwoo0122" target="_blank">Twitter</HeaderLink>
+    <HeaderLink href="https://github.com/jwoo0122" target="_blank">GitHub</HeaderLink>
+  </nav>
 </header>
-<style>
-	header {
-		margin: 0em 0 2em;
-	}
-	h2 {
-		margin: 0.5em 0;
-	}
+
+<style lang="scss">
+  header {
+    margin: 0em 0 2em;
+  }
+  h2 {
+    margin: 0.5em 0;
+  }
+  
+  nav {
+    background-color: rgba(0, 0, 0, 0.05);
+    height: 38px;
+    padding: 6px;
+    border-radius: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  #head {
+    position: relative;
+    width: 100%;
+    font-size: 75px;
+    text-align: center;
+    margin: 0;
+    z-index: 0;
+    
+    #strike {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 320px;
+      height: 16px;
+      background-color: rgba(200, 100, 200, 0.3);
+      transform: translate(-50%, -50%) skew(-20deg);
+      z-index: 0-1;
+    }
+  }
+  
+  #description {
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: grey;
+  }
 </style>

@@ -4,15 +4,28 @@ export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {}
 const { href, class: className, ...props } = Astro.props;
 
 const { pathname } = Astro.url;
-const isActive = href === pathname || href === pathname.replace(/\/$/, '');
+// const isActive = href === pathname || href === pathname.replace(/\/$/, '');
+const isActive = (() => {
+  if (href === '/') {
+    return pathname === '/'
+  }
+
+  if (href === '/posts') {
+    return pathname.startsWith('/') && !pathname.endsWith('/')
+  }
+})();
+
+const isOutlink = !href.startsWith('/');
 ---
 
-<a href={href} class:list={[className, { active: isActive }]} {...props}>
+<a href={href} class:list={[className, { active: isActive, outlink: isOutlink }]} {...props}>
   <slot />
+  <div id="indicator" />
 </a>
 
 <style lang="scss">
   a {
+    position: relative;
     color: black;
     display: flex;
     justify-content: center;
@@ -20,10 +33,21 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, '');
     text-decoration: none;
     width: 25%;
     height: 38px;
-    border-radius: 38px;
   }
+
   a.active {
-    background-color: rgba(0, 0, 0, 0.08);
-    font-weight: bolder;
+    font-weight: bold;
+    
+    #indicator {
+      position: absolute;
+      bottom: -5px;
+      width: 60%;
+      height: 3px;
+      background-color: black;
+    }
+  }
+  
+  a.outlink {
+    color: rgb(43, 85, 174);
   }
 </style>

@@ -1,13 +1,19 @@
 ---
 import HeaderLink from './HeaderLink.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { SITE_DESCRIPTION, SITE_TITLE_FIRST, SITE_TITLE_SECOND } from '../consts';
 ---
 
 <header>
-  <h1 id="head">
-    <div id="strike"/>
-    {SITE_TITLE}
-  </h1>
+  <a href="/" id="home">
+    <h1 id="head">
+      <div>
+        {SITE_TITLE_FIRST}
+      </div>
+      <div>
+        {SITE_TITLE_SECOND}
+      </div>
+    </h1>
+  </a>
   <span id="description">{`[하학상달]: ${SITE_DESCRIPTION}`}</span>
   <nav>
     <HeaderLink href="/">Home</HeaderLink>
@@ -18,6 +24,11 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 </header>
 
 <style lang="scss">
+  #home {
+    text-decoration: none;
+    outline: none;
+  }
+  
   header {
     margin: 0em 0 2em;
   }
@@ -26,40 +37,29 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
   }
   
   nav {
-    background-color: rgba(0, 0, 0, 0.05);
     height: 38px;
     padding: 6px;
-    border-radius: 48px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
   
   #head {
-    position: relative;
     width: 100%;
-    font-size: 75px;
+    font-size: 58px;
     text-align: center;
-    margin: 0;
-    z-index: 0;
+    margin: 20px 0;
     
-    #strike {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 320px;
-      height: 16px;
-      background-color: rgba(200, 100, 200, 0.3);
-      transform: translate(-50%, -50%) skew(-20deg);
-      z-index: 0-1;
+    div {
+      line-height: 1;
     }
   }
   
   #description {
     display: block;
-    font-size: 14px;
+    font-size: 12px;
     text-align: center;
     margin-bottom: 30px;
-    color: grey;
+    color: lightgrey;
   }
 </style>

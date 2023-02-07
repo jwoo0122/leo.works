@@ -10,8 +10,11 @@ const isActive = (() => {
     return pathname === '/'
   }
 
-  return pathname.startsWith(href)
+  if (href === '/posts') {
+    return pathname.startsWith('/') && !pathname.endsWith('/')
+  }
 })();
+
 const isOutlink = !href.startsWith('/');
 ---
 

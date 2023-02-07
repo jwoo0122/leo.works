@@ -9,7 +9,7 @@ interface Props {
 const { title, date, slug, description } = Astro.props;
 ---
 
-<a id="preview-link" href={`/posts/${slug}/`}>
+<a id="preview-link" href={`/${slug}`}>
   <li>
     <h2>{title}</h2>
     <span id="description">

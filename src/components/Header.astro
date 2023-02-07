@@ -4,14 +4,16 @@ import { SITE_DESCRIPTION, SITE_TITLE_FIRST, SITE_TITLE_SECOND } from '../consts
 ---
 
 <header>
-  <h1 id="head">
-    <div>
-      {SITE_TITLE_FIRST}
-    </div>
-    <div>
-      {SITE_TITLE_SECOND}
-    </div>
-  </h1>
+  <a href="/" id="home">
+    <h1 id="head">
+      <div>
+        {SITE_TITLE_FIRST}
+      </div>
+      <div>
+        {SITE_TITLE_SECOND}
+      </div>
+    </h1>
+  </a>
   <span id="description">{`[하학상달]: ${SITE_DESCRIPTION}`}</span>
   <nav>
     <HeaderLink href="/">Home</HeaderLink>
@@ -22,6 +24,11 @@ import { SITE_DESCRIPTION, SITE_TITLE_FIRST, SITE_TITLE_SECOND } from '../consts
 </header>
 
 <style lang="scss">
+  #home {
+    text-decoration: none;
+    outline: none;
+  }
+  
   header {
     margin: 0em 0 2em;
   }

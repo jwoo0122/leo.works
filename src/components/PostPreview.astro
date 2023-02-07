@@ -26,8 +26,20 @@ const { title, date, slug, description } = Astro.props;
     color: black;
   }
   
+  h2 {
+    margin: 0 0 8px;
+  }
+  
   li {
-    margin-bottom: 40px;
+    padding: 16px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    transition: background-color ease-in-out 0.1s, transform ease-in-out 0.1s;
+    
+    &:hover {
+      background-color: rgba(0, 0 ,0, 0.05);
+      transform: scale(1.01);
+    }
   }
   
   #description {

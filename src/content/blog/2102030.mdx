@@ -5,13 +5,15 @@ description: "Hook API, Concurrent mode, Server Component. 수많은 기능들�
 heroImage: "/what_is_react.jpg"
 ---
 
+import Quote from "../../components/forMdx/Quote.astro";
+
 나의 엔지니어로서 첫 코드는 React 로 만든 달력 컴포넌트였다. 처음부터 컴포넌트에 손을 댔던 건 아니고, 같이 작업하던 사람이 만든 컴포넌트의 스타일링을 손보는 것부터 시작했다. 그러다 로직을 건드리고, 컴포넌트 클래스를 수정하게 됐다. 아무 것도 모른 채로 extends Component 를 적던 나는 어느새 React, Vue 를 거쳐 Svelte 에 이르기까지 몇 개의 웹 프론트엔드 프레임워크 (라이브러리)를 경험했다. Class 에서 Function Component 로 변화하는 패러다임을 겪으며 나는 React 에 가장 많이 익숙해졌고, 매일 React 코드를 마주하며 일과 여가시간을 보내고 있다. 하지만 매일 React 를 만진다고 해서 내가 그것을 충분히 이해하고 있다고 말할 수 있을까? React 가 무엇이며 어떤 일을 하는지 물어보면 나는 흔들림 없는 확신으로 대답할 수 있는가? 이 글은 이러한 고민에서 시작해, 결과적으로 나 자신에게 다시 한 번 React 를 가르치는 목적으로 작성하였다.
 
 # So, what is React?
 
 그래서, **React 는 무엇인가?** React 의 공식 홈페이지에서는 이렇게 정의하고 있다.
 
-> 사용자 인터페이스를 만들기 위한 Javascript 라이브러리
+<Quote>사용자 인터페이스를 만들기 위한 Javascript 라이브러리</Quote>
 
 좋다. 여기서 우리는 3가지를 알 수 있는데,
 
@@ -90,9 +92,15 @@ function SimpleComponent(props) {
 }
 ```
 
-> 주의: Component 의 이름은 언제나 대문자로 시작해야 한다.
+<Quote>주의: Component 의 이름은 언제나 대문자로 시작해야 한다.</Quote>
 
-> 주의2: 사실 이 함수는 언제나 Component 로 취급되지는 않는다. 이것이 정말 React 에게 있어서 Component 로서 의미를 가지려면 React.createElement 를 통해 사용되어야만 한다. 만약 이 함수를 단순한 함수로 취급 및 사용할 경우, SimpleComponent 는 그저 React Element 를 반환하는 function 일 뿐이다. [참고](https://dev.to/igor_bykov/react-calling-functional-components-as-functions-1d3l)
+<Quote>
+  주의2: 사실 이 함수는 언제나 Component 로 취급되지는 않는다. 이것이 정말 React
+  에게 있어서 Component 로서 의미를 가지려면 React.createElement 를 통해
+  사용되어야만 한다. 만약 이 함수를 단순한 함수로 취급 및 사용할 경우,
+  SimpleComponent 는 그저 React Element 를 반환하는 function 일 뿐이다.
+  [참고](https://dev.to/igor_bykov/react-calling-functional-components-as-functions-1d3l)
+</Quote>
 
 SimpleComponent 는 props 를 받아서, div 와 몇 가지 string 그리고 props 의 name property 를 조합해 만든 React Element 를 반환한다. 이 반환값은 props 가 동일하다면 언제나 예측가능하다. React 를 사용한 프로젝트의 완성도는 모두 Component 를 얼마나 효율적이고 아름답게 설계하느냐에 달려있다. 재사용 가능하고 예측 가능한 Component 가 많을 수록 코드는 간결해지며 수정하기 쉬워진다. 간결하고 고치기 쉬운 코드만큼 좋은 것이 뭐가 또 있을까?
 
@@ -179,7 +187,9 @@ production 수준의 프로그램에는 굉장히 다양하고 복잡한 시나�
 
 다만 Function Component 의 경우에는 약간 사정이 다르다. Function Component 는 Update (re-render)가 곧 해당 function 전체의 재실행을 의미하기 때문에 shouldComponentUpdate 에 해당하는 lifeCycle method 가 없다. 따라서 Function Component 는 상위 Component 로 인해 re-render 될 경우 반드시 하위의 Component 도 re-render 시킨다. 이를 해결하고 싶다면 [React.memo HoC](https://ko.reactjs.org/docs/react-api.html#reactmemo) 혹은 useMemo hook을 사용하자. Function Component 의 re-render 에 대해 조금 더 자세하게 알고 싶다면 [이 글](https://medium.com/@guptagaruda/react-hooks-understanding-component-re-renders-9708ddee9928)을 참고하는 것도 좋다.
 
-> 여담: 조금 더 정확하게 설명하자면, Function Component 는 [Instance 를 가지는 것이 아니다.](https://ko.reactjs.org/blog/2015/12/18/react-components-elements-and-instances.html#summary) 실제로 Function Component 에서는 render 시마다 전체 function 의 execution 이 다시 일어나며, 이들의 LifeCycle 및 State 는 순전히 Hook API 의 closure 기반 설계를 통해 [가능한 일](https://medium.com/@ryardley/react-hooks-not-magic-just-arrays-cd4f1857236e)이다.
+<Quote>
+  여담: 조금 더 정확하게 설명하자면, Function Component 는 [Instance 를 가지는 것이 아니다.](https://ko.reactjs.org/blog/2015/12/18/react-components-elements-and-instances.html#summary) 실제로 Function Component 에서는 render 시마다 전체 function 의 execution 이 다시 일어나며, 이들의 LifeCycle 및 State 는 순전히 Hook API 의 closure 기반 설계를 통해 [가능한 일](https://medium.com/@ryardley/react-hooks-not-magic-just-arrays-cd4f1857236e)이다.
+</Quote>
 
 # React.zip
 

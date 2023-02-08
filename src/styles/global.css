@@ -51,12 +51,17 @@ img {
 code {
   padding: 2px 5px;
   background-color: #f2f2f2;
+  font-family: FiraCode;
 }
 pre {
   padding: 1rem;
+  border-radius: 6px;
 }
 pre > code {
   all: unset;
+  font-size: 13px;
+  font-family: FiraCode;
+  font-variant-ligatures: common-ligatures;
 }
 blockquote {
   border: 1px solid #999;
@@ -95,5 +100,13 @@ blockquote {
   src: url("/Inter/Inter-BoldItalic.woff2") format("woff2");
   font-weight: bold;
   font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FiraCode";
+  src: url("/FiraCode/FiraCode-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
   font-display: swap;
 }

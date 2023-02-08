@@ -6,4 +6,10 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://leo.works",
   integrations: [mdx(), sitemap()],
+  markdown: {
+    shikiConfig: {
+      theme: "dracula",
+      wrap: true,
+    },
+  },
 });

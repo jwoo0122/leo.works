@@ -30,17 +30,23 @@ const { title, date, slug, description } = Astro.props;
     margin: 0 0 8px;
   }
   
-  li {
-    padding: 16px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    transition: background-color ease-in-out 0.1s, transform ease-in-out 0.1s;
-    
-    &:hover {
-      background-color: rgba(0, 0 ,0, 0.05);
-      transform: scale(1.01);
+  a {
+    display: block;
+    margin: -10px;
+
+    li {
+      padding: 16px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      transition: background-color ease-in-out 0.1s, transform ease-in-out 0.1s;
+      
+      &:hover {
+        background-color: rgba(0, 0 ,0, 0.05);
+        transform: scale(1.02);
+      }
     }
   }
+  
   
   #description {
     display: block;

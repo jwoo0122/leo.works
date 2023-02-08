@@ -38,10 +38,14 @@ const { title, date, slug, description } = Astro.props;
       padding: 16px;
       margin-bottom: 20px;
       border-radius: 10px;
-      transition: background-color ease-in-out 0.1s;
+      transition: background-color ease-in-out 0.1s, transform ease-in-out 0.1s;
       
       &:hover {
         background-color: rgba(0, 0 ,0, 0.05);
+        
+        @media (min-width: 800px) {
+          transform: scale(1.01);
+        }
       }
     }
   }

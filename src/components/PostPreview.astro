@@ -4,9 +4,10 @@ interface Props {
   date: string
   slug: string
   description: string
+  readingTime: number
 }
 
-const { title, date, slug, description } = Astro.props;
+const { title, date, slug, description, readingTime } = Astro.props;
 ---
 
 <a id="preview-link" href={`/${slug}`}>
@@ -15,7 +16,9 @@ const { title, date, slug, description } = Astro.props;
     <span id="description">
       {description}
     </span>
-    <span id="date">{date}</span>
+    <div id="meta">
+      <span>{date}</span><span> · {readingTime}분</span>
+    </div>
   </li>
 </a>
 
@@ -56,7 +59,7 @@ const { title, date, slug, description } = Astro.props;
     margin-bottom: 4px;
   }
   
-  #date {
+  #meta {
     font-size: 13px;
     color: grey;
   }

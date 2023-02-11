@@ -1,5 +1,7 @@
 ---
-export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {}
+export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {
+  href: string;
+}
 
 const { href, class: className, ...props } = Astro.props;
 

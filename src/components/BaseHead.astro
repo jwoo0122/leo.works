@@ -41,3 +41,23 @@ const { title, description, image = '' } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<script is:inline>
+  const darkModePreference = window.matchMedia('(prefers-color-scheme: dark)');
+
+  const theme = darkModePreference.matches ? 'dark' : 'light';
+
+  function setTheme(newTheme) {
+    if (newTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }
+  
+  darkModePreference.addEventListener('change', (event) => {
+    setTheme(event.matches ? 'dark' : 'light');
+  });
+  
+  setTheme(theme);
+</script>

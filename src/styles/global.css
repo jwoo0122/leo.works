@@ -52,6 +52,7 @@ img {
   max-width: 100%;
   height: auto;
 }
+
 code {
   padding: 2px 5px;
   font-size: 14px;
@@ -75,7 +76,9 @@ pre > code {
   font-size: 13px;
   font-family: GeistMono, monospace;
   font-variant-ligatures: common-ligatures;
+  background-color: transparent !important;
 }
+
 blockquote {
   border: 1px solid #999;
   color: #222;

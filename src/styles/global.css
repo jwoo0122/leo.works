@@ -3,37 +3,35 @@
   https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
+
+html {
+  background-color: #efefef;
+  color: #444;
+}
+
+html.dark {
+  background-color: #1a1a1a;
+  color: #c3c3c3;
+}
+
 body {
   font-family: Inter;
   margin: auto;
   padding: 20px;
   max-width: 65ch;
   text-align: left;
-  background-color: #fff;
   word-wrap: break-word;
   overflow-wrap: break-word;
   line-height: 1.5;
-  color: #444;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-strong,
-b {
-  color: #222;
-}
+
 h1 {
   font-size: 28px;
 }
 h2 {
   font-size: 22px;
 }
-a {
-  color: #3273dc;
-}
+
 nav a {
   margin-right: 10px;
 }
@@ -56,9 +54,18 @@ img {
 }
 code {
   padding: 2px 5px;
-  background-color: #f2f2f2;
-  font-family: FiraCode;
+  font-size: 14px;
+  background-color: #ccc;
+  font-family: GeistMono, monospace;
+  border-radius: 5px;
 }
+
+html.dark {
+  code {
+    background-color: #333;
+  }
+}
+
 pre {
   padding: 1rem;
   border-radius: 6px;
@@ -66,7 +73,7 @@ pre {
 pre > code {
   all: unset;
   font-size: 13px;
-  font-family: FiraCode;
+  font-family: GeistMono, monospace;
   font-variant-ligatures: common-ligatures;
 }
 blockquote {
@@ -77,6 +84,9 @@ blockquote {
   font-style: italic;
 }
 
+hr {
+  border: none;
+}
 @font-face {
   font-family: "Inter";
   src: url("/Inter/Inter-Medium.woff2") format("woff2");
@@ -110,8 +120,8 @@ blockquote {
 }
 
 @font-face {
-  font-family: "FiraCode";
-  src: url("/FiraCode/FiraCode-Regular.woff2") format("woff2");
+  font-family: "GeistMono";
+  src: url("/GeistMono/GeistMono-Regular.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
   font-display: swap;

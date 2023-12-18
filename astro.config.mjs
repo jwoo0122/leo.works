@@ -8,7 +8,7 @@ export default defineConfig({
   integrations: [mdx(), sitemap()],
   markdown: {
     shikiConfig: {
-      theme: "dracula",
+      theme: "github-dark",
       wrap: true,
     },
   },

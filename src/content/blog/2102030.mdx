@@ -2,7 +2,6 @@
 pubDate: "2021-02-03"
 title: "그래서 React가 뭔데요?"
 description: "Hook API, Concurrent mode, Server Component. 수많은 기능들이 React 에 추가되고 있지만, 그래서 결국 React 의 본질은 무엇일까요? 우리는 React 로 뭘 만들고 있는 걸까요? - 다시 배우는 React."
-heroImage: "/what_is_react.jpg"
 ---
 
 import Quote from "../../components/forMdx/Quote.astro";
@@ -188,7 +187,13 @@ production 수준의 프로그램에는 굉장히 다양하고 복잡한 시나�
 다만 Function Component 의 경우에는 약간 사정이 다르다. Function Component 는 Update (re-render)가 곧 해당 function 전체의 재실행을 의미하기 때문에 shouldComponentUpdate 에 해당하는 lifeCycle method 가 없다. 따라서 Function Component 는 상위 Component 로 인해 re-render 될 경우 반드시 하위의 Component 도 re-render 시킨다. 이를 해결하고 싶다면 [React.memo HoC](https://ko.reactjs.org/docs/react-api.html#reactmemo) 혹은 useMemo hook을 사용하자. Function Component 의 re-render 에 대해 조금 더 자세하게 알고 싶다면 [이 글](https://medium.com/@guptagaruda/react-hooks-understanding-component-re-renders-9708ddee9928)을 참고하는 것도 좋다.
 
 <Quote>
-  여담: 조금 더 정확하게 설명하자면, Function Component 는 [Instance 를 가지는 것이 아니다.](https://ko.reactjs.org/blog/2015/12/18/react-components-elements-and-instances.html#summary) 실제로 Function Component 에서는 render 시마다 전체 function 의 execution 이 다시 일어나며, 이들의 LifeCycle 및 State 는 순전히 Hook API 의 closure 기반 설계를 통해 [가능한 일](https://medium.com/@ryardley/react-hooks-not-magic-just-arrays-cd4f1857236e)이다.
+  여담: 조금 더 정확하게 설명하자면, Function Component 는 [Instance 를 가지는
+  것이
+  아니다.](https://ko.reactjs.org/blog/2015/12/18/react-components-elements-and-instances.html#summary)
+  실제로 Function Component 에서는 render 시마다 전체 function 의 execution 이
+  다시 일어나며, 이들의 LifeCycle 및 State 는 순전히 Hook API 의 closure 기반
+  설계를 통해 [가능한
+  일](https://medium.com/@ryardley/react-hooks-not-magic-just-arrays-cd4f1857236e)이다.
 </Quote>
 
 # React.zip

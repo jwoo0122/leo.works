@@ -21,34 +21,34 @@ const isOutlink = !href.startsWith('/');
 
 <a href={href} class:list={[className, { active: isActive, outlink: isOutlink }]} {...props}>
   <slot />
-  <div id="indicator" />
 </a>
 
 <style lang="scss">
+
   a {
     position: relative;
-    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
     width: 25%;
-    height: 38px;
-  }
-
-  a.active {
-    font-weight: bold;
+    height: 42px;
+    border-radius: 10px;
+    color: #222;
     
-    #indicator {
-      position: absolute;
-      bottom: -5px;
-      width: 60%;
-      height: 3px;
-      background-color: black;
+    &.active {
+      font-weight: bold;
+      background-color: #e3e3e3;
     }
   }
   
-  a.outlink {
-    color: rgb(43, 85, 174);
+  html.dark {
+    a {
+      color: #bbb;
+      
+      &.active {
+        background-color: #222;
+      }
+    }
   }
 </style>

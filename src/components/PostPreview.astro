@@ -35,6 +35,7 @@ const { title, date, slug, description, readingTime } = Astro.props;
   a {
     display: block;
     margin: -10px;
+    color: #0e0e0e;
 
     li {
       padding: 16px;
@@ -43,7 +44,7 @@ const { title, date, slug, description, readingTime } = Astro.props;
       transition: background-color ease-in-out 0.1s, transform ease-in-out 0.1s;
       
       &:hover {
-        background-color: rgba(0, 0 ,0, 0.05);
+        background-color: rgba(0, 0, 0, 0.05);
         
         @media (min-width: 800px) {
           transform: scale(1.01);
@@ -52,14 +53,36 @@ const { title, date, slug, description, readingTime } = Astro.props;
     }
   }
   
+  html.dark {
+    a {
+      color: #f0f0f0;
+      
+      li:hover {
+        background-color: rgba(100, 100, 100, 0.1);
+      }
+    }
+  }
   
   #description {
     display: block;
     margin-bottom: 4px;
+    color: #666;
+  }
+  
+  html.dark {
+    #description {
+      color: #888;
+    }
   }
   
   #meta {
     font-size: 13px;
-    color: grey;
+    color: #aaa;
+  }
+  
+  html.dark {
+    #meta {
+      color: #555;
+    }
   }
 </style>

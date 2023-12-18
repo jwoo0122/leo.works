@@ -5,7 +5,7 @@ import { SITE_DESCRIPTION, SITE_TITLE_FIRST, SITE_TITLE_SECOND } from '../consts
 
 <header>
   <a href="/" id="home">
-    <h1 id="head">
+    <h1 id="head" title={`[하학상달]: ${SITE_DESCRIPTION}`}>
       <div>
         {SITE_TITLE_FIRST}
       </div>
@@ -14,7 +14,6 @@ import { SITE_DESCRIPTION, SITE_TITLE_FIRST, SITE_TITLE_SECOND } from '../consts
       </div>
     </h1>
   </a>
-  <span id="description">{`[하학상달]: ${SITE_DESCRIPTION}`}</span>
   <nav>
     <HeaderLink href="/">Home</HeaderLink>
     <HeaderLink href="/posts">Posts</HeaderLink>
@@ -48,10 +47,18 @@ import { SITE_DESCRIPTION, SITE_TITLE_FIRST, SITE_TITLE_SECOND } from '../consts
     width: 100%;
     font-size: 58px;
     text-align: center;
-    margin: 20px 0;
+    margin: 50px 0;
+    color: #aaa;
+    font-weight: 100;
     
     div {
       line-height: 1;
+    }
+  }
+  
+  html.dark {
+    #head {
+      color: #333;
     }
   }
   

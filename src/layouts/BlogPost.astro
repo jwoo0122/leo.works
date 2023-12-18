@@ -15,14 +15,6 @@ const { data: { title, description, pubDate, updatedDate, heroImage }, body } = 
   <head>
     <BaseHead title={title} description={description} image={heroImage} />
     <style>
-      .title {
-        font-size: 2em;
-        margin: 0.25em 0 0;
-      }
-      hr {
-        border-top: 1px solid #ddd;
-        margin: 1rem 0;
-      }
     </style>
   </head>
 
@@ -30,13 +22,8 @@ const { data: { title, description, pubDate, updatedDate, heroImage }, body } = 
     <Header />
     <main>
       <article>
-        {heroImage && 
-          <div id="heroImageContainer">
-            <img width={720} height={360} src={heroImage} alt="" />
-          </div>
-        }
-        <h1 class="title">{title}</h1>
-        <div>
+        <h1 id="title">{title}</h1>
+        <div id="time">
           <time>{pubDate.toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' })}</time><span> · {getReadingTime(body)}분</span>
         </div>
         {
@@ -56,6 +43,22 @@ const { data: { title, description, pubDate, updatedDate, heroImage }, body } = 
 </html>
 
 <style lang="scss">
+  #title {
+    font-size: 2em;
+    margin: 0.25em 0 0;
+    text-align: center;
+    color: #0e0e0e; 
+  }
+  html.dark {
+    #title {
+      color: #f0f0f0;
+    }
+  }
+  
+  #time {
+    text-align: center;
+  }
+  
   #heroImageContainer {
     position: relative;
     overflow: hidden;
@@ -86,6 +89,20 @@ const { data: { title, description, pubDate, updatedDate, heroImage }, body } = 
       background-color: rgba(0, 0, 0, 0.1);
       z-index: 2;
       content: "";
+    }
+  }
+  
+  hr {
+    height: 1px;
+    width: 50%;
+    border: none;
+    margin: 30px auto;
+    background-color: #bbb;
+  }
+  
+  html.dark {
+    hr {
+      background-color: #555;
     }
   }
 </style>

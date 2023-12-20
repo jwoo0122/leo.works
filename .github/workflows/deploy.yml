@@ -25,25 +25,25 @@ jobs:
       - name: Setup jq
         run: sudo apt-get install jq
 
-      - name: Send dist to s3
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ACCESS_SECRET_KEY }}
-        run: |
-          aws s3 cp \
-            --recursive \
-            --region ap-northeast-2 \
-            dist/ s3://leo-works-s3
+      # - name: Send dist to s3
+      #   env:
+      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ACCESS_SECRET_KEY }}
+      #   run: |
+      #     aws s3 cp \
+      #       --recursive \
+      #       --region ap-northeast-2 \
+      #       dist/ s3://leo-works-s3
 
-      - name: Invalidate CF
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ACCESS_SECRET_KEY }}
-          AWS_DEFAULT_REGION: ap-northeast-2
-        run: |
-          aws cloudfront create-invalidation \
-            --distribution-id "${{ secrets.CF_DISTRIBUTION_ID }}" \
-            --paths '/*' | \
-            jq .Invalidation.Id | xargs aws cloudfront wait invalidation-completed \
-            --distribution-id "${{ secrets.CF_DISTRIBUTION_ID }}" \
-            --id
+      # - name: Invalidate CF
+      #   env:
+      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ACCESS_SECRET_KEY }}
+      #     AWS_DEFAULT_REGION: ap-northeast-2
+      #   run: |
+      #     aws cloudfront create-invalidation \
+      #       --distribution-id "${{ secrets.CF_DISTRIBUTION_ID }}" \
+      #       --paths '/*' | \
+      #       jq .Invalidation.Id | xargs aws cloudfront wait invalidation-completed \
+      #       --distribution-id "${{ secrets.CF_DISTRIBUTION_ID }}" \
+      #       --id

@@ -25,6 +25,14 @@ body {
   line-height: 1.5;
 }
 
+a {
+  color: #2678bc;
+}
+
+html.dark a {
+  color: #4d98d5;
+}
+
 h1 {
   font-size: 28px;
 }

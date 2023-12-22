@@ -12,9 +12,17 @@ export default defineConfig({
   markdown: {
     shikiConfig: {
       theme: "github-dark",
-      wrap: true
-    }
+      wrap: true,
+    },
   },
   output: "server",
-  adapter: cloudflare()
+  adapter: cloudflare(),
+  // FIXME: https://github.com/natemoo-re/astro-icon/issues/35
+  vite: {
+    resolve: {
+      alias: {
+        svgo: import.meta.env.PROD ? "svgo/dist/svgo.browser.js" : "svgo",
+      },
+    },
+  },
 });

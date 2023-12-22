@@ -25,16 +25,21 @@ body {
   line-height: 1.5;
 }
 
+a {
+  color: #2678bc;
+}
+
+html.dark a {
+  color: #4d98d5;
+}
+
 h1 {
-  font-size: 28px;
+  font-size: 26px;
 }
 h2 {
   font-size: 22px;
 }
 
-nav a {
-  margin-right: 10px;
-}
 textarea {
   width: 100%;
   font-size: 16px;

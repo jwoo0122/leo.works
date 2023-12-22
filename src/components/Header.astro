@@ -1,5 +1,6 @@
 ---
 import HeaderLink from './HeaderLink.astro';
+import { Icon } from 'astro-icon'
 import { SITE_DESCRIPTION, SITE_TITLE_FIRST, SITE_TITLE_SECOND } from '../consts';
 ---
 
@@ -15,14 +16,20 @@ import { SITE_DESCRIPTION, SITE_TITLE_FIRST, SITE_TITLE_SECOND } from '../consts
     </h1>
   </a>
   <nav>
-    <HeaderLink href="/">Home</HeaderLink>
-    <HeaderLink href="/posts">Posts</HeaderLink>
-    <HeaderLink href="https://twitter.com/jwoo0122" target="_blank">Twitter</HeaderLink>
-    <HeaderLink href="https://github.com/jwoo0122" target="_blank">GitHub</HeaderLink>
+    <HeaderLink href="/">
+      <Icon pack="octicon" name="home-fill-24"/>
+    </HeaderLink>
+    <HeaderLink href="/posts"><Icon pack="octicon" name="git-pull-request-16"/></HeaderLink>
+    <HeaderLink href="https://twitter.com/jwoo0122" target="_blank">𝕏</HeaderLink>
+    <HeaderLink href="https://github.com/jwoo0122" target="_blank"><Icon pack="octicon" name="mark-github-16"/></HeaderLink>
   </nav>
 </header>
 
 <style lang="scss">
+  [astro-icon] {
+    width: 20px;
+  }
+  
   #home {
     text-decoration: none;
     outline: none;
@@ -36,8 +43,9 @@ import { SITE_DESCRIPTION, SITE_TITLE_FIRST, SITE_TITLE_SECOND } from '../consts
   }
   
   nav {
-    height: 38px;
-    padding: 6px;
+    width: 100%;
+    height: 40px;
+    padding: 4px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,7 +53,7 @@ import { SITE_DESCRIPTION, SITE_TITLE_FIRST, SITE_TITLE_SECOND } from '../consts
   
   #head {
     width: 100%;
-    font-size: 58px;
+    font-size: 48px;
     text-align: center;
     margin: 50px 0;
     color: #aaa;

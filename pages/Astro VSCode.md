@@ -1,3 +1,0 @@
-- ## component props 타입이 안잡힘
-	- [[yarn]] [[pnp]] 때문이었음, astro extension 설정에서 [[TypeScript]] 버전을 명시하면 됨.
-	- Astro check 자체는 잘 동작함

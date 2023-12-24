@@ -2,13 +2,16 @@
 pubDate: "2020-04-05"
 title: "ProseMirror 사용기"
 description: "이쯤되면 Notion 개발진은 얼마나 많은 고충이 있을지 상상하기도 힘듭니다."
+heroImage: "/2004050.jpg"
 ---
+
+import Image from "../../components/forMdx/Image.tsx";
 
 # Why
 
 처음 ProseMirror 를 알게 된 건 작년 가을 쯤, 동아리 프로젝트를 진행하면서 였다. Vue 에서 쓸만한 Editor 라이브러리를 찾는 중이었는데 - 원래 쓰던 라이브러리는 deprecated 되어 있었으므로 - 마침 눈에 들어온 것이 tiptap 이라는 라이브러리였다. tiptap 은 ProseMirror 기반의 Vue 용 Wysiwyg Editor 라이브러리이다. 모듈화가 잘 되어 있고 기능도 다양한 편이라 사용하기 정말 좋았다. 특히 보통 이런 Wysiwyg 라이브러리들은 미리 만들어진 디자인 혹은 transition 등이 있는 편인데, tiptap 은 스타일링에 관여하지 않고 에디터 내부 컨텐츠의 조작에만 집중해주는 느낌이라 아주 마음에 들었다.
 
-![tiptap](/tiptap-screenshot.png)
+<Image src="/tiptap-screenshot.png" />
 
 최근 회사에서 Wysiwyg 에디터를 만들게 되었는데, 그때 딱 생각났던 것이 이 tiptap 이었다. 물론 회사에서는 React 를 쓰고 있기 때문에 tiptap 을 그대로 쓸 수는 없었지만, tiptap 을 꽤 마음에 들어하면서 썼던 기억이 있었기 때문에 ProseMirror 를 사용해보자고 추천했다. 쟁쟁한 에디터 라이브러리들이 거론되었지만, 최후의 후보로 올랐던 것은 Quill 과 ProseMirror 였다. Quill 은 이미 Slack 등 많은 회사에서 사용하는 전례가 있었고 작업이 상대적으로 쉽다는 장점이 있었다. 코드도 많이 건드릴 필요 없이 모듈만 갖다 꽂으면 알아서 동작하니까. 반면 ProseMirror 는 API 가 너무 많고 문서 및 레퍼런스가 좀 적은 느낌이었지만, 그만큼 자유도가 매우 높다는 장점도 있었다.
 
@@ -34,7 +37,7 @@ Transaction은 Redux 의 액션과 같다고 생각하면 된다. state에 Trans
 
 이외에 Plugin 이라는 개념도 있는데, Plugin은 State에 붙어서 각종 Side Effect를 일으키는 작업을 한다. 예를 들어 내가 만든 Plugin 중에는 아래처럼 사용자가 텍스트 일부를 select 하면 그 위치에 작은 메뉴를 띄워주는 것이 있었다.
 
-![gif](/floating-markup-widget.gif)
+<Image src="/floating-markup-widget.gif" />
 
 예시로 짧게 에디터를 만드는 코드를 작성하자면 아래와 같다.
 

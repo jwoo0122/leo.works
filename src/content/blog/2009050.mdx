@@ -2,7 +2,10 @@
 pubDate: "2020-09-05"
 title: "CSS Houdini - Paint API"
 description: "CSS 디버깅의 첫 번째 원칙: 자리에서 일어나 산책을 하고, 커피를 마시며, 동료와 잡담을 나누라. 아니면, CSS Houdini 를 공부하던가."
+heroImage: "/2009050.jpg"
 ---
+
+import Image from "../../components/forMdx/Image.tsx";
 
 # Why
 
@@ -65,7 +68,7 @@ const newFontSize = CSSUnitValue.parse(customFontSize); // CSSUnitValue
 
 사실 오늘 이 글을 작성한 이유는 Paint API 를 소개하기 위함이었다. 위의 두 API 가 CSS 에 타입을 정의하고 활용할 수 있도록 도와주었다면, Paint API는 **정말로** 새로운 CSS 스타일링을 만들 수 있도록 도와주는 API 이다. 복잡하게 설명하는 것보다, 직접 해보면서 이해하는 것이 빠르다. 오늘 Paint API 로 만들어볼 것은 다음 도형이다.
 
-![](/hodini_sample.png)
+<Image src="/hodini_sample.png" />
 
 일반적인 border-radius 와는 조금 다른 로직으로 구현된, Smooth corners 라는 효과이다. 간단한 예시가 [여기](https://css-houdini.rocks/smooth-corners)에 적혀있지만, 이곳의 예시는 그림자를 표현할 수 없고 직사각형이 만들어지지 않는다는 문제가 있었다. 그래서 [smooth-corners](https://github.com/wopian/smooth-corners) 패키지를 참고하여, 더 다양한 기능을 할 수 있는 smooth corners 를 만들어보고자 한다. 완성된 코드는 [여기](https://github.com/jwoo0122/awesome-smooth-corners)에서 확인할 수 있다.
 
@@ -221,7 +224,7 @@ paint(ctx, geom, properties) {
 
 shadow를 구현할 때 조금 신경써야 하는 부분이 있다. 만약 그냥 ctx 에 shadow style 을 적용하고 보면, 아마도 아래처럼 보일 것이다.
 
-![Shadow Error](/houdini_sample_shadow.png)
+<Image src="/houdini_sample_shadow.png" />
 
 이는 background image가 element보다 크게 그려질 수 없기 때문이다. 그렇기에 약간의 편법을 활용해야 하는데,
 
@@ -273,7 +276,7 @@ class SmoothCorners {
 
 이렇게 하면 더 이상 그림자가 잘리지 않는다. 썩 마음에 들지 않는 코드일지는 몰라도, _어쨌든_ 그림자를 보여줄 수 있다.
 
-![](/houdini_sample_perfect_shadow.png)
+<Image src="/houdini_sample_perfect_shadow.png" />
 
 마지막으로 배경에 이미지를 넣는 방법을 알아보자. `mask-image: paint(...)` 속성을 사용한다면 배경 이미지는 그냥 으레 하듯이 `background-image`로 설정하면 끝이라서 난이도가 급격하게 내려가지만, `background: paint(...)`를 이용하기로 결정했다면 `background-image`를 사용할 수 없기 때문에 어려워진다. 이유를 차근차근 설명해보겠다.
 
@@ -319,7 +322,7 @@ class SmoothCorners {
 
 정말 내가 원하는 방향이 아니지만, 배경사진을 구현하기 위해서는 지금까지는 이 방법밖에 없는 듯 하다. 딱히 이걸 구현한 사람이 없기도 하고. 추가로, 이 구현은 배경 이미지와 그림자를 동시에 사용해도 된다.
 
-![Background image](/houdini_sample_image.png)
+<Image src="/houdini_sample_image.png" />
 
 # Conclusion
 

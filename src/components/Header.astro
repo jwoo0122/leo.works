@@ -20,8 +20,6 @@ import { SITE_DESCRIPTION, SITE_TITLE_FIRST, SITE_TITLE_SECOND } from '../consts
       <Icon pack="octicon" name="home-fill-24"/>
     </HeaderLink>
     <HeaderLink href="/posts"><Icon pack="octicon" name="git-pull-request-16"/></HeaderLink>
-    <HeaderLink href="https://twitter.com/jwoo0122" target="_blank">𝕏</HeaderLink>
-    <HeaderLink href="https://github.com/jwoo0122" target="_blank"><Icon pack="octicon" name="mark-github-16"/></HeaderLink>
   </nav>
 </header>
 
@@ -45,10 +43,16 @@ import { SITE_DESCRIPTION, SITE_TITLE_FIRST, SITE_TITLE_SECOND } from '../consts
   nav {
     width: 100%;
     height: 40px;
-    padding: 4px;
+    padding: 1px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border: 1px solid #c5c5c5;
+    border-radius: 22px;
+    
+    html.dark & {
+      border: 1px solid #3a3a3a;
+    }
   }
   
   #head {

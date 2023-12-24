@@ -1,39 +1,29 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { Icon } from 'astro-icon'
+import Layout from '../layouts/Layout.astro';
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <Header title={SITE_TITLE} />
-    <div>
-      <img src="/cat.jpeg"/>
-      <br>
-      Hello, world!
-      <br>
-      <br>
-      개발자 정진우입니다.
-      <br>
-      TypeScript, Rust, Go 에 관심이 있습니다.
-      <br>
-      <br>
-      가끔 이런저런 생각을 적어둡니다.
-    </div>
-    <div id="contacts">
-      <a href="/rss.xml" target="_blank"><Icon pack="octicon" name="rss-16"/></a>
-      <a href="https://github.com/jwoo0122" target="_blank"><Icon pack="octicon" name="mark-github-16"/></a>
-      <a href="https://twitter.com/jwoo0122" target="_blank"><Icon name="x-twitter"/></a>
-    </div>
-    <Footer />
-  </body>
-</html>
+<Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <div>
+    <img src="/cat.jpeg"/>
+    <br>
+    Hello, world!
+    <br>
+    <br>
+    개발자 정진우입니다.
+    <br>
+    TypeScript, Rust, Go 에 관심이 있습니다.
+    <br>
+    <br>
+    가끔 이런저런 생각을 적어둡니다.
+  </div>
+  <div id="contacts">
+    <a href="/rss.xml" target="_blank"><Icon pack="octicon" name="rss-16"/></a>
+    <a href="https://github.com/jwoo0122" target="_blank"><Icon pack="octicon" name="mark-github-16"/></a>
+    <a href="https://twitter.com/jwoo0122" target="_blank"><Icon name="x-twitter"/></a>
+  </div>
+</Layout>
 
 <style lang="scss">
   img {

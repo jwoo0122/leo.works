@@ -1,16 +1,75 @@
 ---
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
-import BlogPost from '../layouts/BlogPost.astro';
+import Layout from '../layouts/Layout.astro';
+import Utterance from '../components/Utterance.astro';
+import { getReadingTime } from '../lib/readingTime';
 
 type Props = CollectionEntry<'blog'>;
 
 const { slug } = Astro.params;
 const posts  = await getCollection('blog');
 const post = posts.find((post) => post.slug === slug) as Props;
+const { data: { title, description, heroImage, pubDate, updatedDate }, body } = post;
 const { Content } = await post.render();
+const readingTime = getReadingTime(body);
 ---
 
-<BlogPost {...post}>
+<Layout title={title} description={description} heroImage={heroImage}>
+  <img id="hero" src={heroImage}/>
+  <h1 id="title">{title}</h1>
+  <div id="time">
+    <time>{pubDate.toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' })}</time><span> · {readingTime}분</span>
+  </div>
+  {
+    updatedDate && (
+      <div>
+        Last updated on <time>{updatedDate}</time>
+      </div>
+    )
+  }
+  <hr />
   <Content />
-</BlogPost>
+  <Utterance />
+</Layout>
+
+<style lang="scss">
+  #hero {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 22px;
+    margin-bottom: 20px;
+  }
+  
+  #title {
+    font-size: 2em;
+    margin: 0.25em 0 0;
+    text-align: center;
+    color: #0e0e0e; 
+  }
+  html.dark {
+    #title {
+      color: #f0f0f0;
+    }
+  }
+  
+  #time {
+    text-align: center;
+  }
+  
+  hr {
+    height: 1px;
+    width: 50%;
+    border: none;
+    margin: 30px auto;
+    background-color: #bbb;
+  }
+  
+  html.dark {
+    hr {
+      background-color: #555;
+    }
+  }
+</style>

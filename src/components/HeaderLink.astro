@@ -31,24 +31,26 @@ const isOutlink = !href.startsWith('/');
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    width: 25%;
+    width: 50%;
     height: 42px;
-    border-radius: 10px;
-    color: #222;
+    border-radius: 21px;
+    color: #676767;
     font-size: 20px;
     
     &.active {
       font-weight: bold;
-      background-color: #e3e3e3;
+      color: #292929;
+      background-color: #e2e2e2;
     }
   }
   
   html.dark {
     a {
-      color: #bbb;
+      color: #7d7d7d;
       
       &.active {
-        background-color: #222;
+        color: #cecece;
+        background-color: #222222;
       }
     }
   }

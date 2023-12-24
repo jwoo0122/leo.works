@@ -3,6 +3,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { Icon } from 'astro-icon'
 ---
 
 <!DOCTYPE html>
@@ -25,6 +26,11 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
       <br>
       가끔 이런저런 생각을 적어둡니다.
     </div>
+    <div id="contacts">
+      <a href="/rss.xml" target="_blank"><Icon pack="octicon" name="rss-16"/></a>
+      <a href="https://github.com/jwoo0122" target="_blank"><Icon pack="octicon" name="mark-github-16"/></a>
+      <a href="https://twitter.com/jwoo0122" target="_blank"><Icon name="x-twitter"/></a>
+    </div>
     <Footer />
   </body>
 </html>
@@ -40,5 +46,38 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
   div {
     text-align: center;
     margin-bottom: 18px;
+  }
+  
+  #contacts {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+  
+  a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 100%;
+    background-color: #e3e3e3;
+    border: 1px solid #c4c4c4;
+    margin: 8px;
+    
+    // global.css override
+    color: inherit !important; 
+    
+    html.dark & {
+      background-color: #2c2c2c;
+      border: 1px solid #3d3d3d;
+    }
+  }
+  
+  [astro-icon] {
+    width: 16px;
   }
 </style>

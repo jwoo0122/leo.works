@@ -1,15 +1,24 @@
 export default function Image({ src }: { src: string }) {
   return (
-    <img
-      src={src}
+    <div
       style={{
-        maxWidth: "100%",
-        marginLeft: "50%",
-        transform: "translateX(-50%)",
-        marginTop: 16,
-        marginBottom: 16,
-        borderRadius: 12,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        width: "100%",
+        overflow: "hidden",
+        marginTop: 8,
       }}
-    />
+    >
+      <img
+        src={src}
+        style={{
+          maxWidth: "100%",
+          marginTop: 16,
+          marginBottom: 16,
+          borderRadius: 12,
+        }}
+      />
+    </div>
   );
 }

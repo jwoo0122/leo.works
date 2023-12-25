@@ -3,8 +3,6 @@
 <script>
   const script = document.createElement("script");
   const container = document.querySelector("#utterances-container"); // your id in your html above
-
-  const theme = window.matchMedia('(prefers-color-scheme: dark)').matches;
   
   // Replace the value of each key with yours
   Object.entries({
@@ -12,7 +10,7 @@
     repo: "jwoo0122/leo.works",
     "issue-term": "pathname",
     label: "comment", // omit this line, if you don't need label
-    theme: theme ? 'github-dark' : 'github-light',
+    theme: 'preferred-color-scheme',
     crossorigin: "anonymous",
   }).forEach(([key, value]) => {
     script.setAttribute(key, value);

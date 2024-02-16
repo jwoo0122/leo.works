@@ -5453,7 +5453,7 @@ const RAW_RUNTIME_STATE =
           ["glob-to-regexp", "npm:0.4.1"],\
           ["source-map-support", "npm:0.5.21"],\
           ["stoppable", "npm:1.1.0"],\
-          ["undici", "npm:5.28.2"],\
+          ["undici", "npm:5.28.3"],\
           ["workerd", "npm:1.20231025.0"],\
           ["ws", "virtual:5b39a0a12fb9f2939a9b2463454cd081accdd1a0e5073cf2d4427de0db7836fc1a20ea9c0191acaa82bfe793057741a44053bc72cd860d92a60b8cd7ec75ba1f#npm:8.15.1"],\
           ["youch", "npm:3.3.3"],\
@@ -7383,10 +7383,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["undici", [\
-      ["npm:5.28.2", {\
-        "packageLocation": "./.yarn/cache/undici-npm-5.28.2-35e326d9a1-07ab8b812c.zip/node_modules/undici/",\
+      ["npm:5.28.3", {\
+        "packageLocation": "./.yarn/cache/undici-npm-5.28.3-fb5b0fbd18-779856ce14.zip/node_modules/undici/",\
         "packageDependencies": [\
-          ["undici", "npm:5.28.2"],\
+          ["undici", "npm:5.28.3"],\
           ["@fastify/busboy", "npm:2.1.0"]\
         ],\
         "linkType": "HARD"\

@@ -29,7 +29,10 @@ export function ToC({ headings }: ToCProps) {
               marginBottom: 8,
             }}
           >
-            <a href={`#${h.slug}`} style={{ color: "rgba(0, 0, 0, 0.5)" }}>
+            <a
+              href={`#${h.slug}`}
+              style={{ color: "rgba(120, 120, 120, 0.5)" }}
+            >
               {h.text}
             </a>
           </div>

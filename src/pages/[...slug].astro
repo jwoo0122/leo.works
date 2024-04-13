@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Utterance from '../components/Utterance.astro';
+import { ToC } from '../components/ToC'
 import { getReadingTime } from '../lib/readingTime';
 
 type Props = CollectionEntry<'blog'>;
@@ -11,7 +12,7 @@ const { slug } = Astro.params;
 const posts  = await getCollection('blog');
 const post = posts.find((post) => post.slug === slug) as Props;
 const { data: { title, description, heroImage, pubDate, updatedDate }, body } = post;
-const { Content } = await post.render();
+const { Content, headings } = await post.render();
 const readingTime = getReadingTime(body);
 ---
 
@@ -28,6 +29,7 @@ const readingTime = getReadingTime(body);
       </div>
     )
   }
+  <ToC headings={headings} />
   <hr />
   <Content />
   <Utterance />

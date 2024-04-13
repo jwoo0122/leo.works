@@ -13,7 +13,6 @@ export default defineConfig({
     shikiConfig: {
       theme: "github-dark",
       wrap: true,
-			// hi
     },
   },
   output: "server",

@@ -1,4 +1,14 @@
-export default function Quote({ children }: React.PropsWithChildren) {
+interface QuoteProps extends React.PropsWithChildren {
+  style: "default" | "disclaimer";
+}
+
+export default function Quote({ style = "default", children }: QuoteProps) {
+  const backgroundColor =
+    style === "disclaimer" ? "rgba(230, 200, 0, 0.2)" : "rgba(0, 0, 0, 0.1)";
+
+  const sidebarBackgroundColor =
+    style === "disclaimer" ? "rgb(230, 200, 0)" : "grey";
+
   return (
     <div
       style={{
@@ -6,7 +16,7 @@ export default function Quote({ children }: React.PropsWithChildren) {
         padding: "1px 24px 1px 18px",
         margin: "4px 0",
         fontStyle: "italic",
-        backgroundColor: "rgba(0, 0, 0, 0.1)",
+        backgroundColor,
       }}
     >
       <div
@@ -15,8 +25,8 @@ export default function Quote({ children }: React.PropsWithChildren) {
           left: 0,
           top: 0,
           height: "100%",
-          width: 2,
-          backgroundColor: "grey",
+          width: 3,
+          backgroundColor: sidebarBackgroundColor,
         }}
       />
       {children}

@@ -1,28 +1,29 @@
 ---
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import { Icon } from 'astro-icon'
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+import PostPreview from '../components/PostPreview.astro';
+import { getReadingTime } from '../lib/readingTime';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <div>
-    <img src="/cat.jpeg"/>
-    <br>
-    Hello, world!
-    <br>
-    <br>
-    개발자 정진우입니다.
-    <br>
-    TypeScript, Rust, Go 에 관심이 있습니다.
-    <br>
-    <br>
-    가끔 이런저런 생각을 적어둡니다.
-  </div>
-  <div id="contacts">
-    <a href="/rss.xml" target="_blank"><Icon pack="octicon" name="rss-16"/></a>
-    <a href="https://github.com/jwoo0122" target="_blank"><Icon pack="octicon" name="mark-github-16"/></a>
-    <a href="https://twitter.com/jwoo0122" target="_blank"><Icon name="x-twitter"/></a>
-  </div>
+  <ul>
+    {
+      posts.map((post) => (
+        <PostPreview
+          title={post.data.title}
+          date={post.data.pubDate.toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' })}
+          description={post.data.description}
+          slug={post.slug}
+          readingTime={getReadingTime(post.body)}
+        />
+      ))
+    }
+  </ul>
 </Layout>
 
 <style lang="scss">
@@ -38,36 +39,14 @@ import Layout from '../layouts/Layout.astro';
     margin-bottom: 18px;
   }
   
-  #contacts {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 18px;
-  }
   
-  a {
-    position: relative;
+  ul {
+    list-style-type: none;
+    padding: 1rem 0 0;
+  }
+
+  ul li {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 34px;
-    height: 34px;
-    font-size: 20px;
-    text-decoration: none;
-    border-radius: 100%;
-    background-color: #e3e3e3;
-    border: 1px solid #c4c4c4;
-    margin: 8px;
-    
-    // global.css override
-    color: inherit !important; 
-    
-    html.dark & {
-      background-color: #2c2c2c;
-      border: 1px solid #3d3d3d;
-    }
   }
-  
-  [astro-icon] {
-    width: 16px;
-  }
+
 </style>

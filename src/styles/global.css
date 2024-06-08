@@ -14,11 +14,15 @@ html.dark a {
 
 h1 {
   font-size: 26px;
-  scroll-margin-top: 60px;
 }
 
 h2 {
   font-size: 22px;
+}
+
+h1,
+h2,
+h3 {
   scroll-margin-top: 60px;
 }
 

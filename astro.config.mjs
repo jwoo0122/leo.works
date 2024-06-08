@@ -1,7 +1,6 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-import cloudflare from "@astrojs/cloudflare";
 
 import react from "@astrojs/react";
 
@@ -15,8 +14,6 @@ export default defineConfig({
       wrap: true,
     },
   },
-  output: "server",
-  adapter: cloudflare(),
   // FIXME: https://github.com/natemoo-re/astro-icon/issues/35
   vite: {
     resolve: {

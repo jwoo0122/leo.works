@@ -31,7 +31,7 @@ export function ToC({ headings }: ToCProps) {
           >
             <a
               href={`#${h.slug}`}
-              style={{ color: "rgba(120, 120, 120, 0.5)" }}
+              style={{ color: "rgba(120, 120, 120, 0.8)" }}
             >
               {h.text}
             </a>

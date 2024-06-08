@@ -7,15 +7,15 @@ interface Props {
   readingTime: number
 }
 
-const { title, date, slug, description, readingTime } = Astro.props;
+const { title, date, slug, readingTime } = Astro.props;
 ---
 
 <a id="preview-link" href={`/${slug}`}>
   <li>
     <h2>{title}</h2>
-    <span id="description">
+    <!-- <span id="description">
       {description}
-    </span>
+    </span> -->
     <div id="meta">
       <span>{date}</span><span> · {readingTime}분</span>
     </div>
@@ -42,14 +42,6 @@ const { title, date, slug, description, readingTime } = Astro.props;
       margin-bottom: 20px;
       border-radius: 10px;
       transition: background-color ease-in-out 0.1s, transform ease-in-out 0.1s;
-      
-      &:hover {
-        background-color: rgba(0, 0, 0, 0.05);
-        
-        @media (min-width: 800px) {
-          transform: scale(1.01);
-        }
-      }
     }
   }
   
@@ -57,9 +49,6 @@ const { title, date, slug, description, readingTime } = Astro.props;
     a {
       color: #f0f0f0;
       
-      li:hover {
-        background-color: rgba(100, 100, 100, 0.1);
-      }
     }
   }
   

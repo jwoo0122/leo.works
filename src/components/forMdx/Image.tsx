@@ -16,7 +16,7 @@ export default function Image({ src }: { src: string }) {
           maxWidth: "100%",
           marginTop: 16,
           marginBottom: 16,
-          borderRadius: 12,
+          borderRadius: 5,
         }}
       />
     </div>

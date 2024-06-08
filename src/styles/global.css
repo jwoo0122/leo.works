@@ -20,6 +20,12 @@ h2 {
   font-size: 22px;
 }
 
+h1,
+h2,
+h3 {
+  scroll-margin-top: 30px;
+}
+
 textarea {
   width: 100%;
   font-size: 16px;
@@ -42,7 +48,7 @@ code {
   padding: 2px 5px;
   font-size: 14px;
   background-color: #ccc;
-  font-family: GeistMono, monospace;
+  font-family: "JetBrains Mono", monospace;
   border-radius: 5px;
 }
 
@@ -59,7 +65,7 @@ pre {
 pre > code {
   all: unset;
   font-size: 13px;
-  font-family: GeistMono, monospace;
+  font-family: "JetBrains Mono", monospace;
   font-variant-ligatures: common-ligatures;
   background-color: transparent !important;
 }
@@ -74,43 +80,4 @@ blockquote {
 
 hr {
   border: none;
-}
-@font-face {
-  font-family: "Inter";
-  src: url("/Inter/Inter-Regular.woff2") format("woff2");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Inter";
-  src: url("/Inter/Inter-Bold.woff2") format("woff2");
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Inter";
-  src: url("/Inter/Inter-Italic.woff2") format("woff2");
-  font-weight: normal;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Inter";
-  src: url("/Inter/Inter-BoldItalic.woff2") format("woff2");
-  font-weight: bold;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "GeistMono";
-  src: url("/GeistMono/GeistMono-Regular.woff2") format("woff2");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
 }

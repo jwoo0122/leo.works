@@ -17,6 +17,8 @@ jobs:
         with:
           node-version: 18
 
+      - run: corepack enable
+
       - name: Install
         run: pnpm install
 

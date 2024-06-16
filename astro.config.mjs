@@ -15,15 +15,4 @@ export default defineConfig({
       wrap: true,
     },
   },
-  // FIXME: https://github.com/natemoo-re/astro-icon/issues/35
-  vite: {
-    ssr: {
-      external: ['svgo']
-    },
-    resolve: {
-      alias: {
-        svgo: import.meta.env.PROD ? "svgo/dist/svgo.browser.js" : "svgo",
-      },
-    },
-  },
 });

@@ -20,6 +20,9 @@ dependencies:
   '@astrojs/sitemap':
     specifier: ^3.0.3
     version: 3.1.5
+  '@iconify-json/octicon':
+    specifier: ^1.1.54
+    version: 1.1.54
   '@types/react':
     specifier: ^18.2.45
     version: 18.3.3
@@ -940,6 +943,12 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@iconify-json/octicon@1.1.54:
+    resolution: {integrity: sha512-1sKH5THuE9pMg7r4e/31vHaHJMBU32QdDLBt0riKt+4NXhEkF39AMxITGREagO4TeCw6ygqDgouj9ZE2y0l+Tg==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: false
 
   /@iconify/tools@3.0.7:
     resolution: {integrity: sha512-DxfhFLMnooS34dHelpGUnnYrxLZHs0czC1CgrBhAbuL8ddVzBb2VEQm8kh9qGh7A34qeXAB5iSHH3A72rAaFrg==}

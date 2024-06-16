@@ -12,13 +12,15 @@ jobs:
       - name: Checkout to current branch
         uses: actions/checkout@v3
 
-      - name: Setup node, yarn
+      - name: Setup node, pnpm
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
+      - run: corepack enable
+
       - name: Install
-        run: yarn install
+        run: pnpm install
 
       - name: Astro check
-        run: yarn check
+        run: pnpm check

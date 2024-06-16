@@ -1,5 +1,5 @@
 ---
-import Icon from "astro-icon";
+import { Icon } from "astro-icon/components";
 ---
 
 <header>
@@ -8,8 +8,8 @@ import Icon from "astro-icon";
       leo.works
     </a>
     <div id="contacts">
-      <a href="/rss.xml" target="_blank"><Icon pack="octicon" name="rss-16"/></a>
-      <a href="https://github.com/jwoo0122" target="_blank"><Icon pack="octicon" name="mark-github-16"/></a>
+      <a href="/rss.xml" target="_blank"><Icon name="octicon:rss-16"/></a>
+      <a href="https://github.com/jwoo0122" target="_blank"><Icon name="octicon:mark-github-16"/></a>
       <a href="https://twitter.com/jwoo0122" target="_blank"><Icon name="x-twitter"/></a>
     </div>
   </div>
@@ -62,7 +62,7 @@ import Icon from "astro-icon";
           margin-left: 8px;
         }
         
-        [astro-icon] {
+        [data-icon] {
           width: 16px;
         }
       }

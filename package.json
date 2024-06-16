@@ -1,6 +1,6 @@
 {
   "name": "leo.works",
-  "type": "module",
+  "type": "commonjs",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -21,7 +21,7 @@
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
     "astro": "4.0.6",
-    "astro-icon": "^0.8.2",
+    "astro-icon": "^1.1.0",
     "husky": "^8.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -29,5 +29,5 @@
     "typescript": "^5.3.3",
     "vite": "^5.0.10"
   },
-  "packageManager": "yarn@4.1.1"
+  "packageManager": "pnpm@9.3.0+sha256.e1f9e8d1a16607a46dd3c158b5f7a7dc7945501d1c6222d454d63d033d1d918f"
 }

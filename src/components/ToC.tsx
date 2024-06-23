@@ -11,8 +11,8 @@ export function ToC({ headings }: ToCProps) {
         style={{
           fontSize: 18,
           fontWeight: "bold",
-          marginBottom: 12,
-          marginTop: 12,
+          marginBottom: 8,
+          marginTop: 32,
         }}
       >
         Contents

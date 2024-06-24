@@ -25,7 +25,7 @@ const readingTime = getReadingTime(body);
 ---
 
 <Layout title={title} description={description} heroImage={heroImage}>
-  { heroImagePath != null && <Image src={heroImagePath} alt={""} id="hero" /> }
+  { heroImagePath != null && <Image src={heroImagePath} alt={""} id="hero" quality="mid"/> }
   <h1 id="title">{title}</h1>
   <div id="time">
     <time>{pubDate.toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' })}</time><span> · {readingTime}분</span>

@@ -1,4 +1,4 @@
-import { defineConfig, squooshImageService } from "astro/config";
+import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
@@ -9,9 +9,6 @@ import react from "@astrojs/react";
 export default defineConfig({
   site: "https://leo.works",
   integrations: [mdx(), sitemap(), react(), icon()],
-  image: {
-    service: squooshImageService(),
-  },
   markdown: {
     shikiConfig: {
       theme: "github-dark",

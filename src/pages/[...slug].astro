@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
-import type { ImageMetadata } from 'astro';
+import { getHeroImages } from '../lib/getHeroImages'
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets'
 import Utterance from '../components/Utterance.astro';
@@ -19,18 +19,13 @@ type Props = CollectionEntry<'blog'>;
 
 const post  = Astro.props;
 const { data: { title, description, heroImage, pubDate, updatedDate }, body } = post;
-const heroImagePath = `/src/images/heroes/${heroImage}`
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/heroes/*.{jpeg,jpg,png,gif}');
-
-if (!images[heroImagePath]) throw new Error(`"${heroImagePath}" does not exist in glob: "src/assets/heroes/*.{jpeg,jpg,png,gif}"`);
-
+const heroImagePath = getHeroImages(heroImage || '')
 const { Content, headings } = await post.render();
 const readingTime = getReadingTime(body);
 ---
 
 <Layout title={title} description={description} heroImage={heroImage}>
-  <!--<img id="hero" src={heroImage}/>-->
-  <Image src={images[heroImagePath]()} alt={heroImage} id="hero" />
+  { heroImagePath != null && <Image src={heroImagePath} alt={""} id="hero" /> }
   <h1 id="title">{title}</h1>
   <div id="time">
     <time>{pubDate.toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' })}</time><span> · {readingTime}분</span>
@@ -54,12 +49,13 @@ const readingTime = getReadingTime(body);
     max-height: 250px;
     object-fit: cover;
     object-position: center;
-    margin-bottom: 16px;
+    border-radius: 6px;
   }
   
   #title {
+    margin-top: 16px;
+    margin-bottom: 0px;
     font-size: 2em;
-    margin: 0;
     color: inherit; 
   }
   html.dark {

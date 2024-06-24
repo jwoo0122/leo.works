@@ -1,7 +1,9 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
+import { getImage } from 'astro:assets';
 import '../styles/global.css';
+import { getHeroImages } from '../lib/getHeroImages';
 
 interface Props {
   title: string;
@@ -11,7 +13,15 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = '' } = Astro.props;
+const { title, description, image } = Astro.props;
+
+let heroImagePath = null;
+
+if (image != null) {
+  const _heroImagePath = getHeroImages(image)
+  heroImagePath = await getImage({ src: _heroImagePath })
+}
+
 ---
 
 <!-- font -->
@@ -39,8 +49,8 @@ const { title, description, image = '' } = Astro.props;
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-{ image != null && (
-  <meta property="og:image" content={new URL(image, Astro.url)} />
+{ heroImagePath != null && (
+  <meta property="og:image" content={heroImagePath.src} />
 ) }
 
 <!-- Twitter -->

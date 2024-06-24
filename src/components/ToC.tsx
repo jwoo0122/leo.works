@@ -5,6 +5,10 @@ interface ToCProps {
 }
 
 export function ToC({ headings }: ToCProps) {
+  if (headings.length == 0) {
+    return null;
+  }
+
   return (
     <>
       <div

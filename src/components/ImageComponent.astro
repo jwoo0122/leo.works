@@ -12,7 +12,7 @@ const imagePath = `/src/images/${src}`
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/*.{jpeg,jpg,png,gif}');
 if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
 ---
-<AstroImage src={images[imagePath]()} alt={alt} id="image-container"/> 
+<AstroImage src={images[imagePath]()} alt={alt} id="image-container" quality="mid"/> 
 
 <style lang="scss">
   #image-container {

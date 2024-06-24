@@ -34,11 +34,10 @@ const { title, date, slug, readingTime } = Astro.props;
   
   a {
     display: block;
-    margin: -10px;
-    color: #0e0e0e;
+    color: inherit;
 
     li {
-      padding: 16px;
+      padding: 10px 0;
       margin-bottom: 20px;
       border-radius: 10px;
       transition: background-color ease-in-out 0.1s, transform ease-in-out 0.1s;
@@ -47,7 +46,7 @@ const { title, date, slug, readingTime } = Astro.props;
   
   html.dark {
     a {
-      color: #f0f0f0;
+      color: inherit;
       
     }
   }

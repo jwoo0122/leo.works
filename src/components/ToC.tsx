@@ -5,14 +5,18 @@ interface ToCProps {
 }
 
 export function ToC({ headings }: ToCProps) {
+  if (headings.length == 0) {
+    return null;
+  }
+
   return (
     <>
       <div
         style={{
           fontSize: 18,
           fontWeight: "bold",
-          marginBottom: 12,
-          marginTop: 12,
+          marginBottom: 8,
+          marginTop: 32,
         }}
       >
         Contents

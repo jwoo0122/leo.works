@@ -27,20 +27,13 @@ const { title, description, heroImage } = Astro.props;
 </html>
 
 <style lang="scss">
-  #title {
-    font-size: 2em;
-    margin: 0.25em 0 0;
-    text-align: center;
-    color: #0e0e0e; 
-  }
-
   html {
-    background-color: #efefef;
+    background-color: #F0F0F0;
     color: #444;
   }
   
   html.dark {
-    background-color: #1b1b1b;
+    background-color: #121212;
     color: #c3c3c3;
 
     #title {
@@ -53,7 +46,7 @@ const { title, description, heroImage } = Astro.props;
   }
   
   body {
-    font-family: Inter;
+    font-family: system-ui;
     width: 100%;
     text-align: left;
     word-wrap: break-word;
@@ -66,7 +59,7 @@ const { title, description, heroImage } = Astro.props;
   main {
     padding: 0 14px;
     margin: auto;
-    max-width: 85ch;
+    max-width: 70ch;
   }
 
   hr {

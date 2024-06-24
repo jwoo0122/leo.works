@@ -48,7 +48,7 @@ code {
   padding: 2px 5px;
   font-size: 14px;
   background-color: #ccc;
-  font-family: "JetBrains Mono", monospace;
+  font-family: monospace;
   border-radius: 5px;
 }
 
@@ -65,8 +65,7 @@ pre {
 pre > code {
   all: unset;
   font-size: 13px;
-  font-family: "JetBrains Mono", monospace;
-  font-variant-ligatures: common-ligatures;
+  font-family: monospace;
   background-color: transparent !important;
 }
 

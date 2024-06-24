@@ -1,7 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
+import { getHeroImages } from '../lib/getHeroImages'
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets'
 import Utterance from '../components/Utterance.astro';
 import { ToC } from '../components/ToC'
 import { getReadingTime } from '../lib/readingTime';
@@ -17,12 +19,13 @@ type Props = CollectionEntry<'blog'>;
 
 const post  = Astro.props;
 const { data: { title, description, heroImage, pubDate, updatedDate }, body } = post;
+const heroImagePath = getHeroImages(heroImage || '')
 const { Content, headings } = await post.render();
 const readingTime = getReadingTime(body);
 ---
 
 <Layout title={title} description={description} heroImage={heroImage}>
-  <img id="hero" src={heroImage}/>
+  { heroImagePath != null && <Image src={heroImagePath} alt={""} id="hero" /> }
   <h1 id="title">{title}</h1>
   <div id="time">
     <time>{pubDate.toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' })}</time><span> · {readingTime}분</span>
@@ -43,34 +46,29 @@ const readingTime = getReadingTime(body);
 <style lang="scss">
   #hero {
     width: 100%;
-    max-height: 200px;
+    max-height: 250px;
     object-fit: cover;
     object-position: center;
-    border-radius: 0 0 12px 12px;
-    margin-bottom: 20px;
+    border-radius: 6px;
   }
   
   #title {
+    margin-top: 16px;
+    margin-bottom: 0px;
     font-size: 2em;
-    margin: 0.25em 0 0;
-    text-align: center;
-    color: #0e0e0e; 
+    color: inherit; 
   }
   html.dark {
     #title {
-      color: #f0f0f0;
+      color: inherit;
     }
   }
-  
-  #time {
-    text-align: center;
-  }
-  
+
   hr {
     height: 1px;
     width: 50%;
     border: none;
-    margin: 30px auto;
+    margin: 50px auto;
     background-color: #bbb;
   }
   

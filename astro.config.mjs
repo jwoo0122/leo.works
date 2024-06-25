@@ -8,7 +8,15 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   site: "https://leo.works",
-  integrations: [mdx(), sitemap(), react(), icon(), tailwind()],
+  integrations: [
+    mdx(),
+    sitemap(),
+    react(),
+    icon(),
+    tailwind({
+      applyBaseStyles: false,
+    }),
+  ],
   markdown: {
     shikiConfig: {
       theme: "github-dark",

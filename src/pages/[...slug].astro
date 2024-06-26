@@ -18,63 +18,21 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<'blog'>;
 
 const post  = Astro.props;
-const { data: { title, description, heroImage, pubDate, updatedDate }, body } = post;
+const { data: { title, description, heroImage, pubDate }, body } = post;
 const heroImagePath = getHeroImages(heroImage || '')
 const { Content, headings } = await post.render();
 const readingTime = getReadingTime(body);
 ---
 
 <Layout title={title} description={description} heroImage={heroImage}>
-  { heroImagePath != null && <Image src={heroImagePath} alt={""} id="hero" quality="mid"/> }
-  <h1 id="title">{title}</h1>
-  <div id="time">
+  { heroImagePath != null && <Image src={heroImagePath} alt={""} class="max-h-64 w-full object-cover object-center" quality="mid"/> }
+  <h1 class="mt-6 text-3xl font-bold">{title}</h1>
+  <div class="mt-2 text-sm text-zinc-500">
     <time>{pubDate.toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' })}</time><span> · {readingTime}분</span>
   </div>
-  {
-    updatedDate && (
-      <div>
-        Last updated on <time>{updatedDate}</time>
-      </div>
-    )
-  }
   <ToC headings={headings} />
   <hr />
   <Content />
   <Utterance />
 </Layout>
 
-<style lang="scss">
-  #hero {
-    width: 100%;
-    max-height: 250px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 6px;
-  }
-  
-  #title {
-    margin-top: 16px;
-    margin-bottom: 0px;
-    font-size: 2em;
-    color: inherit; 
-  }
-  html.dark {
-    #title {
-      color: inherit;
-    }
-  }
-
-  hr {
-    height: 1px;
-    width: 50%;
-    border: none;
-    margin: 50px auto;
-    background-color: #bbb;
-  }
-  
-  html.dark {
-    hr {
-      background-color: #555;
-    }
-  }
-</style>

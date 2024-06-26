@@ -13,7 +13,7 @@ const { title, description, heroImage } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-zinc-100 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100">
   <head>
     <BaseHead title={title} description={description} image={heroImage} />
   </head>
@@ -26,41 +26,3 @@ const { title, description, heroImage } = Astro.props;
   </body>
 </html>
 
-<style lang="scss">
-  html {
-    background-color: #F0F0F0;
-    color: #444;
-  }
-  
-  html.dark {
-    background-color: #121212;
-    color: #c3c3c3;
-
-    #title {
-      color: #f0f0f0;
-    }
-  }
-   
-  /*body {*/
-  /*  font-family: system-ui;*/
-  /*  width: 100%;*/
-  /*  text-align: left;*/
-  /*  word-wrap: break-word;*/
-  /*  overflow-wrap: break-word;*/
-  /*  line-height: 1.5;*/
-  /*  padding: 0;*/
-  /*  margin: 0;*/
-  /*}*/
-  
-  /*main {*/
-  /*  padding: 0 14px;*/
-  /*  margin: auto;*/
-  /*  max-width: 70ch;*/
-  /*}*/
- 
-  html.dark {
-    hr {
-      background-color: #555;
-    }
-  }
-</style>

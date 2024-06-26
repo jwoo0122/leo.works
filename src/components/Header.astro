@@ -1,5 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
+
+const iconStyle = "flex items-center justify-center"
 ---
 
 <header class="m-auto max-w-xl px-3.5 py-1.5">
@@ -7,10 +9,10 @@ import { Icon } from "astro-icon/components";
     <a href="/" class="font-title text-2xl text-inherit">
       leo.works
     </a>
-    <div id="flex justify-end">
-      <a href="/rss.xml" target="_blank"><Icon name="octicon:rss-16"/></a>
-      <a href="https://github.com/jwoo0122" target="_blank"><Icon name="octicon:mark-github-16"/></a>
-      <a href="https://twitter.com/jwoo0122" target="_blank"><Icon name="x-twitter"/></a>
+    <div class="flex justify-end space-x-6">
+      <a class={iconStyle} href="/rss.xml" target="_blank"><Icon name="octicon:rss-16"/></a>
+      <a class={iconStyle} href="https://github.com/jwoo0122" target="_blank"><Icon name="octicon:mark-github-16"/></a>
+      <a class={iconStyle} href="https://twitter.com/jwoo0122" target="_blank"><Icon name="x-twitter"/></a>
     </div>
   </div>
 </header>
@@ -22,23 +24,23 @@ import { Icon } from "astro-icon/components";
     /*line-height: 0;*/
 
     a {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      font-size: 20px;
-      text-decoration: none;
-      color: inherit; 
+      /*position: relative;*/
+      /*display: flex;*/
+      /*align-items: center;*/
+      /*justify-content: center;*/
+      /*width: 34px;*/
+      /*height: 34px;*/
+      /*font-size: 20px;*/
+      /*text-decoration: none;*/
+      /*color: inherit; */
     }
     
-    a + a {
-      margin-left: 8px;
-    }
-    
-    [data-icon] {
-      width: 16px;
-    }
+    /*a + a {*/
+    /*  margin-left: 8px;*/
+    /*}*/
+    /**/
+    /*[data-icon] {*/
+    /*  width: 16px;*/
+    /*}*/
   }
 </style>

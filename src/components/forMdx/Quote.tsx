@@ -4,8 +4,8 @@ interface QuoteProps extends React.PropsWithChildren {
 
 const COLORS: { [key in QuoteProps['style']]: { background: string; bar: string; } } = {
   'default': {
-    background: 'bg-slate-200 dark:bg-slate-700',
-    bar: 'bg-slate-400 dark:bg-slate-300'
+    background: 'bg-neutral-200 dark:bg-neutral-700',
+    bar: 'bg-neutral-400 dark:bg-neutral-300'
   },
   'disclaimer': {
     background: 'bg-orange-200 dark:bg-orange-900',

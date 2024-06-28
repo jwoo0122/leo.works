@@ -1,80 +1,60 @@
 ---
-import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
-import { getHeroImages } from '../lib/getHeroImages'
-import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets'
-import Utterance from '../components/Utterance.astro';
-import { ToC } from '../components/ToC'
-import { getReadingTime } from '../lib/readingTime';
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { getHeroImages } from "../lib/getHeroImages";
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import Utterance from "../components/Utterance.astro";
+import { ToC } from "../components/ToC";
+import { getReadingTime } from "../lib/readingTime";
+import Prose from "../components/forMdx/Prose.astro";
 
 export async function getStaticPaths() {
-   const posts = await getCollection('blog');
-   return posts.map((post) => ({
-     params: { slug: post.slug },
-     props: post,
-   }));
- }
-type Props = CollectionEntry<'blog'>;
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+type Props = CollectionEntry<"blog">;
 
-const post  = Astro.props;
-const { data: { title, description, heroImage, pubDate, updatedDate }, body } = post;
-const heroImagePath = getHeroImages(heroImage || '')
+const post = Astro.props;
+const {
+  data: { title, description, heroImage, pubDate },
+  body,
+} = post;
+const heroImagePath = getHeroImages(heroImage || "");
 const { Content, headings } = await post.render();
 const readingTime = getReadingTime(body);
 ---
 
 <Layout title={title} description={description} heroImage={heroImage}>
-  { heroImagePath != null && <Image src={heroImagePath} alt={""} id="hero" quality="mid"/> }
-  <h1 id="title">{title}</h1>
-  <div id="time">
-    <time>{pubDate.toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' })}</time><span> · {readingTime}분</span>
-  </div>
   {
-    updatedDate && (
-      <div>
-        Last updated on <time>{updatedDate}</time>
-      </div>
+    heroImagePath != null && (
+      <Image
+        src={heroImagePath}
+        alt={""}
+        class="max-h-64 w-full rounded-md object-cover object-center"
+        quality="mid"
+      />
     )
   }
-  <ToC headings={headings} />
-  <hr />
-  <Content />
+  <h1 class="mt-6 text-4xl font-bold">{title}</h1>
+  <div class="mt-2 text-sm text-slate-500">
+    <time
+      >{
+        pubDate.toLocaleDateString("ko-KR", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })
+      }</time
+    ><span> · {readingTime}분</span>
+  </div>
+  <ToC headings={headings} client:idle />
+  <div class="my-10"></div>
+  <Prose>
+    <Content />
+  </Prose>
   <Utterance />
 </Layout>
-
-<style lang="scss">
-  #hero {
-    width: 100%;
-    max-height: 250px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 6px;
-  }
-  
-  #title {
-    margin-top: 16px;
-    margin-bottom: 0px;
-    font-size: 2em;
-    color: inherit; 
-  }
-  html.dark {
-    #title {
-      color: inherit;
-    }
-  }
-
-  hr {
-    height: 1px;
-    width: 50%;
-    border: none;
-    margin: 50px auto;
-    background-color: #bbb;
-  }
-  
-  html.dark {
-    hr {
-      background-color: #555;
-    }
-  }
-</style>

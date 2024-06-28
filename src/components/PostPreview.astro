@@ -1,76 +1,23 @@
 ---
 interface Props {
-  title: string
-  date: string
-  slug: string
-  description: string
-  readingTime: number
+  title: string;
+  date: string;
+  slug: string;
+  description: string;
+  readingTime: number;
 }
 
-const { title, date, slug, readingTime } = Astro.props;
+const { title, date, slug, readingTime, description } = Astro.props;
 ---
 
-<a id="preview-link" href={`/${slug}`}>
-  <li>
-    <h2>{title}</h2>
-    <!-- <span id="description">
-      {description}
-    </span> -->
-    <div id="meta">
+<a href={`/${slug}`}>
+  <li class="my-14">
+    <h2 class="mb-1 text-2xl font-bold">{title}</h2>
+    <div class="mb-2.5 text-sm text-slate-500">
       <span>{date}</span><span> · {readingTime}분</span>
+    </div>
+    <div class="text-sm text-slate-400 dark:text-slate-600">
+      {description}
     </div>
   </li>
 </a>
-
-<style lang="scss">
-  #preview-link {
-    text-decoration: none;
-    outline: none;
-  }
-  
-  h2 {
-    margin: 0 0 8px;
-  }
-  
-  a {
-    display: block;
-    color: inherit;
-
-    li {
-      padding: 10px 0;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      transition: background-color ease-in-out 0.1s, transform ease-in-out 0.1s;
-    }
-  }
-  
-  html.dark {
-    a {
-      color: inherit;
-      
-    }
-  }
-  
-  #description {
-    display: block;
-    margin-bottom: 4px;
-    color: #666;
-  }
-  
-  html.dark {
-    #description {
-      color: #888;
-    }
-  }
-  
-  #meta {
-    font-size: 13px;
-    color: #aaa;
-  }
-  
-  html.dark {
-    #meta {
-      color: #555;
-    }
-  }
-</style>

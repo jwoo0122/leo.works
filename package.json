@@ -1,6 +1,6 @@
 {
   "name": "leo.works",
-  "type": "commonjs",
+  "type": "module",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,7 +10,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@astrojs/check": "^0.3.4",
@@ -18,17 +19,28 @@
     "@astrojs/react": "^3.6.0",
     "@astrojs/rss": "4.0.1",
     "@astrojs/sitemap": "^3.1.6",
+    "@astrojs/tailwind": "^5.1.0",
+    "@eslint/js": "^9.5.0",
     "@iconify-json/octicon": "^1.1.55",
+    "@tailwindcss/typography": "^0.5.13",
+    "@types/eslint__js": "^8.42.3",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "astro": "4.0.6",
     "astro-icon": "^1.1.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-astro": "^1.2.2",
+    "eslint-plugin-tailwindcss": "^3.17.4",
     "husky": "^8.0.3",
+    "prettier": "^3.3.2",
+    "prettier-plugin-astro": "^0.14.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "sass": "^1.77.6",
     "sharp": "^0.33.4",
+    "tailwindcss": "^3.4.4",
     "typescript": "^5.5.2",
+    "typescript-eslint": "^7.14.1",
     "vite": "^5.3.1"
   },
   "packageManager": "pnpm@9.3.0+sha256.e1f9e8d1a16607a46dd3c158b5f7a7dc7945501d1c6222d454d63d033d1d918f"

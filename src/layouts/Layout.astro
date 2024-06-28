@@ -1,78 +1,30 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 type Props = {
-  title: string
-  description: string
-  heroImage?: string
+  title: string;
+  description: string;
+  heroImage?: string;
 };
 
 const { title, description, heroImage } = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html
+  lang="en"
+  class="bg-slate-100 text-slate-900 dark:bg-slate-900 dark:text-slate-100"
+>
   <head>
     <BaseHead title={title} description={description} image={heroImage} />
   </head>
   <body>
     <Header />
-    <main>
+    <main class="m-auto max-w-3xl px-3.5">
       <slot />
     </main>
     <Footer />
   </body>
 </html>
-
-<style lang="scss">
-  html {
-    background-color: #F0F0F0;
-    color: #444;
-  }
-  
-  html.dark {
-    background-color: #121212;
-    color: #c3c3c3;
-
-    #title {
-      color: #f0f0f0;
-    }
-  }
-  
-  #time {
-    text-align: center;
-  }
-  
-  body {
-    font-family: system-ui;
-    width: 100%;
-    text-align: left;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    line-height: 1.5;
-    padding: 0;
-    margin: 0;
-  }
-  
-  main {
-    padding: 0 14px;
-    margin: auto;
-    max-width: 70ch;
-  }
-
-  hr {
-    height: 1px;
-    width: 50%;
-    border: none;
-    margin: 30px auto;
-    background-color: #bbb;
-  }
-  
-  html.dark {
-    hr {
-      background-color: #555;
-    }
-  }
-</style>

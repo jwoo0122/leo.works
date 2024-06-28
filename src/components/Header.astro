@@ -1,68 +1,22 @@
 ---
 import { Icon } from "astro-icon/components";
+
+const iconStyle = "flex items-center justify-center";
 ---
 
-<header>
-  <div id="container">
-    <a href="/" id="home">
-      leo.works
-    </a>
-    <div id="contacts">
-      <a href="/rss.xml" target="_blank"><Icon name="octicon:rss-16"/></a>
-      <a href="https://github.com/jwoo0122" target="_blank"><Icon name="octicon:mark-github-16"/></a>
-      <a href="https://twitter.com/jwoo0122" target="_blank"><Icon name="x-twitter"/></a>
+<header class="m-auto max-w-3xl px-3.5 py-1.5">
+  <div class="flex h-14 items-center justify-between">
+    <a href="/" class="font-title text-2xl text-inherit"> leo.works </a>
+    <div class="flex justify-end space-x-6">
+      <a class={iconStyle} href="/rss.xml" target="_blank"
+        ><Icon name="octicon:rss-16" /></a
+      >
+      <a class={iconStyle} href="https://github.com/jwoo0122" target="_blank"
+        ><Icon name="octicon:mark-github-16" /></a
+      >
+      <a class={iconStyle} href="https://twitter.com/jwoo0122" target="_blank"
+        ><Icon name="x-twitter" /></a
+      >
     </div>
   </div>
 </header>
-
-<style lang="scss">
-  header {
-    padding: 0.5em 14px;
-    max-width: 70ch;
-    margin: auto;
-    
-    #container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      margin: 0 auto;
-      height: 3.2rem;
-      
-      #home {
-        text-decoration: none;
-        outline: none;
-        font-family: "Pacifico", cursive;
-        font-size: 1.6rem;
-        color: inherit;
-        font-weight: 400;
-      }
-
-      #contacts {
-        display: flex;
-        justify-content: end;
-        line-height: 0;
-
-        a {
-          position: relative;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 34px;
-          height: 34px;
-          font-size: 20px;
-          text-decoration: none;
-          color: inherit; 
-        }
-        
-        a + a {
-          margin-left: 8px;
-        }
-        
-        [data-icon] {
-          width: 16px;
-        }
-      }
-    }
-  }
-</style>

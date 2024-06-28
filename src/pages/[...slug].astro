@@ -1,38 +1,60 @@
 ---
-import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
-import { getHeroImages } from '../lib/getHeroImages'
-import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets'
-import Utterance from '../components/Utterance.astro';
-import { ToC } from '../components/ToC'
-import { getReadingTime } from '../lib/readingTime';
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { getHeroImages } from "../lib/getHeroImages";
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import Utterance from "../components/Utterance.astro";
+import { ToC } from "../components/ToC";
+import { getReadingTime } from "../lib/readingTime";
+import Prose from "../components/forMdx/Prose.astro";
 
 export async function getStaticPaths() {
-   const posts = await getCollection('blog');
-   return posts.map((post) => ({
-     params: { slug: post.slug },
-     props: post,
-   }));
- }
-type Props = CollectionEntry<'blog'>;
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+type Props = CollectionEntry<"blog">;
 
-const post  = Astro.props;
-const { data: { title, description, heroImage, pubDate }, body } = post;
-const heroImagePath = getHeroImages(heroImage || '')
+const post = Astro.props;
+const {
+  data: { title, description, heroImage, pubDate },
+  body,
+} = post;
+const heroImagePath = getHeroImages(heroImage || "");
 const { Content, headings } = await post.render();
 const readingTime = getReadingTime(body);
 ---
 
 <Layout title={title} description={description} heroImage={heroImage}>
-  { heroImagePath != null && <Image src={heroImagePath} alt={""} class="max-h-64 w-full object-cover object-center" quality="mid"/> }
+  {
+    heroImagePath != null && (
+      <Image
+        src={heroImagePath}
+        alt={""}
+        class="max-h-64 w-full object-cover object-center"
+        quality="mid"
+      />
+    )
+  }
   <h1 class="mt-6 text-3xl font-bold">{title}</h1>
   <div class="mt-2 text-sm text-zinc-500">
-    <time>{pubDate.toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' })}</time><span> · {readingTime}분</span>
+    <time
+      >{
+        pubDate.toLocaleDateString("ko-KR", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })
+      }</time
+    ><span> · {readingTime}분</span>
   </div>
   <ToC headings={headings} />
   <hr />
-  <Content />
+  <Prose>
+    <Content />
+  </Prose>
   <Utterance />
 </Layout>
-

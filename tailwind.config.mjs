@@ -1,4 +1,5 @@
-/** @type {import('tailwindcss').Config} */
+import tailwindTypo from "@tailwindcss/typography";
+
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
@@ -7,5 +8,5 @@ export default {
     },
     extend: {},
   },
-  plugins: [],
+  plugins: [tailwindTypo],
 };

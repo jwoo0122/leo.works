@@ -4,8 +4,8 @@ interface ToCProps {
   headings: MarkdownHeading[];
 }
 
-export function ToC({ headings }: ToCProps) {
-  if (headings.length == 0) {
+export function ToC(props?: ToCProps) {
+  if (props == null || props.headings.length == 0) {
     return null;
   }
 
@@ -26,7 +26,7 @@ export function ToC({ headings }: ToCProps) {
           fontSize: 14,
         }}
       >
-        {headings.map((h) => (
+        {props.headings.map((h) => (
           <div
             style={{
               marginLeft: 24 * (h.depth - 1),

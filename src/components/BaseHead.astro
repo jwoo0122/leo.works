@@ -1,9 +1,9 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
-import { getImage } from 'astro:assets';
-import '../styles/global.css';
-import { getHeroImages } from '../lib/getHeroImages';
+import { getImage } from "astro:assets";
+import "../styles/global.css";
+import { getHeroImages } from "../lib/getHeroImages";
 
 interface Props {
   title: string;
@@ -18,16 +18,10 @@ const { title, description, image } = Astro.props;
 let heroImagePath = null;
 
 if (image != null) {
-  const _heroImagePath = getHeroImages(image)
-  heroImagePath = await getImage({ src: _heroImagePath })
+  const _heroImagePath = getHeroImages(image);
+  heroImagePath = await getImage({ src: _heroImagePath });
 }
-
 ---
-
-<!-- font -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap&text=leo.works" rel="stylesheet">
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
@@ -49,35 +43,46 @@ if (image != null) {
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-{ heroImagePath != null && (
-  <meta property="og:image" content={heroImagePath.src} />
-) }
+{
+  heroImagePath != null && (
+    <meta property="og:image" content={heroImagePath.src} />
+  )
+}
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-{ image != null && (
-  <meta property="twitter:image" content={new URL(image, Astro.url)} />
-) }
+{
+  image != null && (
+    <meta property="twitter:image" content={new URL(image, Astro.url)} />
+  )
+}
+
+<style>
+  @font-face {
+    font-family: "Pacifico";
+    src: url("/font.woff2") format("woff2");
+  }
+</style>
 
 <script is:inline>
-  const darkModePreference = window.matchMedia('(prefers-color-scheme: dark)');
+  const darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
 
-  const theme = darkModePreference.matches ? 'dark' : 'light';
+  const theme = darkModePreference.matches ? "dark" : "light";
 
   function setTheme(newTheme) {
-    if (newTheme === 'dark') {
-      document.documentElement.classList.add('dark');
+    if (newTheme === "dark") {
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.remove("dark");
     }
   }
-  
-  darkModePreference.addEventListener('change', (event) => {
-    setTheme(event.matches ? 'dark' : 'light');
+
+  darkModePreference.addEventListener("change", (event) => {
+    setTheme(event.matches ? "dark" : "light");
   });
-  
+
   setTheme(theme);
 </script>

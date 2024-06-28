@@ -34,13 +34,13 @@ const readingTime = getReadingTime(body);
       <Image
         src={heroImagePath}
         alt={""}
-        class="max-h-64 w-full object-cover object-center"
+        class="max-h-64 w-full rounded-md object-cover object-center"
         quality="mid"
       />
     )
   }
-  <h1 class="mt-6 text-3xl font-bold">{title}</h1>
-  <div class="mt-2 text-sm text-zinc-500">
+  <h1 class="mt-6 text-4xl font-bold">{title}</h1>
+  <div class="mt-2 text-sm text-slate-500">
     <time
       >{
         pubDate.toLocaleDateString("ko-KR", {
@@ -51,7 +51,7 @@ const readingTime = getReadingTime(body);
       }</time
     ><span> · {readingTime}분</span>
   </div>
-  <ToC headings={headings} />
+  <ToC headings={headings} client:idle />
   <div class="my-10"></div>
   <Prose>
     <Content />

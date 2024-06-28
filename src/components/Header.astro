@@ -1,19 +1,22 @@
 ---
 import { Icon } from "astro-icon/components";
 
-const iconStyle = "flex items-center justify-center"
+const iconStyle = "flex items-center justify-center";
 ---
 
-<header class="m-auto max-w-2xl px-3.5 py-1.5">
-  <div class="flex h-14 items-center justify-between"> 
-    <a href="/" class="font-title text-2xl text-inherit">
-      leo.works
-    </a>
+<header class="m-auto max-w-3xl px-3.5 py-1.5">
+  <div class="flex h-14 items-center justify-between">
+    <a href="/" class="font-title text-2xl text-inherit"> leo.works </a>
     <div class="flex justify-end space-x-6">
-      <a class={iconStyle} href="/rss.xml" target="_blank"><Icon name="octicon:rss-16"/></a>
-      <a class={iconStyle} href="https://github.com/jwoo0122" target="_blank"><Icon name="octicon:mark-github-16"/></a>
-      <a class={iconStyle} href="https://twitter.com/jwoo0122" target="_blank"><Icon name="x-twitter"/></a>
+      <a class={iconStyle} href="/rss.xml" target="_blank"
+        ><Icon name="octicon:rss-16" /></a
+      >
+      <a class={iconStyle} href="https://github.com/jwoo0122" target="_blank"
+        ><Icon name="octicon:mark-github-16" /></a
+      >
+      <a class={iconStyle} href="https://twitter.com/jwoo0122" target="_blank"
+        ><Icon name="x-twitter" /></a
+      >
     </div>
   </div>
 </header>
-

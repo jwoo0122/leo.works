@@ -51,7 +51,7 @@ const readingTime = getReadingTime(body);
       }</time
     ><span> · {readingTime}분</span>
   </div>
-  <ToC headings={headings} client:idle />
+  <ToC headings={headings} />
   <div class="my-10"></div>
   <Prose>
     <Content />

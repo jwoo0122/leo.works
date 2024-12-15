@@ -1,3 +1,3 @@
 # leo.works
 
-Powered by Astro
+Powered by Astro. My personal blog.

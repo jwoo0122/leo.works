@@ -19,8 +19,9 @@ export default defineConfig({
   ],
   markdown: {
     shikiConfig: {
-      theme: "kanagawa-wave",
+      theme: "aurora-x",
       wrap: true,
     },
   },
 });
+

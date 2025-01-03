@@ -4,7 +4,7 @@ import type { Post } from "./types";
 interface Props {
   keyStroke: { key: string } | null;
   onCommandFire: (command: string) => void;
-  post: Post;
+  post: Post | null;
 }
 
 export default function BottomLine({ post, keyStroke, onCommandFire }: Props) {

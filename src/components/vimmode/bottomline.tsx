@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import type { Post } from "./types";
 
 interface Props {
   keyStroke: { key: string } | null;
   onCommandFire: (command: string) => void;
-  post: any;
+  post: Post;
 }
 
 export default function BottomLine({ post, keyStroke, onCommandFire }: Props) {

@@ -21,9 +21,9 @@ export default function Posts({ posts, keyStroke, onPostSelected }: Props) {
   }, [keyStroke])
 
   return (
-    <div>
+    <div className="w-full">
       {posts.sort((p1: Post, p2: Post) => p1.data.pubDate < p2.data.pubDate ? 1 : -1).map((post: Post, index: number) => (
-        <div key={post.data.title} className={`w-lvw ${selected == index ? 'bg-white' : 'bg-black'} ${selected == index ? 'text-black' : 'text-white'}`}>
+        <div key={post.data.title} className={`${selected == index ? 'bg-neutral-700' : ''}`}>
           {post.data.title}
         </div>
       ))}

@@ -7,9 +7,10 @@ type Props = {
   title: string;
   description: string;
   heroImage?: string;
+  hideNavbar?: boolean;
 };
 
-const { title, description, heroImage } = Astro.props;
+const { title, description, heroImage, hideNavbar = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -21,7 +22,7 @@ const { title, description, heroImage } = Astro.props;
     <BaseHead title={title} description={description} image={heroImage} />
   </head>
   <body>
-    <Header />
+    { !hideNavbar && <Header /> }
     <main class="m-auto max-w-2xl px-3.5">
       <slot />
     </main>

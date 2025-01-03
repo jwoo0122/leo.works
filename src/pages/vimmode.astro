@@ -1,0 +1,18 @@
+---
+import VimMode from "../components/vimmode/index";
+import BaseHead from "../components/BaseHead.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("blog");
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title="leo.works:vim" description="Just for fun ;)" />
+  </head>
+  <body>
+    {/* @ts-expect-error FIXME: post type is not compatible */}
+    <VimMode posts={posts} client:only="react" />
+  </body>
+</html>

@@ -22,7 +22,7 @@ const { title, description, heroImage, hideNavbar = false } = Astro.props;
     <BaseHead title={title} description={description} image={heroImage} />
   </head>
   <body>
-    { !hideNavbar && <Header /> }
+    {!hideNavbar && <Header />}
     <main class="m-auto max-w-2xl px-3.5">
       <slot />
     </main>

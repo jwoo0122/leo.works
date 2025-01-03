@@ -10,5 +10,5 @@ const posts = await getCollection("blog");
   <BaseHead title="leo.works:vim" description="Just for fun ;)"/>
 </html>
 <main>
-  <VimMode posts={posts} client:load />
+  <VimMode posts={posts} client:only />
 </main>

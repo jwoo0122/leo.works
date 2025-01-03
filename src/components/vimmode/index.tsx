@@ -1,19 +1,32 @@
-import Commandline from "./commandline";
+import { useEffect, useRef, useState } from "react";
+import Posts from "./posts";
 
 interface Props {
   posts: any;
 }
 
 export default function VimMode({ posts }: Props) {
-  return (
-    <div className="font-mono relative h-lvh w-lvw bg-black text-white">
-      {posts.sort((p1, p2) => p1.data.pubDate < p2.data.pubDate).map(post => (
-        <div>
-          {post.data.title}
-        </div>
-      ))}
+  const [lastKeyStroke, setLastKeyStroke] = useState({ key: '' })
+  const vimRef = useRef<HTMLDivElement | null>(null)
 
-      <Commandline />
+  const [currentPost, setCurrentPost] = useState(null)
+
+  useEffect(() => {
+    vimRef.current?.focus()
+  }, [])
+
+  const handleSelectPost = (slug: string) => {
+    setCurrentPost(posts.find(post => post.slug == slug));
+  }
+
+  return (
+    <div ref={vimRef} tabIndex={1} className="select-none" onKeyDown={e => setLastKeyStroke({ key: e.key })} className="relative h-lvh w-lvw overflow-hidden bg-black font-mono text-white">
+      {currentPost == null ?
+        <Posts posts={posts} keyStroke={lastKeyStroke} onPostSelected={handleSelectPost} /> :
+        <div>
+          {currentPost?.body}
+        </div>
+      }
     </div>
   )
 }

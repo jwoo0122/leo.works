@@ -5,6 +5,7 @@ export default {
   theme: {
     fontFamily: {
       title: ["Pacifico", "cursive"],
+      mono: ['monospace', 'monospace']
     },
     extend: {},
   },

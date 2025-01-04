@@ -50,7 +50,7 @@ export default function VimMode({ posts }: Props) {
   }
 
   return (
-    <div ref={vimRef} tabIndex={1} onKeyDown={e => handleKeyStroke(e)} className="flex h-lvh w-lvw items-center justify-center bg-black">
+    <div ref={vimRef} tabIndex={1} onKeyDown={e => handleKeyStroke(e)} className="flex h-lvh w-lvw items-center justify-center bg-black outline-none">
       <div className="flex flex-col items-center justify-center rounded-lg bg-gradient-to-br from-stone-300 to-stone-500 p-8">
         <div className="rounded-lg bg-neutral-500 p-2">
           <div

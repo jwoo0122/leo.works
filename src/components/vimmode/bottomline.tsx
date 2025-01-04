@@ -14,7 +14,8 @@ export default function BottomLine({ post, keyStroke, onCommandFire, onCommandEx
 
   useEffect(() => {
     if (keyStroke?.key == 'Backspace') {
-      return
+      setCommand(prev => prev.split('').slice(0, -1).join(''))
+      return;
     }
 
     if (keyStroke?.key == 'Enter' || keyStroke?.key == 'Escape') {
@@ -35,11 +36,13 @@ export default function BottomLine({ post, keyStroke, onCommandFire, onCommandEx
   }, [keyStroke, onCommandFire])
 
   useEffect(() => {
-    const handler = setTimeout(() => {
-      setErrorMessage('')
-    }, 2000)
+    if (errorMessage != '') {
+      const handler = setTimeout(() => {
+        setErrorMessage('')
+      }, 2000)
 
-    return () => clearTimeout(handler);
+      return () => clearTimeout(handler);
+    }
   }, [errorMessage])
 
   return (

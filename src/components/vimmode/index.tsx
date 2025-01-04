@@ -1,15 +1,16 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import Posts from "./posts";
 import BottomLine from "./bottomline";
-import type { Post } from "./types";
+import type { KeyStroke, Post } from "./types";
+import PostView from "./postview";
 
 interface Props {
   posts: Post[];
 }
 
 export default function VimMode({ posts }: Props) {
-  const [lastKeyStroke, setLastKeyStroke] = useState<{ key: string } | null>(null)
-  const [lastCommandKeyStroke, setLastCommandKeyStroke] = useState<{ key: string } | null>(null)
+  const [lastKeyStroke, setLastKeyStroke] = useState<KeyStroke | null>(null)
+  const [lastCommandKeyStroke, setLastCommandKeyStroke] = useState<KeyStroke | null>(null)
 
   const vimRef = useRef<HTMLDivElement | null>(null)
 
@@ -23,11 +24,11 @@ export default function VimMode({ posts }: Props) {
     setCurrentPost(posts.find((post: Post) => post.slug == slug) ?? null);
   }
 
-  const handleKeyStroke = (key: string) => {
-    if (lastCommandKeyStroke != null || key == ":") {
-      setLastCommandKeyStroke({ key })
+  const handleKeyStroke = (event: KeyboardEvent) => {
+    if (lastCommandKeyStroke != null || event.key == ":") {
+      setLastCommandKeyStroke({ key: event.key, ctrlKey: event.ctrlKey })
     } else {
-      setLastKeyStroke({ key })
+      setLastKeyStroke({ key: event.key, ctrlKey: event.ctrlKey })
     }
   }
 
@@ -47,15 +48,13 @@ export default function VimMode({ posts }: Props) {
   }
 
   return (
-    <div ref={vimRef} tabIndex={1} onKeyDown={e => handleKeyStroke(e.key)} className="flex h-lvh w-lvw items-center justify-center bg-black">
+    <div ref={vimRef} tabIndex={1} onKeyDown={e => handleKeyStroke(e)} className="flex h-lvh w-lvw items-center justify-center bg-black">
       <div className="flex flex-col items-center justify-center rounded-lg bg-stone-400 p-8">
         <div className="rounded-lg bg-neutral-500 p-2">
-          <div className="relative h-[420px] w-[640px] select-none overflow-hidden rounded-lg bg-neutral-900 p-2 font-mono text-white">
+          <div className="relative h-[412px] w-[640px] select-none overflow-hidden rounded-lg bg-neutral-900 p-2 font-mono text-white">
             {currentPost == null ?
               <Posts posts={posts} keyStroke={lastKeyStroke} onPostSelected={handleSelectPost} /> :
-              <div>
-                {currentPost?.body}
-              </div>
+              <PostView post={currentPost} keyStroke={lastKeyStroke} />
             }
 
             <BottomLine post={currentPost} keyStroke={lastCommandKeyStroke} onCommandFire={handleFireCommand} onCommandExit={() => setLastCommandKeyStroke(null)} />

@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import type { Post } from "./types";
+import type { KeyStroke, Post } from "./types";
 
 interface Props {
   posts: Post[];
-  keyStroke: { key: string } | null;
+  keyStroke: KeyStroke | null;
   onPostSelected: (slug: string) => void;
 }
 

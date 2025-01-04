@@ -6,3 +6,8 @@ export type Post = {
   };
   body: string;
 }
+
+export type KeyStroke = {
+  key: string;
+  ctrlKey: boolean;
+}

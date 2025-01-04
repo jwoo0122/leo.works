@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import type { Post } from "./types";
+import type { KeyStroke, Post } from "./types";
 
 interface Props {
-  keyStroke: { key: string } | null;
+  keyStroke: KeyStroke | null;
   post: Post | null;
   onCommandFire: (command: string) => number;
   onCommandExit: () => void;

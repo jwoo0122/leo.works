@@ -25,7 +25,7 @@ export default function PostView({ post, keyStroke }: Props) {
   const postString = post.body;
 
   return (
-    <div className="h-full overflow-hidden whitespace-pre-line pb-36" ref={postViewRef}>
+    <div className="h-[340px] overflow-hidden whitespace-pre-line pb-36" ref={postViewRef}>
       {postString}
     </div>
   )

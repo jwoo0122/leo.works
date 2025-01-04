@@ -43,7 +43,7 @@ export default function BottomLine({ post, keyStroke, onCommandFire, onCommandEx
   }, [errorMessage])
 
   return (
-    <div className="absolute bottom-0 -ml-2 w-full bg-neutral-900 pt-2">
+    <div className="absolute bottom-0 -ml-2 w-full  pt-2">
       <div className="flex justify-between pr-2">
         <div className="flex">
           <div className={`mr-2 h-full px-2 text-neutral-900 ${command.length > 0 ? 'bg-green-400' : 'bg-blue-400'}`}>

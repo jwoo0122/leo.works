@@ -37,9 +37,11 @@ export default function VimMode({ posts }: Props) {
 
     switch (command) {
       case ':e .':
+      case ':edit .':
         setCurrentPost(null);
         return 0;
       case ':q':
+      case ':quit':
         location.href = '/'
         return 0;
       default:
@@ -51,7 +53,14 @@ export default function VimMode({ posts }: Props) {
     <div ref={vimRef} tabIndex={1} onKeyDown={e => handleKeyStroke(e)} className="flex h-lvh w-lvw items-center justify-center bg-black">
       <div className="flex flex-col items-center justify-center rounded-lg bg-stone-400 p-8">
         <div className="rounded-lg bg-neutral-500 p-2">
-          <div className="relative h-[412px] w-[640px] select-none overflow-hidden rounded-lg bg-neutral-900 p-2 font-mono text-white">
+          <div
+            style={{
+              background: "linear-gradient(to top, #000, #111, #222, #111, #000)",
+              backgroundSize: '100% 4px',
+              backgroundRepeat: 'repeat-y',
+            }}
+            className="relative h-[412px] w-[640px] select-none overflow-hidden rounded-lg bg-neutral-900 p-2 font-mono text-white"
+          >
             {currentPost == null ?
               <Posts posts={posts} keyStroke={lastKeyStroke} onPostSelected={handleSelectPost} /> :
               <PostView post={currentPost} keyStroke={lastKeyStroke} />

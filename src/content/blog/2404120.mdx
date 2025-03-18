@@ -101,7 +101,7 @@ console.log(hello); // world!
 
 Registry만 있으면 패키지를 내려받고, 신규버전을 업데이트하고, 필요없는 건 지우는 작업을 일일이 직접 해야 합니다. 이러한 작업을 손쉽게 도와주는 친구가 바로 Package Manager입니다. 대표적으로 npm, yarn, pnpm 등이 있는데요.
 
-```shell
+```bash
 # npm
 npm install otherPackage
 npm uninstall unusedPackage
@@ -115,7 +115,7 @@ package manager는 설치, 삭제 등의 명령어를 제공합니다. 이런 �
 
 예를 들어,
 
-```shell
+```bash
 # pwd: ~/my-node-program
 npm install react@1.0.0
 ```
@@ -353,7 +353,7 @@ console.log(value);
 
 이렇게 bundler 에 전달하면
 
-```shell
+```bash
 # esbuild bundler 에 대한 자세한 내용은 https://esbuild.github.io 를 참고하세요.
 esbuild index.js --bundle --outfile=out.js
 ```
@@ -507,13 +507,13 @@ nodeLinker: "pnp"
 
 설정을 완료하면 `yarn install`을 진행했을 때 전에는 보지 못했던 새로운 파일이 2개 생깁니다. `.pnp.cjs`와 `.pnp.loader.mjs`인데요. 이 두 파일은 각각 `--requier`와 `--loader` 옵션에 전달하여 preload 스크립트로 활용할 수 있습니다.
 
-```shell
+```bash
 node --require ./.pnp.cjs --experimental-loader ./.pnp.loader.mjs index.js
 ```
 
 혹은, `yarn`을 사용하면 옵션을 부여하지 않아도 [자동으로 두 스크립트를 찾아서 처리](https://github.com/yarnpkg/berry/blob/c64644ae88ba42090ab9b87da0b09601d4218b0c/packages/yarnpkg-core/sources/Project.ts#L713-L727)해줍니다.
 
-```shell
+```bash
 yarn node index.js
 ```
 

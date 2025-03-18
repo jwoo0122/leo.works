@@ -5,7 +5,6 @@ import { getHeroImages } from "../lib/getHeroImages";
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import Utterance from "../components/Utterance.astro";
-import { ToC } from "../components/ToC";
 import { getReadingTime } from "../lib/readingTime";
 import Prose from "../components/forMdx/Prose.astro";
 
@@ -24,7 +23,7 @@ const {
   body,
 } = post;
 const heroImagePath = getHeroImages(heroImage || "");
-const { Content, headings } = await post.render();
+const { Content } = await post.render();
 const readingTime = getReadingTime(body);
 ---
 
@@ -51,8 +50,7 @@ const readingTime = getReadingTime(body);
       }</time
     ><span> · {readingTime}분</span>
   </div>
-  <ToC headings={headings} />
-  <div class="my-10"></div>
+  <div class="my-4" />
   <Prose>
     <Content />
   </Prose>

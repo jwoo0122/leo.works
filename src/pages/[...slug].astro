@@ -8,7 +8,6 @@ import Utterance from "../components/Utterance.astro";
 import { getReadingTime } from "../lib/readingTime";
 import Prose from "../components/forMdx/Prose.astro";
 import Header from "../components/Header.astro";
-import { slide } from "astro:transitions";
 
 export async function getStaticPaths() {
 	const posts = await getCollection("blog");

@@ -1,10 +1,10 @@
 ---
 interface Props {
-  title: string;
-  date: string;
-  slug: string;
-  description: string;
-  readingTime: number;
+	title: string;
+	date: string;
+	slug: string;
+	description: string;
+	readingTime: number;
 }
 
 const { title, date, slug, readingTime, description } = Astro.props;
@@ -12,7 +12,7 @@ const { title, date, slug, readingTime, description } = Astro.props;
 
 <a href={`/${slug}`}>
   <li class="my-14">
-    <h2 class="mb-1 text-2xl font-bold">{title}</h2>
+    <h2 class="mb-1 text-2xl font-bold" transition:name={`post-title-${slug}`}>{title}</h2>
     <div class="mb-2.5 text-sm text-neutral-500">
       <span>{date}</span><span> · {readingTime}분</span>
     </div>

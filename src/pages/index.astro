@@ -7,7 +7,7 @@ import PostPreview from "../components/PostPreview.astro";
 import { getReadingTime } from "../lib/readingTime";
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 
 const iconStyle = "text-2xl flex items-center justify-center";
@@ -15,7 +15,9 @@ const iconStyle = "text-2xl flex items-center justify-center";
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION} hideNavbar={true}>
   <div class="m-24 text-center font-title text-5xl">
-    leo.works
+    <span transition:name="blog-title">
+      leo.works
+    </span>
 
     <div class="mt-10 flex justify-center space-x-6">
       <a class={iconStyle} href="/rss.xml" target="_blank"

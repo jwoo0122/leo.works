@@ -7,20 +7,24 @@ import { Image } from "astro:assets";
 import Utterance from "../components/Utterance.astro";
 import { getReadingTime } from "../lib/readingTime";
 import Prose from "../components/forMdx/Prose.astro";
+import Header from "../components/Header.astro";
+import { slide } from "astro:transitions";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: post,
-  }));
+	const posts = await getCollection("blog");
+	return posts.map((post) => ({
+		params: { slug: post.slug },
+		props: post,
+	}));
 }
+
 type Props = CollectionEntry<"blog">;
 
 const post = Astro.props;
 const {
-  data: { title, description, heroImage, pubDate },
-  body,
+	data: { title, description, heroImage, pubDate },
+	body,
+	slug,
 } = post;
 const heroImagePath = getHeroImages(heroImage || "");
 const { Content } = await post.render();
@@ -28,9 +32,11 @@ const readingTime = getReadingTime(body);
 ---
 
 <Layout title={title} description={description} heroImage={heroImage}>
+  <Header />
   {
     heroImagePath != null && (
       <Image
+        transition:animate="slide"
         src={heroImagePath}
         alt={""}
         class="max-h-64 w-full object-cover object-center"
@@ -38,7 +44,7 @@ const readingTime = getReadingTime(body);
       />
     )
   }
-  <h1 class="mt-6 text-4xl font-bold">{title}</h1>
+  <h1 class="mt-6 text-4xl font-bold" transition:name={`post-title-${slug}`}>{title}</h1>
   <div class="mt-2 text-sm text-neutral-500">
     <time
       >{

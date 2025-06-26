@@ -6,10 +6,5 @@ export function getHeroImages(heroImage: string) {
     "/src/images/heroes/*.{jpeg,jpg,png,gif}",
   );
 
-  //if (!images[heroImagePath])
-  //  throw new Error(
-  //    `"${heroImagePath}" does not exist in glob: "src/assets/heroes/*.{jpeg,jpg,png,gif}"`,
-  //  );
-
   return images[heroImagePath]?.();
 }

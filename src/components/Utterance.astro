@@ -3,18 +3,18 @@
 <script>
   const script = document.createElement("script");
   const container = document.querySelector("#utterances-container"); // your id in your html above
-  
+
   // Replace the value of each key with yours
   Object.entries({
     src: "https://utteranc.es/client.js",
     repo: "jwoo0122/leo.works",
     "issue-term": "pathname",
     label: "comment", // omit this line, if you don't need label
-    theme: 'preferred-color-scheme',
+    theme: "preferred-color-scheme",
     crossorigin: "anonymous",
   }).forEach(([key, value]) => {
     script.setAttribute(key, value);
   });
-  
+
   container?.appendChild(script);
 </script>

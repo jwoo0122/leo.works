@@ -10,20 +10,20 @@ import Prose from "../components/forMdx/Prose.astro";
 import Header from "../components/Header.astro";
 
 export async function getStaticPaths() {
-	const posts = await getCollection("blog");
-	return posts.map((post) => ({
-		params: { slug: post.slug },
-		props: post,
-	}));
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
 }
 
 type Props = CollectionEntry<"blog">;
 
 const post = Astro.props;
 const {
-	data: { title, description, heroImage, pubDate },
-	body,
-	slug,
+  data: { title, description, heroImage, pubDate },
+  body,
+  slug,
 } = post;
 const heroImagePath = getHeroImages(heroImage || "");
 const { Content } = await post.render();
@@ -42,7 +42,9 @@ const readingTime = getReadingTime(body);
       />
     )
   }
-  <h1 class="mt-6 text-4xl font-bold" transition:name={`post-title-${slug}`}>{title}</h1>
+  <h1 class="mt-10 text-4xl font-bold" transition:name={`post-title-${slug}`}>
+    {title}
+  </h1>
   <div class="mt-2 text-sm text-neutral-500">
     <time
       >{
@@ -54,7 +56,7 @@ const readingTime = getReadingTime(body);
       }</time
     ><span> · {readingTime}분</span>
   </div>
-  <div class="my-4" />
+  <div class="my-6"></div>
   <Prose>
     <Content />
   </Prose>
